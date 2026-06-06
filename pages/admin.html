@@ -1956,7 +1956,7 @@
 
             let citasHtml = '';
             if (citasSorted.length === 0) {
-              citasHtml = `<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:.85rem;font-style:italic">Sin citas hoy</div>`;
+              citasHtml = `<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:.85rem;font-style:italic">No appointments today</div>`;
             } else {
               citasSorted.forEach(cita => {
                 const st = cita.estado;
@@ -2322,6 +2322,21 @@ This will also delete all their appointment history and cannot be undone.`)) {
       // ─── HORARIOS ───
       const diasNombres = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+      
+      function formatTime24h(timeStr) {
+        if (!timeStr) return '09:00';
+        if (timeStr.match(/^\d{2}:\d{2}(:\d{2})?$/)) return timeStr.substring(0, 5);
+        const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(a\.?\s*m\.?|p\.?\s*m\.?|am|pm)/i);
+        if (match) {
+            let h = parseInt(match[1], 10);
+            let m = match[2];
+            let ampm = match[3].toLowerCase().replace(/\s|\./g, '');
+            if (ampm === 'pm' && h < 12) h += 12;
+            if (ampm === 'am' && h === 12) h = 0;
+            return h.toString().padStart(2, '0') + ':' + m;
+        }
+        return timeStr;
+      }
       function renderScheduleEditor(containerId, scheduleData, prefix) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -2340,9 +2355,9 @@ This will also delete all their appointment history and cannot be undone.`)) {
                 </label>
               </div>
               <div class="schedule-actions" id="${prefix}_times_${i}" style="flex:1; display:flex; align-items:center; gap:8px; opacity: ${checked ? '1' : '0.5'}; pointer-events: ${checked ? 'auto' : 'none'}">
-                <input type="time" id="${prefix}_in_${i}" value="${row.hora_inicio}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
+                <input type="time" id="${prefix}_in_${i}" value="${formatTime24h(row.hora_inicio)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <span style="color:var(--muted)">a</span>
-                <input type="time" id="${prefix}_out_${i}" value="${row.hora_fin}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
+                <input type="time" id="${prefix}_out_${i}" value="${formatTime24h(row.hora_fin)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copy this schedule to other active days">Copy to all</button>
               </div>
             </div>
