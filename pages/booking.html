@@ -258,7 +258,7 @@
 <div class="pill">⏱️ <strong id="pill-dur">0 min</strong></div>
 <div class="pill">💰 <strong id="pill-price">$0 MXN</strong></div>
 </div>
-<button aria-disabled="true" aria-label="Continuar al paso 2" class="cta-btn" disabled="" id="btn-continuar" onclick="goToStep2()">
+<button aria-disabled="true" aria-label="Continue to step 2" class="cta-btn" disabled="" id="btn-continuar" onclick="goToStep2()">
 <svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="18"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
 <span id="cta-label">Choose at least one service</span>
 </button>
@@ -356,7 +356,7 @@
     btn.disabled = !ok;
     btn.setAttribute('aria-disabled', String(!ok));
     label.textContent = ok
-      ? `Continuar — $${state.totalPrecio.toLocaleString('es-MX')} MXN · ${state.totalDur} min`
+      ? `Continue — $${state.totalPrecio.toLocaleString('es-MX')} MXN · ${state.totalDur} min`
       : 'Choose at least one service';
   }
 

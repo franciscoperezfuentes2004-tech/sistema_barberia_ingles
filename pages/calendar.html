@@ -420,7 +420,7 @@
     async function loadCalendarMonth(m, a) {
       const grid = document.getElementById('cal-days-grid');
       const title = document.getElementById('cal-month-year');
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const meses = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       
       title.textContent = `${meses[m-1]} ${a}`;
       grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Loading...</div>';
@@ -465,9 +465,9 @@
 
       const parts = isodate.split('-');
       const d = new Date(isodate + 'T12:00:00Z');
-      const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
-      const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-      const text = `${dias[d.getUTCDay()]} ${parts[2]} de ${meses[parseInt(parts[1])-1]}`;
+      const dias = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const text = `${dias[d.getUTCDay()]} ${meses[parseInt(parts[1])-1]}`;
       
       const display = document.getElementById('selected-date-display');
       display.innerHTML = `<span>📅</span> ${text}`;
@@ -486,7 +486,7 @@
       const durBadge = document.getElementById('dur-badge');
       if (durBadge) {
         const slotsNecesarios = calcSlots(state.duracion);
-        durBadge.innerHTML = `⏱️ ${state.duracion} min <span style="opacity:0.7; font-weight:400; font-size:0.7rem; margin-left:4px;">(${slotsNecesarios} bloque${slotsNecesarios > 1 ? 's' : ''})</span>`;
+        durBadge.innerHTML = `⏱️ ${state.duracion} min <span style="opacity:0.7; font-weight:400; font-size:0.7rem; margin-left:4px;">(${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''})</span>`;
         durBadge.style.display = 'inline-flex';
       }
     }
@@ -528,7 +528,7 @@
         card.id = `bar-${b.id}`;
         
         const badge = hasSlots 
-          ? `<span class="barber-badge ok">${b.slots_disponibles} espacios</span>`
+          ? `<span class="barber-badge ok">${b.slots_disponibles} slots</span>`
           : `<span class="barber-badge sold-out">Agotado</span>`;
         
         // Manejar URLs absolutas y relativas de fotos
@@ -651,7 +651,7 @@
       const durBadge = document.getElementById('dur-badge');
       if (durBadge) {
         const slotsNecesarios = calcSlots(state.duracion);
-        durBadge.textContent = `Requiere ${state.duracion} min (${slotsNecesarios} bloque${slotsNecesarios > 1 ? 's' : ''} de 30 min)`;
+        durBadge.textContent = `Requiere ${state.duracion} min (${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''} of 30 min)`;
       }
     }
 
@@ -662,7 +662,7 @@
         btn.textContent = `Confirmar para las ${state.horaInicio} →`;
       } else {
         btn.disabled = true;
-        btn.textContent = 'Completa tu selección';
+        btn.textContent = 'Complete your selection';
       }
     }
 
