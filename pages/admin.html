@@ -818,7 +818,7 @@
 
 <section class="section" id="horarios">
 <div class="cms-grid">
- Global Hours 
+
 <div class="card">
 <div class="card-title">
               Shop Hours (Global)
@@ -838,10 +838,10 @@
 <button class="btn btn-primary" onclick="saveGlobalSchedule()" style="width:100%">Save Shop Hours</button>
 </div>
 </div>
- Hours per Barber 
+
 <div class="card">
 <div class="card-title">
-              Custom Barber Hours
+
             </div>
 <p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
               Customize hours, breaks, or shortened shifts for a specific barber.
@@ -1729,7 +1729,7 @@
         document.getElementById('stat-picker-year').textContent = pickerYear;
         const grid = document.getElementById('stat-months-grid');
         grid.innerHTML = '';
-        const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         
         const realMonth = new Date().getMonth() + 1;
         const realYear = new Date().getFullYear();
@@ -1765,7 +1765,7 @@
       }
 
       function updateMonthLabel() {
-        const mesesF = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        const mesesF = ['January','February','March','April','May','June','July','August','September','October','November','December'];
         document.getElementById('month-picker-label').textContent = `${mesesF[statSelectedMonth-1]} ${statSelectedYear}`;
       }
 
@@ -2047,8 +2047,8 @@
                 </td>
                 <td><span class="status-badge ${statusClass}">${statusText}</span></td>
                 <td>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;margin-right:4px;" onclick="openModal('${b.id}')">Editar</button>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;color:var(--red);border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);" onclick="deleteBarber('${b.id}', '${b.nombre.replace(/'/g, "\\'")}')">Borrar</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;margin-right:4px;" onclick="openModal('${b.id}')">Edit</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;color:var(--red);border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);" onclick="deleteBarber('${b.id}', '${b.nombre.replace(/'/g, "\\'")}')">Delete</button>
                 </td>
               </tr>
             `;
@@ -2066,7 +2066,7 @@
         form.reset();
 
         if (id) {
-          title.textContent = 'Editar Barbero';
+          title.textContent = 'Edit Barber';
           const b = barberosList.find(x => x.id == id);
           document.getElementById('b-id').value = b.id;
           document.getElementById('b-nombre').value = b.nombre;
@@ -2202,8 +2202,8 @@
                 <td>$${parseFloat(s.precio).toFixed(2)}</td>
                 <td>${s.duracion_min} min</td>
                 <td>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem" onclick="editService('${s.id}')">Editar</button>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;color:var(--red);border-color:var(--red)" onclick="deleteService('${s.id}', '${s.nombre}')">Borrar</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem" onclick="editService('${s.id}')">Edit</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;color:var(--red);border-color:var(--red)" onclick="deleteService('${s.id}', '${s.nombre}')">Delete</button>
                 </td>
               </tr>
             `;
@@ -2238,7 +2238,7 @@
         document.getElementById('s-duracion').value = s.duracion_min;
         document.getElementById('s-imagen').value = ''; // Reset file
         delete window.b64Files['s-imagen'];
-        document.getElementById('s-modal-title').textContent = 'Editar Servicio';
+        document.getElementById('s-modal-title').textContent = 'Edit Service';
         document.getElementById('service-modal').classList.add('show');
       };
 
@@ -2318,7 +2318,7 @@
       };
 
       // ─── HORARIOS ───
-      const diasNombres = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const diasNombres = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
       function renderScheduleEditor(containerId, scheduleData, prefix) {
         const container = document.getElementById(containerId);
@@ -2341,7 +2341,7 @@
                 <input type="time" id="${prefix}_in_${i}" value="${row.hora_inicio}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <span style="color:var(--muted)">a</span>
                 <input type="time" id="${prefix}_out_${i}" value="${row.hora_fin}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
-                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copiar este horario a los demás días activos">Copiar a todos</button>
+                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copiar este horario a los demás días activos">Copy to all</button>
               </div>
             </div>
           `;
@@ -2518,11 +2518,11 @@
       
       const titles = {
         agenda: 'Appointments Control',
-        estadisticas: 'Historial y Analíticas',
+        estadisticas: 'History and Analytics',
         equipo: 'Staff Management',
         servicios: 'Service Catalog',
-        horarios: 'Configuración de Horarios',
-        cms: 'Personalización Web',
+        horarios: 'Hours Configuration',
+        cms: 'Web Customization',
         resenas: 'Reviews Control',
         perfil: 'My Profile'
       };
