@@ -391,7 +391,7 @@
       duracion: step1.totalDur || 30
     };
 
-    document.getElementById('dur-badge').textContent = `Requiere ${state.duracion} min`;
+    document.getElementById('dur-badge').textContent = `Requires ${state.duracion} min`;
 
     let currentCalMonth = new Date().getMonth() + 1;
     let currentCalYear = new Date().getFullYear();
@@ -634,7 +634,7 @@
             
             if (s.retraso_minutos > 0) {
               delayMsg.style.display = 'block';
-              delayMsg.innerHTML = `⚠️ <b>Aviso:</b> El barbero podría terminar la cita anterior con un retraso de <b>aproximadamente ${Math.ceil(s.retraso_minutos)} minutos</b>. Tendría que esperar ese tiempo.`;
+              delayMsg.innerHTML = `⚠️ <b>Notice:</b> The barber might finish the previous appointment with a delay of <b>approximately ${Math.ceil(s.retraso_minutos)} minutes</b>. You would have to wait that time.`;
             } else {
               delayMsg.style.display = 'none';
             }
@@ -651,7 +651,7 @@
       const durBadge = document.getElementById('dur-badge');
       if (durBadge) {
         const slotsNecesarios = calcSlots(state.duracion);
-        durBadge.textContent = `Requiere ${state.duracion} min (${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''} of 30 min)`;
+        durBadge.textContent = `Requires ${state.duracion} min (${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''} of 30 min)`;
       }
     }
 
