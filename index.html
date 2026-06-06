@@ -1286,7 +1286,7 @@
               const colors = ['#9A7B32', '#1a5c3a', '#5c1a2e', '#1c3d5a', '#5a3d1c'];
               const color = colors[idx % colors.length];
               const dateObj = new Date(rev.creado_en);
-              const date = isNaN(dateObj) ? '' : dateObj.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+              const date = isNaN(dateObj) ? '' : dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
               
               const htmlContent = `
                 <div class="t-stars" aria-label="${calificacion} de 5 estrellas" style="color:var(--gold);margin-bottom:10px">${stars}</div>

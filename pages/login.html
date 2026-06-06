@@ -650,7 +650,7 @@
           if (json.status === 'success' || json.success === true) {
             // Mostrar mensaje de éxito visualmente en el botón
             btnSubmit.classList.remove('loading');
-            btnSubmit.innerHTML = `<span class="btn-text">${json.message || 'Welcome!'}</span>`;
+            btnSubmit.innerHTML = `<span class="btn-text">Welcome!</span>`;
             btnSubmit.style.background = 'var(--green)';
 
             // Guardar sesión

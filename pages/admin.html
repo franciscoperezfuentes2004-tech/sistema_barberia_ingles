@@ -571,7 +571,7 @@
   </style>
 </head>
 <body>
- SIDEBAR 
+
 <aside class="sidebar">
 <div class="brand">
 <img alt="Logo" id="admin-custom-logo" src="" style="display:none; height:48px; width:48px; object-fit:cover; border-radius:12px;"/>
@@ -622,7 +622,7 @@
       </button>
 </div>
 </aside>
- MAIN 
+
 <main class="main">
 <header class="topbar">
 <div style="display:flex;align-items:center;gap:12px">
@@ -636,7 +636,7 @@
 </div>
 </header>
 <div class="content-area">
- 1. SCHEDULE 
+
 <section class="section active" id="agenda">
 <div style="overflow-x:auto;padding-bottom:12px">
 <div class="agenda-grid" id="agenda-grid">
@@ -646,7 +646,7 @@
 </div>
 </div>
 </section>
- 1.5 STATISTICS 
+
 <section class="section" id="estadisticas">
 <div style="display:flex; gap:16px; margin-bottom:24px; align-items:flex-end; flex-wrap:wrap;">
 <div class="form-group" style="margin-bottom:0;">
@@ -708,7 +708,7 @@
 </div>
 </div>
 </section>
- 2. TEAM 
+
 <section class="section" id="equipo">
 <div class="card">
 <div class="card-title" style="justify-content:space-between">
@@ -732,7 +732,7 @@
 </div>
 </div>
 </section>
- 2.5 SERVICES 
+
 <section class="section" id="servicios">
 <div class="card">
 <div class="card-title" style="justify-content:space-between">
@@ -797,7 +797,7 @@
 </div>
 </div>
 </section>
- 2.7 MY PROFILE 
+
 <section class="section" id="perfil">
 <div class="card" style="max-width:500px;">
 <div class="card-title">My Credentials</div>
@@ -815,7 +815,7 @@
 <button class="btn btn-primary" onclick="updateAdminCredentials()" style="margin-top:24px;width:100%">Save Credentials</button>
 </div>
 </section>
- 2.7 HOURS 
+
 <section class="section" id="horarios">
 <div class="cms-grid">
  Global Hours 
@@ -858,7 +858,7 @@
 </div>
 </div>
 </section>
- 3. CMS 
+
 <section class="section" id="cms">
 <script>
           function actualizarLadaAdmin() {
@@ -1007,7 +1007,7 @@
 </section>
 </div>
 </main>
- GALLERY MODAL 
+
 <div class="modal-overlay" id="gallery-modal">
 <div class="modal" style="max-width:600px; width:95%;">
 <div class="modal-header">
@@ -1020,7 +1020,7 @@
  </div>
 </div>
 </div>
- BARBER MODAL 
+
 <div class="modal-overlay" id="barber-modal">
 <div class="modal">
 <div class="modal-header">
@@ -1072,7 +1072,7 @@
 </form>
 </div>
 </div>
- SERVICE MODAL 
+
 <div class="modal-overlay" id="service-modal">
 <div class="modal">
 <div class="modal-header">
@@ -1117,7 +1117,7 @@
 </div>
 </div>
 <div class="toast" id="toast">✅ Changes saved successfully</div>
- CROPPER MODAL 
+
 <div id="cropperModal">
 <div style="width:100%; max-width:600px; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
 <h3 style="color:var(--gold); margin:0;">Adjust Image</h3>
@@ -1309,7 +1309,7 @@
 
         // Set date
         const d = new Date();
-        document.getElementById('current-date').textContent = d.toLocaleDateString('es-ES', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+        document.getElementById('current-date').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
         
         loadAgenda();
         setInterval(loadAgenda, 30000); // Refresco cada 30 seg
@@ -1350,7 +1350,7 @@
         document.getElementById('resenas-count').textContent = `${filtered.length} reseñas encontradas`;
 
         if(filtered.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No hay reseñas registradas.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No reviews registered.</td></tr>`;
           return;
         }
 
@@ -1389,7 +1389,7 @@
       };
 
       window.deleteAllResenas = async () => {
-        if(adminResenas.length === 0) return alert('No hay reseñas para eliminar.');
+        if(adminResenas.length === 0) return alert('No reviews to delete.');
         if(!confirm(`¿Seguro que deseas eliminar TODAS las reseñas de forma permanente?`)) return;
         const allIds = adminResenas.map(r => r.id).join(',');
         try {
@@ -1864,7 +1864,7 @@
         const tbody = document.getElementById('stat-table-body');
         tbody.innerHTML = '';
         if (filteredTabla.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--muted)">No hay citas en este periodo</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--muted)">No appointments in this period</td></tr>';
         } else {
           filteredTabla.forEach(c => {
             const d = new Date(c.fecha_hora.replace(/-/g, '/')); // Fix Safari parse if needed, though split used above works
@@ -1899,7 +1899,7 @@
           const barberos = jsonB.data || [];
           
           if(barberos.length === 0) {
-            grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">No hay barberos registrados.</div>';
+            grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">No barbers registered.</div>';
             return;
           }
 
@@ -2183,7 +2183,7 @@
           serviciosList = json.data || [];
           
           if(serviciosList.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No hay servicios registrados.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No services registered.</td></tr>';
             return;
           }
 
@@ -2676,7 +2676,7 @@
         }
       };
     </script>
- Modal Custom Range Picker for Statistics 
+
 <div class="modal-overlay" id="stat-picker-modal" style="z-index:9999; display:none;">
 <div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:350px; padding:28px; position:relative;">
 <button onclick="closeMonthPicker()" onmouseout="this.style.background='var(--s2)'; this.style.color='var(--bright)'" onmouseover="this.style.background='var(--gold)'; this.style.color='#111'" style="position:absolute; top:-16px; right:-16px; background:var(--s2); border:2px solid var(--border); color:var(--bright); width:36px; height:36px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--tr); box-shadow:0 4px 12px rgba(0,0,0,0.5); z-index:10;">×</button>

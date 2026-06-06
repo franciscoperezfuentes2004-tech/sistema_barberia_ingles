@@ -200,7 +200,7 @@
 </form>
 </div>
 </main>
- Success Modal 
+
 <div id="success-modal">
 <div class="modal-content">
 <div class="check-circle">✓</div>
@@ -231,7 +231,7 @@
     // Ajustar zona horaria si es necesario para evitar off-by-one por UTC
     d.setMinutes(d.getMinutes() + d.getTimezoneOffset()); 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const fechaStr = d.toLocaleDateString('es-ES', options);
+    const fechaStr = d.toLocaleDateString('en-US', options);
     
     document.getElementById('sum-datetime').innerHTML = `<span style="text-transform:capitalize">${fechaStr}</span><br><span style="color:var(--gold)">${step2.horaInicio}</span>`;
     document.getElementById('sum-total').textContent = `$${step1.totalPrecio.toLocaleString('es-MX')} MXN`;
