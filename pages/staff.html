@@ -75,8 +75,6 @@
     .pill-gold{border-color:var(--gold-border);color:var(--gold);background:var(--gold-bg)}
     .pill-green{border-color:var(--green-border);color:var(--green);background:var(--green-bg)}
     .pill-blue{border-color:var(--blue-border);color:var(--blue);background:var(--blue-bg)}
-
-    /* ——————————— DATE SELECTOR ——————————— */
     .cal-day {
       width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
       border-radius: 12px; font-size: 0.95rem; margin: 0 auto; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,9 +122,6 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-    }
-
-    /* ——————————— TIMELINE ——————————— */
     .timeline-section{padding:12px var(--gutter) 100px; max-width:900px; margin:0 auto;}
     .tl-label{
       font-size:.68rem;color:var(--muted);text-transform:uppercase;
@@ -265,8 +260,6 @@
       animation:spin .7s linear infinite;
     }
     @keyframes spin{to{transform:rotate(360deg)}}
-
-    /* ——————————— TOAST ——————————— */
     .toast{
       position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);
       background:var(--s2);border:1px solid var(--border);color:var(--bright);
@@ -280,7 +273,6 @@
   </style>
 </head>
 <body>
- ————————— HEADER ————————— 
 <header class="staff-header">
 <div class="hdr-row">
 <div>
@@ -301,7 +293,6 @@
 <span class="pill pill-green" id="pill-next">⏳ Loading...</span>
 </div>
 </header>
- ————————— DATE SELECTOR ————————— 
 <div class="date-selector-wrap" style="padding: 12px var(--gutter); max-width: 900px; margin: 0 auto;">
 <button onclick="openCalendarModal()" style="width: 100%; background: var(--s2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--bright); font-family: inherit; font-size: 1rem; transition: var(--tr);">
 <span style="font-weight: 600;">Select Date</span>
@@ -311,14 +302,12 @@
 </div>
 </button>
 </div>
- ————————— TIMELINE ————————— 
 <section class="timeline-section">
 <div class="tl-label" id="tl-label">Schedule of the day</div>
 <div id="timeline-container">
 <div class="loading-spinner"><div class="spinner"></div></div>
 </div>
 </section>
- ————————— TOAST ————————— 
 <div class="toast" id="toast">
 <span class="toast-icon"></span>
 <span class="toast-msg"></span>
@@ -512,8 +501,8 @@
       const h = new Date().getHours();
       const el = document.getElementById('hdr-greeting');
       if (h < 12) el.textContent = 'Good morning';
-      else if (h < 19) el.textContent = 'Buenas tardes';
-      else el.textContent = 'Buenas noches';
+      else if (h < 19) el.textContent = 'Good afternoon';
+      else el.textContent = 'Good evening';
     }
 
     /* ——— Date Selector ——— */
@@ -534,8 +523,8 @@
     
     function updateDateLabel(iso) {
       const d = new Date(iso + 'T12:00:00Z');
-      const dias = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-      const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+      const dias = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
       document.getElementById('selected-date-lbl').textContent = `${dias[d.getDay()]} ${d.getDate()} ${meses[d.getMonth()]}`;
     }
 
@@ -568,7 +557,7 @@
     async function loadCalendarMonth(m, a) {
       const grid = document.getElementById('cal-days-grid');
       const title = document.getElementById('cal-month-year');
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const meses = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       
       title.textContent = `${meses[m-1]} ${a}`;
       grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Loading...</div>';
@@ -645,7 +634,7 @@
       const pillCitas = document.getElementById('pill-citas');
       const pillNext  = document.getElementById('pill-next');
 
-      pillCitas.textContent = `📅 ${total} cita${total!==1?'s':''} hoy`;
+      pillCitas.textContent = `📅 ${total} appointment${total!==1?'s':''} today`;
 
       // Find next pending appointment
       const ahora = new Date();
@@ -677,7 +666,7 @@
           pillNext.textContent = '💈 En silla ahora';
           pillNext.className = 'pill pill-blue';
         } else {
-          pillNext.textContent = '✅ Día libre';
+          pillNext.textContent = '✅ Day off';
           pillNext.className = 'pill pill-green';
         }
       }
@@ -691,7 +680,7 @@
 
     function formatDateLabel(iso) {
       const d = new Date(iso + 'T12:00:00');
-      const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+      const dias = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       return dias[d.getDay()] + ' ' + d.getDate();
     }
 
@@ -703,8 +692,8 @@
         container.innerHTML = `
           <div class="empty-day">
             <div class="empty-icon">☕</div>
-            <p class="empty-title">Día Inactivo</p>
-            <p class="empty-sub">Hoy no tienes horario laboral configurado.</p>
+            <p class="empty-title">Inactive Day</p>
+            <p class="empty-sub">You have no work hours scheduled for today.</p>
           </div>`;
         return;
       }
@@ -812,7 +801,7 @@
         html = `
           <div class="empty-day">
             <div class="empty-icon">☕</div>
-            <p class="empty-title">Sin citas agendadas</p>
+            <p class="empty-title">No scheduled appointments</p>
             <p class="empty-sub">Disfruta tu tiempo libre o espera que alguien reserve contigo.</p>
           </div>`;
       }
@@ -924,10 +913,10 @@
             completada: ['✅','Servicio finalizado — ¡buen trabajo!'],
             no_asistio: ['❌','Marcado como no asistió'],
           };
-          const [icon, msg] = msgs[nuevoEstado] || ['ℹ️','Estado actualizado'];
+          const [icon, msg] = msgs[nuevoEstado] || ['ℹ️','Status updated'];
           showToast(icon, msg);
         } else {
-          showToast('âš ï¸', json.message || 'Error al actualizar');
+          showToast('âš ï¸', json.message || 'Error updating');
         }
       } catch(e) {
         showToast('âš ï¸', 'Connection error');
