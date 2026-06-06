@@ -356,7 +356,7 @@
     btn.disabled = !ok;
     btn.setAttribute('aria-disabled', String(!ok));
     label.textContent = ok
-      ? `Continue — $${state.totalPrecio.toLocaleString('es-MX')} MXN · ${state.totalDur} min`
+      ? `Continue — 💵${state.totalPrecio.toLocaleString('en-US')} USD · ${state.totalDur} min`
       : 'Choose at least one service';
   }
 

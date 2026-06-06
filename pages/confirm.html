@@ -234,7 +234,7 @@
     const fechaStr = d.toLocaleDateString('en-US', options);
     
     document.getElementById('sum-datetime').innerHTML = `<span style="text-transform:capitalize">${fechaStr}</span><br><span style="color:var(--gold)">${step2.horaInicio}</span>`;
-    document.getElementById('sum-total').textContent = `$${step1.totalPrecio.toLocaleString('es-MX')} MXN`;
+    document.getElementById('sum-total').textContent = `💵${step1.totalPrecio.toLocaleString('en-US')} USD`;
 
     async function submitBooking() {
       const btn = document.getElementById('btn-submit');
