@@ -1149,7 +1149,7 @@
         }
         return fetch(url, options).then(res => {
           if (res.status === 401 || res.status === 403) {
-            showToast('⚠️ Sesión expirada o inválida. Redirigiendo al login...');
+            showToast('⚠️ Expired or invalid session. Redirecting to login...');
             setTimeout(() => { localStorage.removeItem('mi_token_jwt'); window.location.href = 'login.html'; }, 1500);
             throw new Error('Unauthorized');
           }
@@ -1250,7 +1250,7 @@
           maxHeight: 1200
         });
         
-        if (!canvas) { alert('Error al recortar la imagen.'); return; }
+        if (!canvas) { alert('Error cropping image.'); return; }
         
         let result = canvas.toDataURL('image/jpeg', 0.85); 
         
@@ -1371,37 +1371,37 @@
 
       window.deleteSelectedResenas = async () => {
         const checked = Array.from(document.querySelectorAll('.resena-chk:checked')).map(c => c.value);
-        if(checked.length === 0) return alert('Selecciona al menos una reseña para eliminar.');
-        if(!confirm(`¿Seguro que deseas eliminar ${checked.length} reseña(s)?`)) return;
+        if(checked.length === 0) return alert('Select at least one review to delete.');
+        if(!confirm(`Are you sure you want to delete ${checked.length} review(s)?`)) return;
 
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=resenas&ids=${checked.join(',')}`, { method: 'DELETE' });
           const json = await res.json();
           if(json.success) {
-            showToast('\u2705 Reseñas eliminadas correctamente');
+            showToast('\u2705 Reviews successfully deleted');
             const selectAll = document.getElementById('resenas-select-all');
             if(selectAll) selectAll.checked = false;
             if (window.loadResenasAdmin) window.loadResenasAdmin();
           } else {
-            alert(json.message || 'Error al eliminar reseñas');
+            alert(json.message || 'Error deleting reseñas');
           }
         } catch(e) { console.error('Error deleteSelectedResenas:', e); }
       };
 
       window.deleteAllResenas = async () => {
         if(adminResenas.length === 0) return alert('No reviews to delete.');
-        if(!confirm(`¿Seguro que deseas eliminar TODAS las reseñas de forma permanente?`)) return;
+        if(!confirm(`Are you sure you want to PERMANENTLY delete ALL reviews?`)) return;
         const allIds = adminResenas.map(r => r.id).join(',');
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=resenas&ids=${allIds}`, { method: 'DELETE' });
           const json = await res.json();
           if(json.success) {
-            showToast('\u2705 Todas las reseñas han sido eliminadas');
+            showToast('\u2705 All reviews have been deleted');
             const selectAll = document.getElementById('resenas-select-all');
             if(selectAll) selectAll.checked = false;
             if (window.loadResenasAdmin) window.loadResenasAdmin();
           } else {
-            alert(json.message || 'Error al eliminar reseñas');
+            alert(json.message || 'Error deleting reseñas');
           }
         } catch(e) { console.error('Error deleteAllResenas:', e); }
       };
@@ -1572,7 +1572,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Ajustes web actualizados');
+            showToast('\u2705 Web settings updated');
             delete window.b64Files['cms-logo'];
             delete window.b64Files['cms-hero-bg'];
             if (window.resetUploadLabels) window.resetUploadLabels();
@@ -1582,7 +1582,7 @@
           }
         } catch(e) {
           console.error(e);
-          alert('Error de conexión guardando ajustes');
+          alert('Connection error saving settings');
         }
       };
 
@@ -1648,18 +1648,18 @@
       };
 
       window.deleteGalleryImage = async (id) => {
-        if (!confirm('¿Seguro que deseas eliminar esta imagen de la galería?')) return;
+        if (!confirm('Are you sure you want to delete this gallery image?')) return;
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=galeria&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Imagen eliminada');
+            showToast('\u2705 Image deleted');
             loadGallery();
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
@@ -1684,7 +1684,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Imagen añadida');
+            showToast('\u2705 Image added');
             fileInput.value = '';
             delete window.b64Files['new-gal-file'];
             titleInput.value = '';
@@ -1694,7 +1694,7 @@
             alert(json.error || json.message || 'Error al subir');
           }
         } catch(e) {
-          alert('Error de conexión al subir imagen');
+          alert('Connection error uploading image');
         }
       };
 
@@ -1782,7 +1782,7 @@
         try {
           const res = await authFetch(url);
           const json = await res.json();
-          if (!json.success) return alert('Error cargando estadísticas');
+          if (!json.success) return alert('Error loading statistics');
 
           globalStatData = json.grafica; // Guardar datos de la gráfica globales
           globalStatTablaData = json.tabla; // Guardar tabla globalmente
@@ -1797,7 +1797,7 @@
 
         } catch (e) {
           console.error(e);
-          alert('Error de conexión en analíticas');
+          alert('Connection error in analytics');
         }
       }
 
@@ -1947,7 +1947,7 @@
 
             let statusHtml = '';
             if (barbero.activo === 0) {
-              statusHtml = `<div class="col-status" style="background:var(--s3);color:var(--muted);border:1px solid var(--border)">Inactivo</div>`;
+              statusHtml = `<div class="col-status" style="background:var(--s3);color:var(--muted);border:1px solid var(--border)">Inactive</div>`;
             } else if (isOcupado) {
               statusHtml = `<div class="col-status" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)">Ocupado</div>`;
             } else {
@@ -2028,7 +2028,7 @@
           let html = '';
           barberosList.forEach(b => {
             const statusClass = b.activo == 1 ? 'status-active' : 'status-inactive';
-            const statusText = b.activo == 1 ? 'Activo' : 'Inactivo';
+            const statusText = b.activo == 1 ? 'Active' : 'Inactive';
             const fotoSrc = b.foto && b.foto.startsWith('data:') ? b.foto : (b.foto ? '../' + b.foto : '');
             
             html += `
@@ -2038,7 +2038,7 @@
                     <img src="${fotoSrc}" class="col-avatar" style="border-radius:50%" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 100 100\\'%3E%3Crect width=\\'100\\' height=\\'100\\' fill=\\'%23181818\\'/%3E%3C/svg%3E'">
                     <div>
                       <div style="font-weight:600;color:var(--bright)">${b.nombre} ${b.apellido}</div>
-                      <div style="font-size:.75rem;color:var(--muted)">Usuario: ${b.usuario || 'N/A'}</div>
+                      <div style="font-size:.75rem;color:var(--muted)">Username: ${b.usuario || 'N/A'}</div>
                     </div>
                   </div>
                 </td>
@@ -2141,33 +2141,35 @@
           const json = await res.json();
           if (json.success) {
             closeModal();
-            showToast(id ? '\u2705 Barbero actualizado' : '\u2705 Barbero creado');
+            showToast(id ? '\u2705 Barber updated' : '\u2705 Barber created');
             loadEquipo(); // recargar tabla
             loadAgenda(); // recargar agenda para que aparezca la columna
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error de conexión');
+          alert('Connection error');
         }
       };
 
       window.deleteBarber = async (id, nombre) => {
-        if (!confirm(`⚠️ CUIDADO: ¿Estás seguro que deseas ELIMINAR permanentemente a ${nombre}?\n\nEsto borrará también todas sus citas del historial y no se puede deshacer.`)) {
+        if (!confirm(`⚠️ WARNING: Are you sure you want to permanently DELETE ${nombre}?
+
+This will also delete all their appointment history and cannot be undone.`)) {
           return;
         }
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=barberos&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Barbero eliminado');
+            showToast('\u2705 Barber deleted');
             loadEquipo();
             loadAgenda();
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
@@ -2190,7 +2192,7 @@
           let html = '';
           serviciosList.forEach(s => {
             const imgSrc = s.imagen_b64 || s.imagen_url || (s.imagen ? `../${s.imagen}` : '../assets/img/hero-bg.png');
-            const estadoHtml = s.activo ? '<span style="color:var(--green)">Activo</span>' : '<span style="color:var(--muted)">Inactivo</span>';
+            const estadoHtml = s.activo ? '<span style="color:var(--green)">Active</span>' : '<span style="color:var(--muted)">Inactive</span>';
             
             html += `
               <tr style="opacity: ${s.activo ? 1 : 0.5}">
@@ -2287,13 +2289,13 @@
           const json = await res.json().catch(() => ({ error: 'Error del servidor (no JSON)' }));
           if (json.success) {
             closeServiceModal();
-            showToast(id ? '\u2705 Servicio actualizado' : '\u2705 Servicio creado');
+            showToast(id ? '\u2705 Service updated' : '\u2705 Service created');
             loadServicios();
           } else {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch(err) {
-          alert('Error de conexión');
+          alert('Connection error');
           console.error(err);
         } finally {
           btn.disabled = false;
@@ -2302,18 +2304,18 @@
       };
 
       window.deleteService = async (id, nombre) => {
-        if (!confirm(`¿Estás seguro que deseas eliminar el servicio "${nombre}"?`)) return;
+        if (!confirm(`Are you sure you want to delete the service \"${nombre}\"?`)) return;
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=servicios&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Servicio eliminado');
+            showToast('\u2705 Service deleted');
             loadServicios();
           } else {
             alert(json.message);
           }
         } catch(err) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
@@ -2341,7 +2343,7 @@
                 <input type="time" id="${prefix}_in_${i}" value="${row.hora_inicio}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <span style="color:var(--muted)">a</span>
                 <input type="time" id="${prefix}_out_${i}" value="${row.hora_fin}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
-                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copiar este horario a los demás días activos">Copy to all</button>
+                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copy this schedule to other active days">Copy to all</button>
               </div>
             </div>
           `;
@@ -2393,7 +2395,7 @@
             }
           }
         }
-        showToast('\u2705 Horario copiado');
+        showToast('\u2705 Schedule copied');
       };
 
       window.loadGlobalSchedule = async () => {
@@ -2420,7 +2422,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Horario global guardado');
+            showToast('\u2705 Global schedule saved');
             document.getElementById('sync-all-barbers').checked = false;
             // Recargar horarios por barbero si está uno seleccionado
             if (document.getElementById('horario-barbero-select').value) {
@@ -2430,7 +2432,7 @@
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Error de conexión al guardar horario global');
+          alert('Connection error al guardar horario global');
         }
       };
 
@@ -2502,12 +2504,12 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Horario de barbero actualizado');
+            showToast('\u2705 Barber schedule updated');
           } else {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Error de conexión al guardar horario del barbero');
+          alert('Connection error al guardar horario del barbero');
         }
       };
 
@@ -2553,7 +2555,7 @@
       };
 
       // â”€â”€â”€ TOAST â”€â”€â”€
-      window.showToast = (msg = '\u2705 Cambios guardados') => {
+      window.showToast = (msg = '\u2705 Changes saved') => {
         const t = document.getElementById('toast');
         t.textContent = msg;
         t.classList.add('show');
@@ -2566,11 +2568,11 @@
         const pass = document.getElementById('admin-pass').value.trim();
 
         if (!user || !pass) {
-          return alert('El usuario y la contraseña son obligatorios.');
+          return alert('Username and password are required.');
         }
 
         if (pass.length < 6) {
-          return alert('La contraseña debe tener al menos 6 caracteres.');
+          return alert('Password must be at least 6 characters.');
         }
 
         try {
@@ -2582,14 +2584,14 @@
           const json = await res.json();
           
           if (json.success) {
-            showToast('\u2705 Credenciales actualizadas. Cerrando sesión...');
+            showToast('\u2705 Credentials updated. Logging out...');
             setTimeout(() => { window.logout(); }, 2000);
           } else {
             alert(json.message || 'Error al actualizar credenciales');
           }
         } catch (error) {
           console.error(error);
-          alert('Error de conexión al actualizar credenciales.');
+          alert('Connection error al actualizar credenciales.');
         }
       };
 
@@ -2643,7 +2645,7 @@
               if (!label.hasAttribute('data-original-text')) {
                 label.setAttribute('data-original-text', label.innerHTML);
               }
-              label.innerHTML = `✅ Foto Seleccionada`;
+              label.innerHTML = `✅ Photo Selected`;
               label.style.backgroundColor = 'var(--accent)';
               label.style.color = '#fff';
             }
