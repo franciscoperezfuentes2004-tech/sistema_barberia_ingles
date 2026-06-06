@@ -193,8 +193,7 @@
 <body>
 <header class="app-header" role="banner">
 <div class="hdr-inner">
- <!-- Top row --> 
-<div class="hdr-top">
+ <div class="hdr-top">
 <a aria-label="Barbería — Inicio" class="logo" href="../index.html">
 <div aria-hidden="true" class="logo-mark">✂️</div>
 <span class="logo-name">Barbershop</span>
@@ -240,8 +239,7 @@
 </div>
 <div class="divider-line">Menu</div>
 <div aria-label="Selecciona los servicios" id="services-grid" role="group">
- <!-- Skeletons while loading --> 
-<div class="skeleton" style="height:88px"></div>
+ <div class="skeleton" style="height:88px"></div>
 <div class="skeleton" style="height:88px;opacity:.7"></div>
 <div class="skeleton" style="height:88px;opacity:.5"></div>
 <div class="skeleton" style="height:88px;opacity:.4"></div>
@@ -276,7 +274,7 @@
   // Saludo
   const h = new Date().getHours();
   const grEl = document.getElementById('greeting-time');
-  if(grEl) grEl.textContent = h<12?'Good morning 👋':h<19?'Buenas tardes 👋':'Buenas noches 👋';
+  if(grEl) grEl.textContent = h<12?'Good morning 👋':h<19?'Good afternoon 👋':'Good evening 👋';
 
   // Cargar servicios
   async function loadServicios() {

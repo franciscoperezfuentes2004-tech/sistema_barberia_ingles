@@ -510,20 +510,14 @@
 </head>
 <body>
 <div class="login-container">
- Barber Pole 
 <div aria-hidden="true" class="barber-pole-wrapper">
 <div class="barber-pole"></div>
 </div>
- Logo 
 <div aria-hidden="true" class="logo">✂️</div>
- Title 
 <h1 class="title">Barbershop</h1>
 <p class="subtitle">Staff Portal</p>
- Login Form 
 <form autocomplete="on" class="login-form" id="loginForm" novalidate="">
- Error Message 
 <div class="error-message" id="errorMessage" role="alert"></div>
- Username 
 <div class="input-group">
 <input autocomplete="username" id="username" name="username" placeholder="User" required="" spellcheck="false" type="text"/>
 <svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
@@ -531,7 +525,6 @@
 <circle cx="12" cy="7" r="4"></circle>
 </svg>
 </div>
- Password 
 <div class="input-group">
 <input autocomplete="current-password" id="password" name="password" placeholder="Password" required="" type="password"/>
 <svg class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
@@ -539,25 +532,21 @@
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
 <button aria-label="Mostrar contraseña" class="toggle-password" id="togglePassword" tabindex="-1" type="button">
- Eye On 
 <svg class="eye-on" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
 <circle cx="12" cy="12" r="3"></circle>
 </svg>
- Eye Off 
 <svg class="eye-off" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
 <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
 <line x1="1" x2="23" y1="1" y2="23"></line>
 </svg>
 </button>
 </div>
- Submit Button 
 <button class="btn-submit" id="btnSubmit" type="submit">
 <span class="btn-text">Log In</span>
 <span class="spinner"></span>
 </button>
 </form>
- Divider &amp; Footer 
 <div class="divider"></div>
 <p class="footer">© 2026 Premium Barbershop · Staff Panel</p>
 </div>
@@ -643,7 +632,7 @@
 
         // Basic validation
         if (!username || !password) {
-          showError('Por favor, ingresa tu usuario y contraseña.');
+          showError('Please enter your username and password.');
           return;
         }
 
@@ -661,7 +650,7 @@
           if (json.status === 'success' || json.success === true) {
             // Mostrar mensaje de éxito visualmente en el botón
             btnSubmit.classList.remove('loading');
-            btnSubmit.innerHTML = `<span class="btn-text">${json.message || '¡Bienvenido!'}</span>`;
+            btnSubmit.innerHTML = `<span class="btn-text">${json.message || 'Welcome!'}</span>`;
             btnSubmit.style.background = 'var(--green)';
 
             // Guardar sesión
@@ -682,12 +671,12 @@
 
           } else {
             // API returned an error
-            const msg = json.message || json.error || 'Credenciales incorrectas. Intenta de nuevo.';
+            const msg = json.message || json.error || 'Incorrect credentials. Try again.';
             showError(msg);
             setLoading(false);
           }
         } catch (err) {
-          showError('Error de conexión. Verifica tu red e intenta de nuevo.');
+          showError('Connection error. Check your network and try again.');
           setLoading(false);
         }
       });

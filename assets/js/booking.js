@@ -36,15 +36,15 @@ async function apiFetch(endpoint) {
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    INIT — al cargar la página
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 document.addEventListener('DOMContentLoaded', async () => {
   // Saludo dinámico según la hora
   const hour = new Date().getHours();
   const greetEl = document.getElementById('greeting-time');
   if (greetEl) {
-    greetEl.textContent = hour < 12 ? 'Buenos días ðŸ‘‹'
-                        : hour < 19 ? 'Buenas tardes ðŸ‘‹'
-                        : 'Buenas noches ðŸ‘‹';
+    greetEl.textContent = hour < 12 ? 'Good morning 👋'
+                        : hour < 19 ? 'Good afternoon 👋'
+                        : 'Good evening 👋';
   }
 
   // Cargar datos en paralelo

@@ -12,9 +12,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
-    /* <!-- ═══════════════════════════════════════════════════
-       DESIGN TOKENS
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     :root {
       --gold:       #C9A84C;
       --gold-l:     #E8C97A;
@@ -39,9 +37,7 @@
       --gutter: clamp(20px, 6vw, 100px);
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       RESET
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     button:active, .btn:active, .svc-card:active, .team-card:active { transform: scale(0.96) !important; transition: transform 0.1s !important; }
     html  { scroll-behavior: smooth; }
@@ -58,9 +54,7 @@
     ::-webkit-scrollbar-track { background: var(--s1); }
     ::-webkit-scrollbar-thumb { background: var(--gold-d); border-radius: 4px; }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       NOISE TEXTURE (sutil)
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -68,9 +62,7 @@
       pointer-events: none; z-index: 0; opacity: 0.4;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       TYPOGRAPHY HELPERS
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .serif { font-family: var(--serif); }
     .grad  {
       background: linear-gradient(135deg, var(--gold-l), var(--gold), var(--gold-d));
@@ -94,9 +86,7 @@
       color: var(--muted); line-height: 1.7;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       REVEAL ANIMATION
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .rv {
       opacity: 0; transform: translateY(22px);
       transition: opacity .55s ease, transform .55s ease;
@@ -156,9 +146,7 @@
       animation: pdot 2s infinite;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       BOTONES
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .btn-gold {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 10px; padding: 15px 30px;
@@ -200,10 +188,7 @@
     }
     .btn-wa:hover { background: #1ebe5d; transform: translateY(-2px); }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       NAV — STICKY FLOTANTE
-       Usa var(--gutter) para que coincida con el resto del contenido
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     #nav {
       position: fixed; top:0; left:0; right:0; z-index:100;
       padding: 16px var(--gutter);
@@ -260,11 +245,7 @@
     }
     .nav-cta:hover { transform:translateY(-1px); box-shadow:0 5px 20px rgba(201,168,76,.45); }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       HERO
-       móvil: contenido en la parte inferior
-       desktop: centrado verticalmente, texto a la izquierda
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     #hero {
       position: relative; min-height: 100dvh; overflow: hidden;
       display: flex; align-items: flex-end; /* móvil: abajo */
@@ -319,9 +300,7 @@
     }
     .hero-btns { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       STATS BAR — siempre full width
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .stats {
       background:var(--s1);
       border-top:1px solid var(--border); border-bottom:1px solid var(--border);
@@ -347,9 +326,7 @@
     }
     .stat-l { font-size:.64rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-top:5px; }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       SECCIÓN GENÉRICA — padding que usa el mismo gutter
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .sec {
       padding: clamp(52px,8vw,100px) var(--gutter);
     }
@@ -364,9 +341,7 @@
       .sec-hdr { flex-direction:row; align-items:flex-end; justify-content:space-between; }
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       SERVICIOS — auto-fit: se ajusta automáticamente
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .svc-grid {
       display: flex; gap: clamp(14px, 2vw, 22px);
       overflow-x: auto; scroll-snap-type: x mandatory;
@@ -413,9 +388,7 @@
       display:inline-flex; align-items:center; gap:4px;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       GALERÍA
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .gal-grid {
       display: flex; gap: clamp(10px, 1.5vw, 16px);
       overflow-x: auto; scroll-snap-type: x mandatory;
@@ -443,10 +416,7 @@
       font-size:.8rem; font-weight:600; color:var(--bright); letter-spacing:.03em;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       EQUIPO
-       móvil: scroll horizontal | tablet+: grid
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .team-wrap {
       /* MÓVIL: flex con scroll */
       display: flex; gap: clamp(12px,2vw,20px);
@@ -485,9 +455,7 @@
       padding:3px 9px; border-radius:999px;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       RESEÑAS — igual que equipo: scroll móvil, grid desktop
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .rev-modal-header {
       display: grid; grid-template-columns: 1fr auto 1fr;
       align-items: center; margin-bottom: 12px; gap: 10px;
@@ -554,9 +522,7 @@
       font-size:.88rem; font-weight:700; flex-shrink:0;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       CONTACTO — 1 col móvil, 2 col desktop
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -590,9 +556,7 @@
     }
     .info-row { display:flex; align-items:center; gap:12px; font-size:.84rem; color:var(--muted); }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       FOOTER CTA BAND
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .cta-band {
       padding: clamp(48px,7vw,88px) var(--gutter);
       background: linear-gradient(135deg,rgba(154,123,50,.12),rgba(201,168,76,.06));
@@ -609,9 +573,7 @@
       font-size:clamp(1.5rem,3vw,2.2rem); margin-bottom:6px;
     }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       MODAL DE RESEÑAS
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     .modal {
       display: none; position: fixed; inset: 0; z-index: 1000;
       background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
@@ -653,9 +615,7 @@
     }
     .modal-input:focus { border-color: var(--gold); outline: none; }
 
-    /* <!-- ═══════════════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════════ -->═══════ */
+    /* ═══════ */
     footer {
       background: var(--s1);
       padding: clamp(40px,6vw,72px) var(--gutter) clamp(24px,4vw,40px);
@@ -688,10 +648,7 @@
   </style>
 </head>
 <body>
- <!-- ════════════════════════════════════════════
-       NAV
-  ════════════════════════════════════════════ --> 
-<nav aria-label="Navegación principal" id="nav" role="navigation">
+ <nav aria-label="Navegación principal" id="nav" role="navigation">
 <a aria-label="Barbería — Inicio" class="nav-logo" href="#inicio">
 <div style="display:flex; align-items:center; gap:10px;">
 <img alt="Logo" id="nav-custom-logo" src="" style="display:none; height:42px; width:42px; object-fit:cover; border-radius:10px;"/>
@@ -710,10 +667,7 @@
 <span class="mobile-text">Book</span>
 </a>
 </nav>
- <!-- ════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="hero-h1" id="inicio">
+ <section aria-labelledby="hero-h1" id="inicio">
 <div id="hero">
 <div class="hero-bg" id="hero-bg"></div>
 <div class="hero-ov"></div>
@@ -753,10 +707,7 @@
 </div>
 </div>
 </section>
- <!-- ════════════════════════════════════════════
-       STATS BAR — full width without restricting container
-  ════════════════════════════════════════════ --> 
-<div aria-label="Nuestros números" class="stats">
+ <div aria-label="Nuestros números" class="stats">
 <div class="stat rv">
 <p class="stat-n" id="stat-exp">+15</p>
 <p class="stat-l">Years of experience</p>
@@ -774,10 +725,7 @@
 <p class="stat-l">Master barbers</p>
 </div>
 </div>
- <!-- ════════════════════════════════════════════
-       SERVICES
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="svc-h" class="sec" id="servicios">
+ <section aria-labelledby="svc-h" class="sec" id="servicios">
 <div class="sec-hdr rv">
 <div>
 <span class="eyebrow">What we do best</span>
@@ -789,15 +737,10 @@
         <svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
 </a>
 </div>
- <!-- auto-fill: more columns on larger screens, no manual breakpoints --> 
-<div class="svc-grid" id="public-services">
- <!-- Dynamically generated --> 
-</div>
+ <div class="svc-grid" id="public-services">
+ </div>
 </section>
- <!-- ════════════════════════════════════════════
-       GALLERY
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="gal-h" class="sec sec-alt" id="galeria">
+ <section aria-labelledby="gal-h" class="sec sec-alt" id="galeria">
 <div class="sec-hdr rv">
 <div>
 <span class="eyebrow">Our work</span>
@@ -806,13 +749,9 @@
 </div>
 </div>
 <div class="gal-grid" id="public-gallery">
- <!-- Dynamically generated --> 
-</div>
+ </div>
 </section>
- <!-- ════════════════════════════════════════════
-       TEAM
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="eq-h" class="sec" id="equipo">
+ <section aria-labelledby="eq-h" class="sec" id="equipo">
 <div class="sec-hdr rv">
 <div>
 <span class="eyebrow">Meet the team</span>
@@ -825,13 +764,9 @@
 </a>
 </div>
 <div aria-label="Nuestros barberos" class="team-wrap rv" role="list">
- <!-- Dynamically generated --> 
-</div>
+ </div>
 </section>
- <!-- ════════════════════════════════════════════
-       REVIEWS
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="rev-h" class="sec sec-alt" id="resenas">
+ <section aria-labelledby="rev-h" class="sec sec-alt" id="resenas">
 <div class="sec-hdr rv">
 <div>
 <span class="eyebrow">What our clients say</span>
@@ -842,13 +777,9 @@
       </button>
 </div>
 <div aria-label="Reseñas de clientes" class="rev-wrap rv" id="public-reviews" role="list">
- <!-- Dynamically generated --> 
-</div>
+ </div>
 </section>
- <!-- ════════════════════════════════════════════
-       CONTACT
-  ════════════════════════════════════════════ --> 
-<section aria-labelledby="ct-h" class="sec" id="contacto">
+ <section aria-labelledby="ct-h" class="sec" id="contacto">
 <div class="sec-hdr rv">
 <div>
 <span class="eyebrow">Find us</span>
@@ -857,11 +788,9 @@
 </div>
 </div>
 <div class="contact-grid">
- <!-- Column 1: Hours + buttons --> 
-<div class="rv">
+ <div class="rv">
 <div id="public-horarios" style="background:var(--s2);border:1px solid var(--border);border-radius:18px;padding:8px 20px;margin-bottom:20px">
- <!-- Dynamically generated --> 
-</div>
+ </div>
 <div style="display:flex;gap:12px;margin-bottom:12px">
 <a aria-label="WhatsApp" class="btn-wa" href="https://wa.me/521234567890?text=Hola" id="btn-wa" rel="noopener noreferrer" style="flex:1;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:0.95rem" target="_blank">
 <svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.852L0 24l6.336-1.51A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.012-1.368l-.36-.214-3.727.888.94-3.64-.235-.374A9.818 9.818 0 1112 21.818z"></path></svg>
@@ -870,8 +799,7 @@
 <a class="btn-outline" href="mailto:contacto@barberia.com" id="link-mail" style="flex:1;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:0.95rem">✉️ Email</a>
 </div>
 </div>
- <!-- Column 2: Map + info --> 
-<div class="rv" style="transition-delay:.1s">
+ <div class="rv" style="transition-delay:.1s">
 <div id="map-container" style="margin-bottom:16px; border-radius:18px; overflow:hidden; border:1px solid var(--border); height:280px; background:var(--s2); position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center;">
 <iframe allowfullscreen="" aria-hidden="false" frameborder="0" height="100%" id="map-iframe" style="border:0;display:none;" tabindex="0" title="Barbershop Location" width="100%"></iframe>
 <div id="map-fallback" style="text-align:center;padding:20px;">
@@ -887,10 +815,7 @@
 </div>
 </div>
 </section>
- <!-- ════════════════════════════════════════════
-       FOOTER CTA
-  ════════════════════════════════════════════ --> 
-<div class="cta-band">
+ <div class="cta-band">
 <div class="cta-inner">
 <div class="rv">
 <p class="cta-title">Ready for your <span class="grad">next look?</span></p>
@@ -902,10 +827,7 @@
       </a>
 </div>
 </div>
- <!-- ════════════════════════════════════════════
-       REVIEWS MODAL
-  ════════════════════════════════════════════ --> 
-<div class="modal" id="reviewModal">
+ <div class="modal" id="reviewModal">
 <div class="modal-content">
 <button class="modal-close" onclick="document.getElementById('reviewModal').classList.remove('active')">✖</button>
 <h3 style="color:var(--bright);margin-bottom:10px;font-family:var(--serif);font-size:1.6rem">Your Experience</h3>
@@ -924,16 +846,12 @@
 </form>
 </div>
 </div>
- <!-- ════════════════════════════════════════════
-       ALL REVIEWS MODAL
-  ════════════════════════════════════════════ --> 
-<div class="modal" id="allReviewsModal">
+ <div class="modal" id="allReviewsModal">
 <div class="modal-content" style="max-width:600px; padding:30px;">
 <button class="modal-close" onclick="document.getElementById('allReviewsModal').classList.remove('active')">✖</button>
 <div style="text-align: center; margin-bottom: 25px;">
 <h3 style="color:var(--bright);font-family:var(--serif);font-size:1.8rem;margin-bottom:12px;">Customer Experience</h3>
- <!-- Creative Separator --> 
-<div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 12px;">
+ <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 12px;">
 <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); width: 80px;"></div>
 <div style="color: var(--gold); font-size: 1.2rem;">✦</div>
 <div style="height: 1px; background: linear-gradient(270deg, transparent, var(--gold)); width: 80px;"></div>
@@ -941,14 +859,10 @@
 <p id="all-reviews-subtitle" style="color:var(--muted);font-size:0.85rem;margin:0;">Loading reviews...</p>
 </div>
 <div id="all-reviews-container" style="display:flex; flex-direction:column; gap:15px; max-height:55vh; overflow-y:auto; padding-right:10px;">
- <!-- Dynamically filled --> 
+ </div>
 </div>
 </div>
-</div>
- <!-- ════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════ --> 
-<footer role="contentinfo">
+ <footer role="contentinfo">
 <div class="ft-grid">
 <div>
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
@@ -991,10 +905,7 @@
 </div>
 </div>
 </footer>
- <!-- ════════════════════════════════════════════
-       SCRIPTS
-  ════════════════════════════════════════════ --> 
-<script>
+ <script>
     'use strict';
 
     /* Nav scroll */
