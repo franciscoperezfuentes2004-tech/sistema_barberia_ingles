@@ -687,5 +687,15 @@
       });
     })();
   </script>
+
+<script>
+window.addEventListener('pageshow', function(e) {
+    var u = document.getElementById('username');
+    var p = document.getElementById('password');
+    if(u) u.value = '';
+    if(p) p.value = '';
+});
+</script>
 </body>
+
 </html>
