@@ -563,7 +563,7 @@
           if (json.success && json.data) {
             const data = json.data;
             if (data.site_name) {
-              document.title = `Iniciar Sesión — ${data.site_name}`;
+              document.title = `Log In — ${data.site_name}`;
               const titleEl = document.querySelector('.title');
               if (titleEl) titleEl.textContent = data.site_name;
               const footerEl = document.querySelector('.footer');
