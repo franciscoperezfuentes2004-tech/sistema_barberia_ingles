@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="#0F0F0F" name="theme-color"/>
 <title>Paso 2 — Fecha y Barbero · Barbería</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -452,7 +452,7 @@
           grid.innerHTML += `<div class="${cls}" ${onclick}>${d}</div>`;
         });
       } catch(e) {
-        grid.innerHTML = '<div style="grid-column:1/-1; color:var(--red);">Error cargando fechas</div>';
+        grid.innerHTML = '<div style="grid-column:1/-1; color:var(--red);">Error loading dates</div>';
       }
     }
 
@@ -507,13 +507,13 @@
     
     async function loadBarberos() {
       const grid = document.getElementById('barbers-grid');
-      grid.innerHTML = '<div style="color:var(--muted);font-size:.85rem">Cargando barberos...</div>';
+      grid.innerHTML = '<div style="color:var(--muted);font-size:.85rem">Loading barbers...</div>';
       try {
         const res = await fetch(`${API}/obtener_datos.php?tabla=barberos&activos=1&fecha=${state.fecha}&duracion=${state.duracion}`);
         const json = await res.json();
         renderBarberos(json.data || []);
       } catch(e) {
-        grid.innerHTML = '<div style="color:var(--red)">Error cargando barberos</div>';
+        grid.innerHTML = '<div style="color:var(--red)">Error loading barbers</div>';
       }
     }
 
@@ -576,14 +576,14 @@
       setTimeout(()=> secH.style.opacity = '1', 10);
       
       const grid = document.getElementById('times-grid');
-      grid.innerHTML = '<div style="color:var(--muted);font-size:.85rem;grid-column:1/-1">Cargando horarios...</div>';
+      grid.innerHTML = '<div style="color:var(--muted);font-size:.85rem;grid-column:1/-1">Loading hours...</div>';
       
       try {
         const res = await fetch(`${API}/disponibilidad.php?barbero_id=${barberoId}&fecha=${state.fecha}&duracion=${state.duracion}`, { cache: 'no-store' });
         const json = await res.json();
         renderHorarios(json.data?.slots || []);
       } catch(e) {
-        grid.innerHTML = `<div style="color:var(--red);grid-column:1/-1">Error al cargar horarios</div>`;
+        grid.innerHTML = `<div style="color:var(--red);grid-column:1/-1">Error loading hours</div>`;
       }
     }
 
@@ -697,7 +697,7 @@
           });
         }
       } catch (e) {
-        console.error('Error cargando branding:', e);
+        console.error('Error loading branding:', e);
       }
     }
 

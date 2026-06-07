@@ -29,18 +29,18 @@ $data_json = json_decode(file_get_contents("php://input"), true);
 
 // Todos los campos posibles que envía el CMS
 $campos = [
-    'nombre_empresa' => trim($_POST['site_name'] ?? $data_json['site_name'] ?? ''),
-    'site_phone' => trim($_POST['site_phone'] ?? $data_json['site_phone'] ?? ''),
-    'site_email' => trim($_POST['site_email'] ?? $data_json['site_email'] ?? ''),
-    'site_address' => trim($_POST['site_address'] ?? $data_json['site_address'] ?? ''),
+    'nombre_empresa' => htmlspecialchars(trim($_POST['site_name'] ?? $data_json['site_name'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_phone' => htmlspecialchars(trim($_POST['site_phone'] ?? $data_json['site_phone'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_email' => htmlspecialchars(trim($_POST['site_email'] ?? $data_json['site_email'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_address' => htmlspecialchars(trim($_POST['site_address'] ?? $data_json['site_address'] ?? ''), ENT_QUOTES, 'UTF-8'),
     'site_map' => trim($_POST['site_map'] ?? $data_json['site_map'] ?? ''),
-    'site_instagram' => trim($_POST['site_instagram'] ?? $data_json['site_instagram'] ?? ''),
-    'site_facebook' => trim($_POST['site_facebook'] ?? $data_json['site_facebook'] ?? ''),
-    'site_tiktok' => trim($_POST['site_tiktok'] ?? $data_json['site_tiktok'] ?? ''),
-    'site_slogan' => trim($_POST['site_slogan'] ?? $data_json['site_slogan'] ?? ''),
-    'site_hero_desc' => trim($_POST['site_hero_desc'] ?? $data_json['site_hero_desc'] ?? ''),
-    'stat_exp' => trim($_POST['stat_exp'] ?? $data_json['stat_exp'] ?? ''),
-    'stat_clientes' => trim($_POST['stat_clientes'] ?? $data_json['stat_clientes'] ?? '')
+    'site_instagram' => htmlspecialchars(trim($_POST['site_instagram'] ?? $data_json['site_instagram'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_facebook' => htmlspecialchars(trim($_POST['site_facebook'] ?? $data_json['site_facebook'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_tiktok' => htmlspecialchars(trim($_POST['site_tiktok'] ?? $data_json['site_tiktok'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_slogan' => htmlspecialchars(trim($_POST['site_slogan'] ?? $data_json['site_slogan'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'site_hero_desc' => htmlspecialchars(trim($_POST['site_hero_desc'] ?? $data_json['site_hero_desc'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'stat_exp' => htmlspecialchars(trim($_POST['stat_exp'] ?? $data_json['stat_exp'] ?? ''), ENT_QUOTES, 'UTF-8'),
+    'stat_clientes' => htmlspecialchars(trim($_POST['stat_clientes'] ?? $data_json['stat_clientes'] ?? ''), ENT_QUOTES, 'UTF-8')
 ];
 
 // Opcionales (Base64 largos)

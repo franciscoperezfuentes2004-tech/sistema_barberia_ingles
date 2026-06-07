@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard — Barbería Premium</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Noto+Color+Emoji&amp;display=swap" rel="stylesheet"/>
@@ -394,7 +394,7 @@
       .table-wrapper td {
         padding: 8px 4px !important;
         font-size: 0.75rem !important;
-        white-space: normal !important;
+        white-space: normal !important; word-break: break-word;
       }
       .table-wrapper th {
         font-size: 0.65rem !important;
@@ -541,11 +541,11 @@
       .col-avatar { width: 32px; height: 32px; }
       .btn { margin-bottom: 8px; display: block; width: 100%; text-align: center; white-space: nowrap; }
       
-      .resenas-top-bar { align-items: flex-start !important; flex-wrap: nowrap !important; gap: 8px !important; }
+      .resenas-top-bar { align-items: flex-start !important; flex-wrap: wrap !important; gap: 12px !important; gap: 8px !important; }
       .resenas-left { flex-direction: column; align-items: flex-start !important; gap: 8px !important; flex: 1; min-width: 0; }
       .resenas-left select { max-width: 100%; font-size: 0.8rem; }
       .resenas-right { flex-direction: column; align-items: stretch !important; gap: 8px !important; flex: 1; min-width: 0; }
-      .resenas-right .btn { width: 100% !important; margin-bottom: 0 !important; font-size: 0.7rem !important; padding: 10px 8px !important; white-space: normal !important; text-align: center; }
+      .resenas-right .btn { width: 100% !important; margin-bottom: 0 !important; font-size: 0.7rem !important; padding: 10px 8px !important; white-space: normal !important; word-break: break-word; text-align: center; }
       .status-badge { padding: 3px 6px; font-size: 0.65rem; }
       /* Prevent price and duration from wrapping */
       td:nth-child(3), td:nth-child(4) { white-space: nowrap; }
@@ -1576,7 +1576,7 @@
             if (window.resetUploadLabels) window.resetUploadLabels();
             loadCMS();
           } else {
-            alert(json.error || json.message || 'Error al guardar');
+            alert(json.error || json.message || 'Error saving');
           }
         } catch(e) {
           console.error(e);
@@ -1641,7 +1641,7 @@
             }
           }
         } catch (e) {
-          console.error('Error cargando galeria:', e);
+          console.error('Error loading gallery:', e);
         }
       };
 
@@ -1689,7 +1689,7 @@
             if (window.resetUploadLabels) window.resetUploadLabels();
             loadGallery();
           } else {
-            alert(json.error || json.message || 'Error al subir');
+            alert(json.error || json.message || 'Error uploading');
           }
         } catch(e) {
           alert('Connection error uploading image');
@@ -2054,7 +2054,7 @@
           });
           tbody.innerHTML = html;
         } catch(e) {
-          tbody.innerHTML = '<tr><td colspan="4" style="color:var(--red);text-align:center">Error al cargar equipo</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="4" style="color:var(--red);text-align:center">Error loading team</td></tr>';
         }
       }
 
@@ -2212,7 +2212,7 @@ This will also delete all their appointment history and cannot be undone.`)) {
           tbody.innerHTML = html;
         } catch(e) {
           console.error(e);
-          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--red)">Error al cargar servicios</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--red)">Error loading services</td></tr>';
         }
       };
 
@@ -2446,7 +2446,7 @@ This will also delete all their appointment history and cannot be undone.`)) {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Connection error al guardar horario global');
+          alert('Connection error saving global schedule');
         }
       };
 
@@ -2496,7 +2496,7 @@ This will also delete all their appointment history and cannot be undone.`)) {
             
             // Re-añadir el botón de guardado que fue sobreescrito por renderScheduleEditor
             containerWrapper.innerHTML += `
-              <button class="btn btn-primary" style="width:100%;margin-top:20px" onclick="saveBarberSchedule()">Guardar Horario de ${select.options[select.selectedIndex].text}</button>
+              <button class="btn btn-primary" style="width:100%;margin-top:20px" onclick="saveBarberSchedule()">Save Schedule for ${select.options[select.selectedIndex].text}</button>
             `;
           }
         } catch (e) {
@@ -2523,7 +2523,7 @@ This will also delete all their appointment history and cannot be undone.`)) {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Connection error al guardar horario del barbero');
+          alert('Connection error saving barber schedule');
         }
       };
 
@@ -2601,11 +2601,11 @@ This will also delete all their appointment history and cannot be undone.`)) {
             showToast('\u2705 Credentials updated. Logging out...');
             setTimeout(() => { window.logout(); }, 2000);
           } else {
-            alert(json.message || 'Error al actualizar credenciales');
+            alert(json.message || 'Error updating credentials');
           }
         } catch (error) {
           console.error(error);
-          alert('Connection error al actualizar credenciales.');
+          alert('Connection error updating credentials.');
         }
       };
 

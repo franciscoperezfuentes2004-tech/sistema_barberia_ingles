@@ -39,6 +39,12 @@ if (!in_array($tabla, $tablas_permitidas)) {
     exit;
 }
 
+// PROTECCIÓN DE ACCESO: Requerir JWT de admin si se solicita la tabla usuarios
+if ($tabla === 'usuarios') {
+    require_once __DIR__ . '/auth_middleware.php';
+    verificarJWT(['admin']);
+}
+
 // 1. Consulta puramente limpia y robusta. 
 // SE ELIMINAN todos los filtros conflictivos como "AND activo = 1" para evitar fallos de base de datos.
 $sql = "SELECT * FROM `" . $tabla . "` WHERE 1=1";

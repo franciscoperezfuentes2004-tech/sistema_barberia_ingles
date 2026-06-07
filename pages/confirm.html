@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="#0F0F0F" name="theme-color"/>
 <title>Paso 3 — Confirmar · Barbería</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -300,7 +300,7 @@
           body: JSON.stringify(bodyCita)
         });
         const jsonCita = await resCita.json();
-        if(!resCita.ok || !jsonCita.success) throw new Error(jsonCita.error || jsonCita.message || 'Error al crear la cita');
+        if(!resCita.ok || !jsonCita.success) throw new Error(jsonCita.error || jsonCita.message || 'Error creating appointment');
 
         // Éxito
         sessionStorage.removeItem('bb_step1');
@@ -338,7 +338,7 @@
           });
         }
       } catch (e) {
-        console.error('Error cargando branding:', e);
+        console.error('Error loading branding:', e);
       }
     }
     loadBranding();

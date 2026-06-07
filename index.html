@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="#0F0F0F" name="theme-color"/>
 <meta content="Barbería Premium — Cortes clásicos, fades, barba y tratamientos capilares. Reserva tu cita hoy." name="description"/>
 <title>Barbería Premium — Estilo que habla por ti</title>
@@ -308,7 +308,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
-    @media (min-width: 768px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 768px) {
+            .stats { grid-template-columns: repeat(4, 1fr); }
+        } } }
 
     .stat {
       padding: clamp(18px,3vw,32px) var(--gutter);
@@ -792,7 +796,7 @@
 <div id="public-horarios" style="background:var(--s2);border:1px solid var(--border);border-radius:18px;padding:8px 20px;margin-bottom:20px">
  </div>
 <div style="display:flex;gap:12px;margin-bottom:12px">
-<a aria-label="WhatsApp" class="btn-wa" href="https://wa.me/521234567890?text=Hola" id="btn-wa" rel="noopener noreferrer" style="flex:1;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:0.95rem" target="_blank">
+<a aria-label="WhatsApp" class="btn-wa" href="https://wa.me/521234567890?text=Hello" id="btn-wa" rel="noopener noreferrer" style="flex:1;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:0.95rem" target="_blank">
 <svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.852L0 24l6.336-1.51A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.012-1.368l-.36-.214-3.727.888.94-3.64-.235-.374A9.818 9.818 0 1112 21.818z"></path></svg>
             WhatsApp
           </a>
@@ -1048,7 +1052,7 @@
           if (d.site_phone) {
             document.querySelectorAll('.cms-site-phone').forEach(el => el.textContent = d.site_phone);
             const cleanPhone = d.site_phone.replace(/\D/g, '');
-            const waLinkStr = 'https://wa.me/' + cleanPhone + '?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.';
+            const waLinkStr = 'https://wa.me/' + cleanPhone + '?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment.';
             const linkTel = document.getElementById('link-tel');
             if (linkTel) linkTel.href = waLinkStr;
             const linkFooterPhone = document.getElementById('footer-phone-link');
@@ -1426,7 +1430,7 @@
       e.preventDefault();
       const btn = document.getElementById('btnSubmitReview');
       btn.disabled = true;
-      btn.textContent = 'Enviando...';
+      btn.textContent = 'Sending...';
       
       const form = document.getElementById('formResena');
       const formData = new FormData(form);
@@ -1448,12 +1452,12 @@
           document.getElementById('reviewModal').classList.remove('active');
           form.reset();
           loadReviews();
-          alert('¡Gracias por tu reseña!');
+          alert('Thank you for your review!');
         } else {
-          alert(json.error || 'Error al enviar la reseña');
+          alert(json.error || 'Error sending review');
         }
       } catch(e) {
-        alert('Error de conexión');
+        alert('Connection error');
       } finally {
         btn.disabled = false;
         btn.textContent = 'Post Review';
@@ -1477,7 +1481,7 @@
           if (statBarberos) statBarberos.textContent = jsonBarberos.data.length;
         }
       } catch (e) {
-        console.error("Error al cargar estadísticas:", e);
+        console.error("Error loading statistics:", e);
       }
     }
 

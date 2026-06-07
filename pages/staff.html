@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="#0F0F0F" name="theme-color"/>
 <title>Mi Agenda — Barbería Premium</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -591,7 +591,7 @@
           grid.innerHTML += `<div class="${cls}" ${onclick}>${d}</div>`;
         });
       } catch(e) {
-        grid.innerHTML = '<div style="grid-column:1/-1; color:var(--red);">Error cargando fechas</div>';
+        grid.innerHTML = '<div style="grid-column:1/-1; color:var(--red);">Error loading dates</div>';
       }
     }
 
@@ -624,7 +624,7 @@
         updatePills();
       } catch(e) {
         if (!silent) {
-          container.innerHTML = '<div class="empty-day"><p class="empty-sub" style="color:var(--red)">Error al cargar la agenda</p></div>';
+          container.innerHTML = '<div class="empty-day"><p class="empty-sub" style="color:var(--red)">Error loading schedule</p></div>';
         }
       }
     }
