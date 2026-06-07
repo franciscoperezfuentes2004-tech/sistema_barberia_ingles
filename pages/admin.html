@@ -576,7 +576,7 @@
 <div class="brand-icon" id="admin-default-icon">✂️ </div>
 <div>
 <div class="brand-text" id="admin-site-name">Barbershop</div>
-<div class="brand-sub">Admin Panel</div>
+<div class="brand-sub">Dashboard</div>
 </div>
 </div>
 <nav class="nav">
@@ -1345,7 +1345,7 @@
         else if (filter === 'best') filtered.sort((a,b) => parseInt(b.calificacion) - parseInt(a.calificacion));
         else if (filter === 'worst') filtered.sort((a,b) => parseInt(a.calificacion) - parseInt(b.calificacion));
 
-        document.getElementById('resenas-count').textContent = `${filtered.length} reseñas encontradas`;
+        document.getElementById('resenas-count').textContent = `${filtered.length} reviews found`;
 
         if(filtered.length === 0) {
           tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No reviews registered.</td></tr>`;
@@ -1909,7 +1909,7 @@
           const dObj = new Date(hoyISO + 'T12:00:00Z');
           const dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
           const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-          document.getElementById('current-date').textContent = `${dias[dObj.getDay()]}, ${dObj.getDate()} de ${meses[dObj.getMonth()]} de ${dObj.getFullYear()}`;
+          document.getElementById('current-date').textContent = dObj.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
           
           // 3. Fetch citas and render
           let html = '';
@@ -2353,9 +2353,9 @@ This will also delete all their appointment history and cannot be undone.`)) {
                 </label>
               </div>
               <div class="schedule-actions" id="${prefix}_times_${i}" style="flex:1; display:flex; align-items:center; gap:8px; opacity: ${checked ? '1' : '0.5'}; pointer-events: ${checked ? 'auto' : 'none'}">
-                <input type="time" id="${prefix}_in_${i}" value="${formatTime24h(row.hora_inicio)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
+                <input type="time" onclick="try{this.showPicker()}catch(e){}" id="${prefix}_in_${i}" value="${formatTime24h(row.hora_inicio)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <span style="color:var(--muted)">a</span>
-                <input type="time" id="${prefix}_out_${i}" value="${formatTime24h(row.hora_fin)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
+                <input type="time" onclick="try{this.showPicker()}catch(e){}" id="${prefix}_out_${i}" value="${formatTime24h(row.hora_fin)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copy this schedule to other active days">Copy to all</button>
               </div>
             </div>
@@ -2551,7 +2551,7 @@ This will also delete all their appointment history and cannot be undone.`)) {
           sections.forEach(s => s.classList.remove('active'));
           document.getElementById(target).classList.add('active');
           
-          titleEl.textContent = titles[target] || 'Admin Panel';
+          titleEl.textContent = titles[target] || 'Dashboard';
 
           if (target === 'estadisticas') {
             updateMonthLabel();

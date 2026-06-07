@@ -201,9 +201,9 @@ if ($verificar_ajustes) {
             `nombre_empresa`, `logo`, `site_phone`, `site_email`, `site_address`, 
             `site_slogan`, `site_hero_desc`, `stat_exp`, `stat_clientes`
         ) VALUES (
-            'Barbería Premium', '../assets/img/logo.png', '+52 123 456 7890', 'contacto@barberiapremium.com', 
-            'Av. Principal 123, Ciudad', 'Estilo que habla por ti', 
-            'Experimenta el arte del cuidado masculino. Tradición y vanguardia.', 10, '+2000'
+            'Premium Barbershop', '../assets/img/logo.png', '+52 123 456 7890', 'contacto@barberiapremium.com', 
+            '123 Main St, City', 'Let your style do the talking', 
+            'Experience the art of men\'s grooming. Where classic tradition meets modern style.', 10, '+2000'
         )";
         mysqli_query($conexion, $insert_ajustes);
     }
@@ -214,13 +214,13 @@ $verificar_servicios = mysqli_query($conexion, "SELECT COUNT(*) as total FROM `s
 if ($verificar_servicios) {
     $fila = mysqli_fetch_assoc($verificar_servicios);
     if ((int)$fila['total'] === 0) {
-        $insert_servicio_1 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Corte Clásico', 'Corte de cabello estilizado para hombre', 150.00, 30, '../assets/img/corte.png')";
+        $insert_servicio_1 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Classic Cut', 'Stylized haircut for men', 150.00, 30, '../assets/img/corte.png')";
         mysqli_query($conexion, $insert_servicio_1);
         
-        $insert_servicio_2 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Afeitado Premium', 'Afeitado relajante con toalla caliente', 100.00, 20, '../assets/img/afeitado.png')";
+        $insert_servicio_2 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Premium Shave', 'Relaxing shave with hot towel', 100.00, 20, '../assets/img/afeitado.png')";
         mysqli_query($conexion, $insert_servicio_2);
         
-        $insert_servicio_3 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Corte + Barba', 'Servicio completo VIP', 220.00, 50, '../assets/img/completo.png')";
+        $insert_servicio_3 = "INSERT INTO `servicios` (`nombre`, `descripcion`, `precio`, `duracion_min`, `imagen`) VALUES ('Cut + Beard', 'VIP complete service', 220.00, 50, '../assets/img/completo.png')";
         mysqli_query($conexion, $insert_servicio_3);
     }
 }
@@ -230,10 +230,10 @@ $verificar_resenas = mysqli_query($conexion, "SELECT COUNT(*) as total FROM `res
 if ($verificar_resenas) {
     $fila = mysqli_fetch_assoc($verificar_resenas);
     if ((int)$fila['total'] === 0) {
-        $insert_resena_1 = "INSERT INTO `resenas` (`cliente_nombre`, `comentario`, `calificacion`) VALUES ('Juan Pérez', 'Excelente servicio', 5)";
+        $insert_resena_1 = "INSERT INTO `resenas` (`cliente_nombre`, `comentario`, `calificacion`) VALUES ('Juan Pérez', 'Excellent service', 5)";
         mysqli_query($conexion, $insert_resena_1);
         
-        $insert_resena_2 = "INSERT INTO `resenas` (`cliente_nombre`, `comentario`, `calificacion`) VALUES ('María López', 'Muy buena atención y ambiente', 5)";
+        $insert_resena_2 = "INSERT INTO `resenas` (`cliente_nombre`, `comentario`, `calificacion`) VALUES ('María López', 'Great attention and atmosphere', 5)";
         mysqli_query($conexion, $insert_resena_2);
     }
 }
