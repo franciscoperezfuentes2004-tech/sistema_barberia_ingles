@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#0F0F0F"/>
-  <title>Paso 2 — Fecha y Barbero · Barbería</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0F0F0F" name="theme-color"/>
+<title>Paso 2 — Fecha y Barbero · Barbería</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --gradient-green: linear-gradient(135deg, #2ecc71, #27ae60);
       --gradient-gold: linear-gradient(135deg, #F3A183, #E1B24A);
@@ -197,8 +198,7 @@
     }
     .cal-nav-btn:hover { background:rgba(255,255,255,0.1) !important; border-color:var(--gold) !important; color:var(--gold) !important; transform:translateY(-2px); box-shadow:0 6px 15px rgba(225,178,74,0.2); }
   </style>
-
-  <style>
+<style>
     @keyframes fadeIn { from { opacity: 0; backdrop-filter: blur(0px); } to { opacity: 1; backdrop-filter: blur(8px); } }
     .barber-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .barber-card:hover { transform: translateY(-4px); box-shadow: var(--glass-shadow); border-color: rgba(225,178,74,0.4); }
@@ -207,38 +207,35 @@
   </style>
 </head>
 <body>
-
-  <header class="app-header">
-    <div class="hdr-inner">
-      <div class="hdr-top">
-        <a href="../index.html" class="logo">
-          <div class="logo-mark">✂️</div>
-          <span class="logo-name">Barbería</span>
-        </a>
-        <a href="booking.html" style="font-size:.78rem;color:var(--muted);text-decoration:none">← Volver</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-      <nav class="steps">
-        <div class="step-item">
-          <div class="step-dot done">✓</div>
-          <span class="step-label done">Servicios</span>
-        </div>
-        <div class="step-line done"></div>
-        <div class="step-item">
-          <div class="step-dot active">2</div>
-          <span class="step-label active">Fecha &amp; Barbero</span>
-        </div>
-        <div class="step-line"></div>
-        <div class="step-item">
-          <div class="step-dot">3</div>
-          <span class="step-label">Confirmar</span>
-        </div>
-      </nav>
-
-    <style>
+<header class="app-header">
+<div class="hdr-inner">
+<div class="hdr-top">
+<a class="logo" href="../index.html">
+<div class="logo-mark">✂️</div>
+<span class="logo-name">Barbershop</span>
+</a>
+<a href="booking.html" style="font-size:.78rem;color:var(--muted);text-decoration:none">← Back</a>
+</div>
+</div>
+</header>
+<main>
+<nav class="steps">
+<div class="step-item">
+<div class="step-dot done">✓</div>
+<span class="step-label done">Services</span>
+</div>
+<div class="step-line done"></div>
+<div class="step-item">
+<div class="step-dot active">2</div>
+<span class="step-label active">Date &amp; Barber</span>
+</div>
+<div class="step-line"></div>
+<div class="step-item">
+<div class="step-dot">3</div>
+<span class="step-label">Confirm</span>
+</div>
+</nav>
+<style>
       .booking-layout {
         display: grid;
         grid-template-columns: 1fr;
@@ -292,116 +289,92 @@
         font-size: 0.9rem;
       }
     </style>
+<div class="booking-layout">
+ <div style="display: flex; flex-direction: column; gap: 24px;">
 
-    <div class="booking-layout">
-      <!-- Columna Izquierda: Fecha y Barbero -->
-      <div style="display: flex; flex-direction: column; gap: 24px;">
-        
-        <!-- 1. Fechas -->
-        <div class="panel-card">
-          <h2 class="panel-title"><span class="panel-title-num">1</span> Elige tu día</h2>
-          <button id="btn-open-calendar" class="cta-btn" style="width:100%; margin:0; background:var(--s1); border:1px solid var(--border); color:var(--bright); font-weight:600; box-shadow:none;" onclick="openCalendarModal()">
-            🗓️ Abrir Calendario
+<div class="panel-card">
+<h2 class="panel-title"><span class="panel-title-num">1</span> Choose your day</h2>
+<button class="cta-btn" id="btn-open-calendar" onclick="openCalendarModal()" style="width:100%; margin:0; background:var(--s1); border:1px solid var(--border); color:var(--bright); font-weight:600; box-shadow:none;">
+            🗓️ Open Calendar
           </button>
-          <div id="selected-date-display" style="margin-top:16px; font-size:1.1rem; color:var(--gold); font-weight:700; display:none; align-items:center; gap:8px; justify-content:center; background:rgba(201,168,76,0.1); padding:12px; border-radius:12px;">
-            <!-- JS fills this -->
-          </div>
-        </div>
+<div id="selected-date-display" style="margin-top:16px; font-size:1.1rem; color:var(--gold); font-weight:700; display:none; align-items:center; gap:8px; justify-content:center; background:rgba(201,168,76,0.1); padding:12px; border-radius:12px;">
+ </div>
+</div>
 
-        <!-- 2. Barberos -->
-        <div class="panel-card" id="sec-barberos" style="display:none; opacity:0; transition:opacity .3s">
-          <h2 class="panel-title"><span class="panel-title-num">2</span> Elige a tu barbero</h2>
-          <div id="barbers-grid">
-            <!-- JS generates barbers here -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Columna Derecha: Horarios -->
-      <div class="panel-card" style="min-height: 400px; display: flex; flex-direction: column;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-          <h2 class="panel-title" style="margin-bottom:0;"><span class="panel-title-num">3</span> Horarios disponibles</h2>
-          <span id="dur-badge" style="font-size:.75rem;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);padding:6px 14px;border-radius:999px;display:none; font-weight: 600; letter-spacing: 0.3px;"></span>
-        </div>
-        
-        <div id="horarios-empty-state" class="empty-state" style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-          <div style="font-size: 2rem; margin-bottom: 12px; opacity: 0.5;">🕒</div>
-          <p>Selecciona una fecha y un barbero primero<br>para ver los horarios disponibles.</p>
-        </div>
-
-        <section id="sec-horarios" style="display:none; opacity:0; transition:opacity .3s">
-          <div id="times-grid">
-            <!-- JS generates timeslots here -->
-          </div>
-          <div id="delay-msg" style="display:none; margin-top:15px; padding:12px; border:1px solid var(--gold); background:rgba(201,168,76,.1); color:var(--gold); border-radius:8px; font-size:.9rem; line-height:1.4;"></div>
-        </section>
-      </div>
-
-    </div>
-  </main>
-
-  <div class="bottom-cta">
-    <div class="bottom-inner">
-      <button id="btn-continuar" class="cta-btn" disabled onclick="goToStep3()">
-        Continuar al resumen →
+<div class="panel-card" id="sec-barberos" style="display:none; opacity:0; transition:opacity .3s">
+<h2 class="panel-title"><span class="panel-title-num">2</span> Choose your barber</h2>
+<div id="barbers-grid">
+ </div>
+</div>
+</div>
+ <div class="panel-card" style="min-height: 400px; display: flex; flex-direction: column;">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+<h2 class="panel-title" style="margin-bottom:0;"><span class="panel-title-num">3</span> Available hours</h2>
+<span id="dur-badge" style="font-size:.75rem;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);padding:6px 14px;border-radius:999px;display:none; font-weight: 600; letter-spacing: 0.3px;"></span>
+</div>
+<div class="empty-state" id="horarios-empty-state" style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="font-size: 2rem; margin-bottom: 12px; opacity: 0.5;">🕒</div>
+<p>Select a date and a barber first<br/>to see available hours.</p>
+</div>
+<section id="sec-horarios" style="display:none; opacity:0; transition:opacity .3s">
+<div id="times-grid">
+ </div>
+<div id="delay-msg" style="display:none; margin-top:15px; padding:12px; border:1px solid var(--gold); background:rgba(201,168,76,.1); color:var(--gold); border-radius:8px; font-size:.9rem; line-height:1.4;"></div>
+</section>
+</div>
+</div>
+</main>
+<div class="bottom-cta">
+<div class="bottom-inner">
+<button class="cta-btn" disabled="" id="btn-continuar" onclick="goToStep3()">
+        Continue to summary →
       </button>
-    </div>
-  </div>
+</div>
+</div>
+
+<div id="calendar-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100; align-items:center; justify-content:center; padding:clamp(10px, 3vw, 20px); backdrop-filter:blur(8px); animation: fadeIn 0.3s ease;">
+<div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:400px; padding:clamp(14px, 4vw, 28px); position:relative;">
+<button class="cal-nav-btn" onclick="closeCalendarModal()" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.05); color:var(--muted); width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s; z-index:10;">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+</button>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:48px;">
+<button class="cal-nav-btn" id="cal-prev" onclick="changeMonth(-1)" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--bright); border-radius:12px; width:44px; height:44px; cursor:pointer; transition:all 0.3s; display:flex; align-items:center; justify-content:center;">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="m15 18-6-6 6-6"></path></svg>
+</button>
+<h3 id="cal-month-year" style="margin:0; background:var(--gradient-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-family:var(--serif); font-size:1.6rem; font-weight:800; letter-spacing:0.5px;">May 2026</h3>
+<button class="cal-nav-btn" id="cal-next" onclick="changeMonth(1)" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--bright); border-radius:12px; width:44px; height:44px; cursor:pointer; transition:all 0.3s; display:flex; align-items:center; justify-content:center;">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="m9 18 6-6-6-6"></path></svg>
+</button>
+</div>
+<div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:clamp(4px, 1.5vw, 8px); text-align:center; margin-bottom:16px;">
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Su</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Mo</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Tu</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">We</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Th</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Fr</div>
+<div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Sa</div>
+</div>
+<div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:10px clamp(4px, 1.5vw, 8px);">
+ </div>
+<div style="margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-wrap:wrap; gap:16px; font-size:0.8rem; font-weight:500; color:var(--muted); justify-content:center;">
+<div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; background:var(--gradient-gold); box-shadow:0 2px 8px rgba(225,178,74,0.3);"></span> Today</div>
+<div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; background:var(--gradient-green); box-shadow:0 2px 8px rgba(39,174,96,0.4);"></span> Avail.</div>
+<div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; border:1px dashed #e74c3c;"></span> Full</div>
+</div>
+</div>
+</div>
+<div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px 6px;">
+ </div>
+<div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:12px; font-size:0.75rem; color:var(--muted); justify-content:center;">
+<div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--gold); border:2px solid var(--gold);"></span> Today</div>
+<div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #27ae60;"></span> Available</div>
+<div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #e74c3c;"></span> Full</div>
+<div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #444;"></span> Past</div>
+</div>
 
 
-  <!-- Premium Calendar Modal -->
-  <div id="calendar-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100; align-items:center; justify-content:center; padding:clamp(10px, 3vw, 20px); backdrop-filter:blur(8px); animation: fadeIn 0.3s ease;">
-    <div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:400px; padding:clamp(14px, 4vw, 28px); position:relative;">
-      <button class="cal-nav-btn" onclick="closeCalendarModal()" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.05); color:var(--muted); width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s; z-index:10;">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:48px;">
-        <button class="cal-nav-btn" id="cal-prev" onclick="changeMonth(-1)" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--bright); border-radius:12px; width:44px; height:44px; cursor:pointer; transition:all 0.3s; display:flex; align-items:center; justify-content:center;">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <h3 id="cal-month-year" style="margin:0; background:var(--gradient-gold); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-family:var(--serif); font-size:1.6rem; font-weight:800; letter-spacing:0.5px;">Mayo 2026</h3>
-        <button class="cal-nav-btn" id="cal-next" onclick="changeMonth(1)" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--bright); border-radius:12px; width:44px; height:44px; cursor:pointer; transition:all 0.3s; display:flex; align-items:center; justify-content:center;">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:clamp(4px, 1.5vw, 8px); text-align:center; margin-bottom:16px;">
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Do</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Lu</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Ma</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Mi</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Ju</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Vi</div>
-        <div style="color:var(--muted); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Sa</div>
-      </div>
-
-      <div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:10px clamp(4px, 1.5vw, 8px);">
-        <!-- JS fills this -->
-      </div>
-
-      <div style="margin-top:28px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); display:flex; flex-wrap:wrap; gap:16px; font-size:0.8rem; font-weight:500; color:var(--muted); justify-content:center;">
-        <div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; background:var(--gradient-gold); box-shadow:0 2px 8px rgba(225,178,74,0.3);"></span> Hoy</div>
-        <div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; background:var(--gradient-green); box-shadow:0 2px 8px rgba(39,174,96,0.4);"></span> Disp.</div>
-        <div style="display:flex; align-items:center; gap:8px;"><span style="display:inline-block; width:18px; height:18px; border-radius:4px; border:1px dashed #e74c3c;"></span> Lleno</div>
-      </div>
-    </div>
-  </div>
-
-      <div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px 6px;">
-        <!-- JS fills this -->
-      </div>
-
-      <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:12px; font-size:0.75rem; color:var(--muted); justify-content:center;">
-        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--gold); border:2px solid var(--gold);"></span> Hoy</div>
-        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #27ae60;"></span> Disponible</div>
-        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #e74c3c;"></span> Lleno</div>
-        <div style="display:flex; align-items:center; gap:6px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #444;"></span> Pasado</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+<script>
     const API = '../sistema';
 
     // 1. Validar state del paso 1
@@ -447,10 +420,10 @@
     async function loadCalendarMonth(m, a) {
       const grid = document.getElementById('cal-days-grid');
       const title = document.getElementById('cal-month-year');
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const meses = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       
       title.textContent = `${meses[m-1]} ${a}`;
-      grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Cargando...</div>';
+      grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Loading...</div>';
 
       try {
         const res = await fetch(`${API}/calendario.php?mes=${m}&anio=${a}&duracion=${state.duracion}`);
@@ -492,9 +465,9 @@
 
       const parts = isodate.split('-');
       const d = new Date(isodate + 'T12:00:00Z');
-      const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
-      const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-      const text = `${dias[d.getUTCDay()]} ${parts[2]} de ${meses[parseInt(parts[1])-1]}`;
+      const dias = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const text = `${dias[d.getUTCDay()]} ${meses[parseInt(parts[1])-1]}`;
       
       const display = document.getElementById('selected-date-display');
       display.innerHTML = `<span>📅</span> ${text}`;
@@ -513,7 +486,7 @@
       const durBadge = document.getElementById('dur-badge');
       if (durBadge) {
         const slotsNecesarios = calcSlots(state.duracion);
-        durBadge.innerHTML = `⏱️ ${state.duracion} min <span style="opacity:0.7; font-weight:400; font-size:0.7rem; margin-left:4px;">(${slotsNecesarios} bloque${slotsNecesarios > 1 ? 's' : ''})</span>`;
+        durBadge.innerHTML = `⏱️ ${state.duracion} min <span style="opacity:0.7; font-weight:400; font-size:0.7rem; margin-left:4px;">(${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''})</span>`;
         durBadge.style.display = 'inline-flex';
       }
     }
@@ -555,7 +528,7 @@
         card.id = `bar-${b.id}`;
         
         const badge = hasSlots 
-          ? `<span class="barber-badge ok">${b.slots_disponibles} espacios</span>`
+          ? `<span class="barber-badge ok">${b.slots_disponibles} slots</span>`
           : `<span class="barber-badge sold-out">Agotado</span>`;
         
         // Manejar URLs absolutas y relativas de fotos
@@ -567,7 +540,7 @@
         }
         
         // Decodificar especialidad para evitar doble escape HTML
-        const especialidad = decodeHtml(b.especialidad || 'Barbero');
+        const especialidad = decodeHtml(b.especialidad || 'Barber');
           
         card.innerHTML = `
           <div class="barber-photo-wrap">
@@ -678,7 +651,7 @@
       const durBadge = document.getElementById('dur-badge');
       if (durBadge) {
         const slotsNecesarios = calcSlots(state.duracion);
-        durBadge.textContent = `Requires ${state.duracion} min (${slotsNecesarios} bloque${slotsNecesarios > 1 ? 's' : ''} de 30 min)`;
+        durBadge.textContent = `Requires ${state.duracion} min (${slotsNecesarios} block${slotsNecesarios > 1 ? 's' : ''} of 30 min)`;
       }
     }
 
@@ -734,4 +707,3 @@
   </script>
 </body>
 </html>
-

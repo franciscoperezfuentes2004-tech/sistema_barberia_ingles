@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#0F0F0F"/>
-  <meta name="description" content="Selecciona los servicios que deseas reservar."/>
-  <title>Paso 1 — Selecciona tus Servicios · Barbería</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0F0F0F" name="theme-color"/>
+<meta content="Selecciona los servicios que deseas reservar." name="description"/>
+<title>Paso 1 — Selecciona tus Servicios · Barbería</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     /* ─── TOKENS ─── */
     :root{
       --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#9A7B32;
@@ -190,92 +191,80 @@
   </style>
 </head>
 <body>
-
-  <header class="app-header" role="banner">
-    <div class="hdr-inner">
-      <!-- Top row -->
-      <div class="hdr-top">
-        <a href="../index.html" class="logo" aria-label="Barbería — Inicio">
-          <div class="logo-mark" aria-hidden="true">✂️</div>
-          <span class="logo-name">Barbería</span>
+<header class="app-header" role="banner">
+<div class="hdr-inner">
+ <div class="hdr-top">
+<a aria-label="Barbería — Inicio" class="logo" href="../index.html">
+<div aria-hidden="true" class="logo-mark">✂️</div>
+<span class="logo-name">Barbershop</span>
+</a>
+<a href="../index.html" onmouseenter="this.style.color='var(--gold)'" onmouseleave="this.style.color='var(--muted)'" style="font-size:.78rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s">
+          ✖ Cancel
         </a>
-        <a href="../index.html" style="font-size:.78rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s"
-           onmouseenter="this.style.color='var(--gold)'" onmouseleave="this.style.color='var(--muted)'">
-          ✖ Cancelar
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main role="main" aria-labelledby="main-h">
-    <!-- Steps -->
-    <nav class="steps" aria-label="Pasos de reserva">
-      <div class="step-item">
-        <div class="step-dot active" aria-current="step">1</div>
-        <span class="step-label active">Servicios</span>
-      </div>
-      <div class="step-line"></div>
-      <div class="step-item">
-        <div class="step-dot" aria-label="Paso 2 pendiente">2</div>
-        <span class="step-label">Fecha &amp; Barbero</span>
-      </div>
-      <div class="step-line"></div>
-      <div class="step-item">
-        <div class="step-dot" aria-label="Paso 3 pendiente">3</div>
-        <span class="step-label">Confirmar</span>
-      </div>
-    </nav>
-
-    <!-- Greeting -->
-    <section style="margin-bottom:28px">
-      <p id="greeting-time" style="font-size:.75rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Buenos días 👋</p>
-      <h1 id="main-h" style="font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--bright);line-height:1.2;margin-bottom:5px">
-        ¿Qué te hacemos
-        <span style="background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">hoy?</span>
-      </h1>
-      <p style="font-size:.82rem;color:var(--muted)">Elige uno o más servicios. Después eliges fecha y barbero.</p>
-    </section>
-
-    <!-- Services -->
-    <section aria-labelledby="svc-heading">
-      <div class="sec-title-row">
-        <h2 id="svc-heading" class="sec-title">Servicios</h2>
-        <span class="badge-multi">Selección múltiple</span>
-      </div>
-      <div class="divider-line">Menú</div>
-
-      <div id="services-grid" role="group" aria-label="Selecciona los servicios">
-        <!-- Skeletons mientras carga -->
-        <div class="skeleton" style="height:88px"></div>
-        <div class="skeleton" style="height:88px;opacity:.7"></div>
-        <div class="skeleton" style="height:88px;opacity:.5"></div>
-        <div class="skeleton" style="height:88px;opacity:.4"></div>
-        <div class="skeleton" style="height:88px;opacity:.3"></div>
-        <div class="skeleton" style="height:88px;opacity:.2"></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Bottom fade overlay -->
-  <div class="bottom-fade" aria-hidden="true"></div>
-
-  <!-- Sticky bottom CTA -->
-  <div class="bottom-cta" role="complementary" aria-label="Resumen y continuar">
-    <div class="bottom-inner">
-      <div class="pills" role="status" aria-live="polite">
-        <div class="pill">🛍️ <strong id="pill-count">—</strong></div>
-        <div class="pill">⏱️ <strong id="pill-dur">0 min</strong></div>
-        <div class="pill"><strong id="pill-price">$0 USD</strong></div>
-      </div>
-      <button id="btn-continuar" class="cta-btn" onclick="goToStep2()"
-              disabled aria-disabled="true" aria-label="Continue to step 2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        <span id="cta-label">Elige al menos un servicio</span>
-      </button>
-    </div>
-  </div>
-
-  <script>
+</div>
+</div>
+</header>
+<main aria-labelledby="main-h" role="main">
+ Steps 
+<nav aria-label="Pasos de reserva" class="steps">
+<div class="step-item">
+<div aria-current="step" class="step-dot active">1</div>
+<span class="step-label active">Services</span>
+</div>
+<div class="step-line"></div>
+<div class="step-item">
+<div aria-label="Paso 2 pendiente" class="step-dot">2</div>
+<span class="step-label">Date &amp; Barber</span>
+</div>
+<div class="step-line"></div>
+<div class="step-item">
+<div aria-label="Paso 3 pendiente" class="step-dot">3</div>
+<span class="step-label">Confirm</span>
+</div>
+</nav>
+ Greeting 
+<section style="margin-bottom:28px">
+<p id="greeting-time" style="font-size:.75rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Good morning 👋</p>
+<h1 id="main-h" style="font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--bright);line-height:1.2;margin-bottom:5px">
+        What are we doing
+        <span style="background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">today?</span>
+</h1>
+<p style="font-size:.82rem;color:var(--muted)">Choose one or more services. Then choose a date and a barber.</p>
+</section>
+ Services 
+<section aria-labelledby="svc-heading">
+<div class="sec-title-row">
+<h2 class="sec-title" id="svc-heading">Services</h2>
+<span class="badge-multi">Multiple selection</span>
+</div>
+<div class="divider-line">Menu</div>
+<div aria-label="Selecciona los servicios" id="services-grid" role="group">
+ <div class="skeleton" style="height:88px"></div>
+<div class="skeleton" style="height:88px;opacity:.7"></div>
+<div class="skeleton" style="height:88px;opacity:.5"></div>
+<div class="skeleton" style="height:88px;opacity:.4"></div>
+<div class="skeleton" style="height:88px;opacity:.3"></div>
+<div class="skeleton" style="height:88px;opacity:.2"></div>
+</div>
+</section>
+</main>
+ Bottom fade overlay 
+<div aria-hidden="true" class="bottom-fade"></div>
+ Sticky bottom CTA 
+<div aria-label="Resumen y continuar" class="bottom-cta" role="complementary">
+<div class="bottom-inner">
+<div aria-live="polite" class="pills" role="status">
+<div class="pill">🛍️ <strong id="pill-count">—</strong></div>
+<div class="pill">⏱️ <strong id="pill-dur">0 min</strong></div>
+<div class="pill">💰 <strong id="pill-price">$0💵0 USD</strong></div>
+</div>
+<button aria-disabled="true" aria-label="Continue to step 2" class="cta-btn" disabled="" id="btn-continuar" onclick="goToStep2()">
+<svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="18"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+<span id="cta-label">Choose at least one service</span>
+</button>
+</div>
+</div>
+<script>
   'use strict';
   const API = '../sistema';
 
@@ -285,7 +274,7 @@
   // Saludo
   const h = new Date().getHours();
   const grEl = document.getElementById('greeting-time');
-  if(grEl) grEl.textContent = h<12?'Buenos días 👋':h<19?'Buenas tardes 👋':'Buenas noches 👋';
+  if(grEl) grEl.textContent = h<12?'Good morning 👋':h<19?'Good afternoon 👋':'Good evening 👋';
 
   // Cargar servicios
   async function loadServicios() {
@@ -314,13 +303,13 @@
       card.setAttribute('role','checkbox');
       card.setAttribute('aria-checked','false');
       card.setAttribute('tabindex','0');
-      card.setAttribute('aria-label',`${svc.nombre}, $${svc.precio} USD, ${svc.duracion_min} minutos`);
+      card.setAttribute('aria-label',`${svc.nombre}, $${svc.precio}💵0 USD, ${svc.duracion_min} minutos`);
       card.innerHTML = `
         <div class="svc-icon" aria-hidden="true">${svc.icono||'✂️'}</div>
         <div class="svc-info">
           <div class="svc-head">
             <span class="svc-name">${svc.nombre}</span>
-            <span class="svc-price">$${parseFloat(svc.precio).toLocaleString('es-MX')} USD</span>
+            <span class="svc-price">$${parseFloat(svc.precio).toLocaleString('es-MX')}💵0 USD</span>
           </div>
           <p class="svc-desc">${svc.descripcion||''}</p>
           <span class="svc-dur">⏱️ ${svc.duracion_min} min</span>
@@ -355,9 +344,9 @@
       if(s){ state.totalPrecio += parseFloat(s.precio); state.totalDur += parseInt(s.duracion_min); }
     });
     const n = state.selIds.size;
-    document.getElementById('pill-count').textContent  = n===0?'—':`${n} servicio${n>1?'s':''}`;
+    document.getElementById('pill-count').textContent  = n===0?'—':`${n} service${n>1?'s':''}`;
     document.getElementById('pill-dur').textContent    = `${state.totalDur} min`;
-    document.getElementById('pill-price').textContent  = `$${state.totalPrecio.toLocaleString('es-MX')} USD`;
+    document.getElementById('pill-price').textContent  = `$${state.totalPrecio.toLocaleString('es-MX')}💵0 USD`;
   }
 
   function updateCTA() {
@@ -367,8 +356,8 @@
     btn.disabled = !ok;
     btn.setAttribute('aria-disabled', String(!ok));
     label.textContent = ok
-      ? `Continue — $${state.totalPrecio.toLocaleString('es-MX')} USD · ${state.totalDur} min`
-      : 'Elige al menos un servicio';
+      ? `Continue — 💵${state.totalPrecio.toLocaleString('en-US')} USD · ${state.totalDur} min`
+      : 'Choose at least one service';
   }
 
   function goToStep2() {
@@ -413,4 +402,3 @@
   </script>
 </body>
 </html>
-

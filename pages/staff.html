@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#0F0F0F"/>
-  <title>Mi Agenda — Barbería Premium</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0F0F0F" name="theme-color"/>
+<title>Mi Agenda — Barbería Premium</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     /* â•â•â•â•â•â•â•â•â•â•â• TOKENS â•â•â•â•â•â•â•â•â•â•â• */
     :root {
       --gold:#C9A84C; --gold-l:#E8C97A; --gold-d:#9A7B32; --gradient-gold: linear-gradient(135deg, var(--gold-d), var(--gold), var(--gold-l));
@@ -273,79 +274,66 @@
   </style>
 </head>
 <body>
+<header class="staff-header">
+<div class="hdr-row">
+<div>
+<p class="hdr-greeting" id="hdr-greeting">Good morning</p>
+<h1 class="hdr-name" id="hdr-name">Charles</h1>
+</div>
+<div class="hdr-actions">
+<div class="hdr-avatar" id="hdr-avatar">
+<img alt="Profile Picture" src="../assets/img/barbers/carlos.png"/>
+</div>
+<button class="btn-logout" onclick="app.logout()" title="Log Out">
+<svg fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>
+</button>
+</div>
+</div>
+<div class="hdr-pills" id="hdr-pills">
+<span class="pill pill-gold" id="pill-citas">📅 — appointments today</span>
+<span class="pill pill-green" id="pill-next">⏳ Loading...</span>
+</div>
+</header>
+<div class="date-selector-wrap" style="padding: 12px var(--gutter); max-width: 900px; margin: 0 auto;">
+<button onclick="openCalendarModal()" style="width: 100%; background: var(--s2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--bright); font-family: inherit; font-size: 1rem; transition: var(--tr);">
+<span style="font-weight: 600;">Select Date</span>
+<div style="display: flex; align-items: center; gap: 8px;">
+<span id="selected-date-lbl" style="color: var(--gold); font-weight: 700;"></span>
+<svg fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</div>
+</button>
+</div>
+<section class="timeline-section">
+<div class="tl-label" id="tl-label">Schedule of the day</div>
+<div id="timeline-container">
+<div class="loading-spinner"><div class="spinner"></div></div>
+</div>
+</section>
+<div class="toast" id="toast">
+<span class="toast-icon"></span>
+<span class="toast-msg"></span>
+</div>
 
-  <!-- ————————— HEADER ————————— -->
-  <header class="staff-header">
-    <div class="hdr-row">
-      <div>
-        <p class="hdr-greeting" id="hdr-greeting">Good morning</p>
-        <h1 class="hdr-name" id="hdr-name">Carlos</h1>
-      </div>
-      <div class="hdr-actions">
-        <div class="hdr-avatar" id="hdr-avatar">
-          <img src="../assets/img/barbers/carlos.png" alt="Foto de perfil"/>
-        </div>
-        <button class="btn-logout" onclick="app.logout()" title="Cerrar sesión">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="hdr-pills" id="hdr-pills">
-      <span class="pill pill-gold" id="pill-citas">📅 — citas hoy</span>
-      <span class="pill pill-green" id="pill-next">⏳ Cargando...</span>
-    </div>
-  </header>
-
-  <!-- ————————— DATE SELECTOR ————————— -->
-  <div class="date-selector-wrap" style="padding: 12px var(--gutter); max-width: 900px; margin: 0 auto;">
-    <button onclick="openCalendarModal()" style="width: 100%; background: var(--s2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--bright); font-family: inherit; font-size: 1rem; transition: var(--tr);">
-      <span style="font-weight: 600;">Seleccionar Fecha</span>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span id="selected-date-lbl" style="color: var(--gold); font-weight: 700;"></span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-      </div>
-    </button>
-  </div>
-
-  <!-- ————————— TIMELINE ————————— -->
-  <section class="timeline-section">
-    <div class="tl-label" id="tl-label">Agenda del día</div>
-    <div id="timeline-container">
-      <div class="loading-spinner"><div class="spinner"></div></div>
-    </div>
-  </section>
-
-  <!-- ————————— TOAST ————————— -->
-  <div class="toast" id="toast">
-    <span class="toast-icon"></span>
-    <span class="toast-msg"></span>
-  </div>
-
-  <!-- Premium Calendar Modal -->
-  <div id="calendar-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(8px); animation: fadeIn 0.3s ease;">
-    <div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:400px; padding:28px; position:relative;">
-      <button onclick="closeCalendarModal()" style="position:absolute; top:16px; right:20px; background:rgba(255,255,255,0.1); border:none; color:var(--bright); width:32px; height:32px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">&times;</button>
-      
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:36px;">
-        <button id="cal-prev" onclick="changeMonth(-1)" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:44px; height:44px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <h3 id="cal-month-year" style="margin:0; color:var(--gold); font-family:var(--serif); font-size:1.5rem; font-weight:800; letter-spacing:0.5px; text-transform:capitalize;"></h3>
-        <button id="cal-next" onclick="changeMonth(1)" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:44px; height:44px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--muted); margin-bottom:16px; text-transform:uppercase; letter-spacing:1px;">
-        <div>D</div><div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div>
-      </div>
-      <div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px 4px;">
-        <!-- JS fills this -->
-      </div>
-    </div>
-  </div>
-
-  <script>
+<div id="calendar-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:100; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(8px); animation: fadeIn 0.3s ease;">
+<div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:400px; padding:28px; position:relative;">
+<button onclick="closeCalendarModal()" style="position:absolute; top:16px; right:20px; background:rgba(255,255,255,0.1); border:none; color:var(--bright); width:32px; height:32px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">×</button>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:36px;">
+<button id="cal-prev" onclick="changeMonth(-1)" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:44px; height:44px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
+<svg fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;" viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<h3 id="cal-month-year" style="margin:0; color:var(--gold); font-family:var(--serif); font-size:1.5rem; font-weight:800; letter-spacing:0.5px; text-transform:capitalize;"></h3>
+<button id="cal-next" onclick="changeMonth(1)" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:44px; height:44px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
+<svg fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+<div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--muted); margin-bottom:16px; text-transform:uppercase; letter-spacing:1px;">
+<div>D</div><div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div>
+</div>
+<div id="cal-days-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); gap:8px 4px;">
+ </div>
+</div>
+</div>
+<script>
   (() => {
     /* ——— Config ——— */
     const API = '../sistema';
@@ -404,7 +392,7 @@
         const imgPath = user.barbero_foto.startsWith('data:image') ? user.barbero_foto : '../' + user.barbero_foto;
         document.getElementById('hdr-avatar').querySelector('img').src = imgPath;
       } else {
-        document.getElementById('hdr-avatar').querySelector('img').src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.barbero_nombre || 'Barbero') + '&background=C9A84C&color=0F0F0F';
+        document.getElementById('hdr-avatar').querySelector('img').src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.barbero_nombre || 'Barber') + '&background=C9A84C&color=0F0F0F';
       }
 
       await loadHorarios();
@@ -573,7 +561,7 @@
       const meses = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       
       title.textContent = `${meses[m-1]} ${a}`;
-      grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Cargando...</div>';
+      grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Loading...</div>';
       
       try {
         const res = await fetch(`${API}/calendario_staff.php?mes=${m}&anio=${a}&barbero_id=${BARBERO_ID}`);
@@ -792,7 +780,7 @@
             html += renderAppointmentCard(cita);
           });
         } else {
-          html += `<div class="slot-empty">Disponible</div>`;
+          html += `<div class="slot-empty">Available</div>`;
         }
 
         html += '</div>';
@@ -847,7 +835,7 @@
         displayStatus = 'No catalogada';
       }
 
-      const serviciosStr = (cita.servicios || []).map(s => s.nombre).join(' + ') || 'Servicio';
+      const serviciosStr = (cita.servicios || []).map(s => s.nombre).join(' + ') || 'Service';
       const durMin = diffMinutes(cita.hora_inicio.substring(0,5), cita.hora_fin.substring(0,5));
       const tel = cita.cliente_tel || '';
       const waLink = tel ? `https://wa.me/52${tel.replace(/\D/g,'')}` : '#';
@@ -879,7 +867,7 @@
       } else if (realSt === 'completada') {
         actionsHTML = `<span style="font-size:.7rem;color:var(--green);display:flex;align-items:center;gap:4px">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Servicio completado · $${cita.precio_total || 0} USD</span>`;
+          Servicio completed · 💵$${cita.precio_total || 0} USD</span>`;
       } else if (realSt === 'no_asistio') {
         actionsHTML = `<span style="font-size:.7rem;color:var(--red);display:flex;align-items:center;gap:4px">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
@@ -959,7 +947,5 @@
     init();
   })();
   </script>
-
 </body>
 </html>
-

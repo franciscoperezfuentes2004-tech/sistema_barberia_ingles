@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#0F0F0F"/>
-  <title>Paso 3 — Confirmar · Barbería</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0F0F0F" name="theme-color"/>
+<title>Paso 3 — Confirmar · Barbería</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&amp;family=Playfair+Display:wght@700&amp;family=Inter:wght@400;500;600&amp;family=Noto+Color+Emoji&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#9A7B32;
       --bg:#0F0F0F;--s1:#181818;--s2:#222;--s3:#333;--border:#333;
@@ -133,115 +134,106 @@
 </style>
 </head>
 <body>
+<header class="app-header">
+<div class="hdr-inner">
+<div class="hdr-top">
+<a class="logo" href="../index.html">
+<div class="logo-mark">✂️</div>
+<span class="logo-name">Barbershop</span>
+</a>
+<a href="calendar.html" style="font-size:.78rem;color:var(--muted);text-decoration:none">← Back</a>
+</div>
+</div>
+</header>
+<main>
+<nav class="steps">
+<div class="step-item"><div class="step-dot done">✓</div></div>
+<div class="step-line done"></div>
+<div class="step-item"><div class="step-dot done">✓</div></div>
+<div class="step-line done"></div>
+<div class="step-item">
+<div class="step-dot active">3</div>
+<span class="step-label active">Confirm</span>
+</div>
+</nav>
+<div class="confirm-wrapper">
+<h1 class="sec-title">Appointment summary</h1>
+<div class="summary-card">
+<div class="sum-row">
+<div class="sum-label">Services</div>
+<div class="sum-val" id="sum-svc"></div>
+</div>
+<div class="sum-row">
+<div class="sum-label">Barber</div>
+<div class="sum-val" id="sum-barber"></div>
+</div>
+<div class="sum-row">
+<div class="sum-label">Date and Time</div>
+<div class="sum-val" id="sum-datetime"></div>
+</div>
+<div class="sum-row" style="border:none;margin-top:10px">
+<div class="sum-label">Total to pay<br/><small style="color:var(--muted)">At the end of the service</small></div>
+<div class="sum-val sum-total" id="sum-total"></div>
+</div>
+</div>
+<h2 class="sec-title" style="font-size:1.15rem;margin-bottom:15px">Your Details</h2>
+<form id="booking-form" onsubmit="event.preventDefault(); submitBooking();">
+<div class="form-group">
+<label class="form-label">Full Name *</label>
+<input class="form-input" id="inp-nombre" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" placeholder="e.g., John Doe" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Phone *</label>
+<div style="display: flex; gap: 8px;">
+<select id="inp-lada" style="display:none;" onchange="actualizarLada()" style="background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 12px; padding: 14px; font-family: 'Noto Color Emoji', inherit; min-width: 130px; width: 140px; text-overflow: ellipsis;">
+<option data-max="10" data-min="10" value="+52">🇲🇽 +52 (MX)</option>
+<option data-max="10" data-min="10" value="+1">🇺🇸/🇨🇦 +1 (US/CA)</option>
+<option data-max="9" data-min="9" value="+34">🇪🇸 +34 (ES)</option>
+<option data-max="10" data-min="10" value="+54">🇦🇷 +54 (AR)</option>
+<option data-max="10" data-min="10" value="+57">🇨🇴 +57 (CO)</option>
+<option data-max="9" data-min="9" value="+56">🇨🇱 +56 (CL)</option>
+<option data-max="9" data-min="9" value="+51">🇵🇪 +51 (PE)</option>
+<option data-max="9" data-min="9" value="+593">🇪🇨 +593 (EC)</option>
+<option data-max="10" data-min="10" value="+58">🇻🇪 +58 (VE)</option>
+<option data-max="11" data-min="10" value="+55">🇧🇷 +55 (BR)</option>
+<option data-max="8" data-min="8" value="+502">🇬🇹 +502 (GT)</option>
+<option data-max="8" data-min="8" value="+503">🇸🇻 +503 (SV)</option>
+<option data-max="8" data-min="8" value="+504">🇭🇳 +504 (HN)</option>
+<option data-max="8" data-min="8" value="+505">🇳🇮 +505 (NI)</option>
+<option data-max="8" data-min="8" value="+506">🇨🇷 +506 (CR)</option>
+<option data-max="8" data-min="7" value="+507">🇵🇦 +507 (PA)</option>
+<option data-max="8" data-min="8" value="+598">🇺🇾 +598 (UY)</option>
+<option data-max="9" data-min="9" value="+595">🇵🇾 +595 (PY)</option>
+<option data-max="8" data-min="8" value="+591">🇧🇴 +591 (BO)</option>
+<option data-max="10" data-min="10" value="+1809">🇩🇴 +1 809 (DO)</option>
+</select>
+<input class="form-input" id="inp-telefono" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="e.g., 5551234567" required="" style="flex: 1;" type="tel"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Email</label>
+<input class="form-input" id="inp-email" placeholder="To send you the receipt (Optional)" type="email"/>
+</div>
+<div id="error-msg" style="color:var(--red);font-size:.85rem;margin-top:10px;display:none"></div>
+<button class="cta-btn" id="btn-submit" type="submit">Confirm Booking</button>
+</form>
+</div>
+</main>
 
-  <header class="app-header">
-    <div class="hdr-inner">
-      <div class="hdr-top">
-        <a href="../index.html" class="logo">
-          <div class="logo-mark">✂️</div>
-          <span class="logo-name">Barbería</span>
-        </a>
-        <a href="calendar.html" style="font-size:.78rem;color:var(--muted);text-decoration:none">← Volver</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-      <nav class="steps">
-        <div class="step-item"><div class="step-dot done">✓</div></div>
-        <div class="step-line done"></div>
-        <div class="step-item"><div class="step-dot done">✓</div></div>
-        <div class="step-line done"></div>
-        <div class="step-item">
-          <div class="step-dot active">3</div>
-          <span class="step-label active">Confirmar</span>
-        </div>
-      </nav>
-
-    <div class="confirm-wrapper">
-      <h1 class="sec-title">Resumen de tu cita</h1>
-    
-    <div class="summary-card">
-      <div class="sum-row">
-        <div class="sum-label">Servicios</div>
-        <div class="sum-val" id="sum-svc"></div>
-      </div>
-      <div class="sum-row">
-        <div class="sum-label">Barbero</div>
-        <div class="sum-val" id="sum-barber"></div>
-      </div>
-      <div class="sum-row">
-        <div class="sum-label">Fecha y Hora</div>
-        <div class="sum-val" id="sum-datetime"></div>
-      </div>
-      <div class="sum-row" style="border:none;margin-top:10px">
-        <div class="sum-label">Total a pagar<br><small style="color:var(--muted)">Al finalizar el servicio</small></div>
-        <div class="sum-val sum-total" id="sum-total"></div>
-      </div>
-    </div>
-
-    <h2 class="sec-title" style="font-size:1.15rem;margin-bottom:15px">Tus Datos</h2>
-    <form id="booking-form" onsubmit="event.preventDefault(); submitBooking();">
-      <div class="form-group">
-        <label class="form-label">Nombre Completo *</label>
-        <input type="text" id="inp-nombre" class="form-input" required placeholder="Ej. Juan Pérez" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')">
-      </div>
-        <div class="form-group">
-          <label class="form-label">Teléfono *</label>
-          <div style="display: flex; gap: 8px;">
-            <select id="inp-lada" style="display:none;" onchange="actualizarLada()" style="background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 12px; padding: 14px; font-family: 'Noto Color Emoji', inherit; min-width: 130px; width: 140px; text-overflow: ellipsis;">
-              <option value="+52" data-min="10" data-max="10">🇲🇽 +52 (MX)</option>
-              <option value="+1" data-min="10" data-max="10">🇺🇸/🇨🇦 +1 (US/CA)</option>
-              <option value="+34" data-min="9" data-max="9">🇪🇸 +34 (ES)</option>
-              <option value="+54" data-min="10" data-max="10">🇦🇷 +54 (AR)</option>
-              <option value="+57" data-min="10" data-max="10">🇨🇴 +57 (CO)</option>
-              <option value="+56" data-min="9" data-max="9">🇨🇱 +56 (CL)</option>
-              <option value="+51" data-min="9" data-max="9">🇵🇪 +51 (PE)</option>
-              <option value="+593" data-min="9" data-max="9">🇪🇨 +593 (EC)</option>
-              <option value="+58" data-min="10" data-max="10">🇻🇪 +58 (VE)</option>
-              <option value="+55" data-min="10" data-max="11">🇧🇷 +55 (BR)</option>
-              <option value="+502" data-min="8" data-max="8">🇬🇹 +502 (GT)</option>
-              <option value="+503" data-min="8" data-max="8">🇸🇻 +503 (SV)</option>
-              <option value="+504" data-min="8" data-max="8">🇭🇳 +504 (HN)</option>
-              <option value="+505" data-min="8" data-max="8">🇳🇮 +505 (NI)</option>
-              <option value="+506" data-min="8" data-max="8">🇨🇷 +506 (CR)</option>
-              <option value="+507" data-min="7" data-max="8">🇵🇦 +507 (PA)</option>
-              <option value="+598" data-min="8" data-max="8">🇺🇾 +598 (UY)</option>
-              <option value="+595" data-min="9" data-max="9">🇵🇾 +595 (PY)</option>
-              <option value="+591" data-min="8" data-max="8">🇧🇴 +591 (BO)</option>
-              <option value="+1809" data-min="10" data-max="10">🇩🇴 +1 809 (DO)</option>
-            </select>
-            <input type="tel" id="inp-telefono" class="form-input" required placeholder="Ej. 5551234567" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" style="flex: 1;">
-          </div>
-        </div>
-      <div class="form-group">
-        <label class="form-label">Correo Electrónico</label>
-        <input type="email" id="inp-email" class="form-input" placeholder="Para enviarte el recibo (Opcional)">
-      </div>
-      
-      <div id="error-msg" style="color:var(--red);font-size:.85rem;margin-top:10px;display:none"></div>
-      
-      <button type="submit" id="btn-submit" class="cta-btn">Confirmar Reserva</button>
-    </form>
-    </div>
-  </main>
-
-  <!-- Success Modal -->
-  <div id="success-modal">
-    <div class="modal-content">
-      <div class="check-circle">✓</div>
-      <h2 class="modal-title">¡Reserva Confirmada!</h2>
-      <p class="modal-desc">
-        Tu lugar está asegurado. Te esperamos el <br>
-        <span class="modal-highlight" id="succ-fecha"></span> a las <span class="modal-highlight" id="succ-hora"></span>
-      </p>
-      <div class="modal-divider"></div>
-      <p style="color:var(--muted); font-size:0.85rem; margin-bottom:24px;">Gracias por elegir nuestra Barbería.<br>Nos vemos pronto.</p>
-      <button onclick="window.location.href='../index.html'" class="modal-btn">Volver al inicio</button>
-    </div>
-  </div>
-
-  <script>
+<div id="success-modal">
+<div class="modal-content">
+<div class="check-circle">✓</div>
+<h2 class="modal-title">Booking Confirmed!</h2>
+<p class="modal-desc">
+        Your spot is secured. We look forward to seeing you on <br/>
+<span class="modal-highlight" id="succ-fecha"></span> at <span class="modal-highlight" id="succ-hora"></span>
+</p>
+<div class="modal-divider"></div>
+<p style="color:var(--muted); font-size:0.85rem; margin-bottom:24px;">Thank you for choosing our Barbershop.<br/>See you soon.</p>
+<button class="modal-btn" onclick="window.location.href='../index.html'">Back to home</button>
+</div>
+</div>
+<script>
     const API = '../sistema';
 
     const step1 = JSON.parse(sessionStorage.getItem('bb_step1') || 'null');
@@ -258,10 +250,10 @@
     // Ajustar zona horaria si es necesario para evitar off-by-one por UTC
     d.setMinutes(d.getMinutes() + d.getTimezoneOffset()); 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const fechaStr = d.toLocaleDateString('es-ES', options);
+    const fechaStr = d.toLocaleDateString('en-US', options);
     
     document.getElementById('sum-datetime').innerHTML = `<span style="text-transform:capitalize">${fechaStr}</span><br><span style="color:var(--gold)">${step2.horaInicio}</span>`;
-    document.getElementById('sum-total').textContent = `$${step1.totalPrecio.toLocaleString('es-MX')} USD`;
+    document.getElementById('sum-total').textContent = `💵${step1.totalPrecio.toLocaleString('en-US')} USD`;
 
     async function submitBooking() {
       const btn = document.getElementById('btn-submit');
@@ -285,7 +277,7 @@
         err.textContent = msg;
         err.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Confirmar Reserva';
+        btn.textContent = 'Confirm Booking';
         return;
       }
       
@@ -320,7 +312,7 @@
 
       } catch(e) {
         btn.disabled = false;
-        btn.textContent = 'Confirmar Reserva';
+        btn.textContent = 'Confirm Booking';
         err.textContent = e.message;
         err.style.display = 'block';
       }
@@ -351,7 +343,7 @@
     }
     loadBranding();
   </script>
-  <script>
+<script>
     function actualizarLada() {
       const selLada = document.getElementById('inp-lada');
       const opt = selLada.options[selLada.selectedIndex];
@@ -383,47 +375,52 @@ function initCustomLadaDropdown() {
     const selected = document.createElement('div');
     selected.className = 'custom-lada-selected';
     
-    const optionsContainer = document.createElement('div');
-    optionsContainer.className = 'custom-lada-options';
+    const optionsList = document.createElement('div');
+    optionsList.className = 'custom-lada-options';
     
-    function renderOptionContent(option) {
-        let flag = option.textContent.split(' ')[0];
-        let text = option.textContent.substring(flag.length).trim();
-        return `<span style="font-size:1.2rem">${flag}</span> <span>${text}</span>`;
-    }
-
-    // Set initial selected
-    selected.innerHTML = renderOptionContent(select.options[select.selectedIndex]);
+    select.parentNode.insertBefore(wrapper, select);
     wrapper.appendChild(selected);
+    wrapper.appendChild(optionsList);
+    wrapper.appendChild(select); // move select inside wrapper
     
-    Array.from(select.options).forEach((opt, index) => {
+    function getFlagImg(text) {
+        const match = text.match(/\(([A-Za-z]{2})\)/);
+        let code = match ? match[1].toLowerCase() : 'us';
+        return `<img src="https://flagcdn.com/w20/${code}.png" alt="${code}">`;
+    }
+    
+    function updateSelected() {
+        const opt = select.options[select.selectedIndex];
+        const textWithoutEmoji = opt.text.replace(/^[\s\S]+?(\+\d+)/, '$1');
+        selected.innerHTML = getFlagImg(opt.text) + ' ' + textWithoutEmoji + ' <span style="margin-left:auto;font-size:0.8em">▼</span>';
+    }
+    
+    Array.from(select.options).forEach((opt, idx) => {
         const div = document.createElement('div');
         div.className = 'custom-lada-option';
-        div.innerHTML = renderOptionContent(opt);
+        const textWithoutEmoji = opt.text.replace(/^[\s\S]+?(\+\d+)/, '$1');
+        div.innerHTML = getFlagImg(opt.text) + ' ' + textWithoutEmoji;
         div.addEventListener('click', () => {
-            select.selectedIndex = index;
-            selected.innerHTML = renderOptionContent(opt);
-            optionsContainer.classList.remove('open');
+            select.selectedIndex = idx;
+            select.dispatchEvent(new Event('change'));
+            updateSelected();
+            optionsList.classList.remove('open');
         });
-        optionsContainer.appendChild(div);
+        optionsList.appendChild(div);
     });
     
-    wrapper.appendChild(optionsContainer);
-    
     selected.addEventListener('click', (e) => {
+        optionsList.classList.toggle('open');
         e.stopPropagation();
-        optionsContainer.classList.toggle('open');
     });
     
     document.addEventListener('click', () => {
-        optionsContainer.classList.remove('open');
+        optionsList.classList.remove('open');
     });
     
-    select.parentNode.insertBefore(wrapper, select);
+    updateSelected();
 }
 document.addEventListener('DOMContentLoaded', initCustomLadaDropdown);
 </script>
-
 </body>
 </html>
-

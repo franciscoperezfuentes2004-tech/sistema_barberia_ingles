@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Admin Dashboard — Barbería Premium</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Admin Dashboard — Barbería Premium</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Noto+Color+Emoji&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
     /* ═══════════ TOKENS ═══════════ */
     :root {
       --gold:#C9A84C; --gold-l:#E8C97A; --gold-d:#9A7B32;
@@ -569,319 +570,295 @@
 </head>
 <body>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="brand">
-      <img id="admin-custom-logo" src="" style="display:none; height:48px; width:48px; object-fit:cover; border-radius:12px;" alt="Logo">
-      <div class="brand-icon" id="admin-default-icon">✂️ </div>
-      <div>
-        <div id="admin-site-name" class="brand-text">Barbería</div>
-        <div class="brand-sub">Dashboard</div>
-      </div>
-    </div>
-    
-    <nav class="nav">
-      <a class="nav-item active" data-target="agenda">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Agenda Global
+<aside class="sidebar">
+<div class="brand">
+<img alt="Logo" id="admin-custom-logo" src="" style="display:none; height:48px; width:48px; object-fit:cover; border-radius:12px;"/>
+<div class="brand-icon" id="admin-default-icon">✂️ </div>
+<div>
+<div class="brand-text" id="admin-site-name">Barbershop</div>
+<div class="brand-sub">Dashboard</div>
+</div>
+</div>
+<nav class="nav">
+<a class="nav-item active" data-target="agenda">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+        Global Schedule
       </a>
-      <a class="nav-item" data-target="estadisticas">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-4 4"/></svg>
-        Estadísticas
+<a class="nav-item" data-target="estadisticas">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M18 9l-5 5-4-4-4 4"></path></svg>
+        Statistics
       </a>
-      <a class="nav-item" data-target="perfil">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Mi Perfil
+<a class="nav-item" data-target="perfil">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        My Profile
       </a>
-      <a class="nav-item" data-target="equipo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Personal
+<a class="nav-item" data-target="equipo">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Staff
       </a>
-      <a class="nav-item" data-target="servicios">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
-        Servicios
+<a class="nav-item" data-target="servicios">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"></path></svg>
+        Services
       </a>
-      <a class="nav-item" data-target="horarios">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Horarios
+<a class="nav-item" data-target="horarios">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Hours
       </a>
-      <a class="nav-item" data-target="cms">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Sitio Web
+<a class="nav-item" data-target="cms">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        Website
       </a>
-      <a class="nav-item" data-target="resenas">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Reseñas
+<a class="nav-item" data-target="resenas">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        Reviews
       </a>
-    </nav>
-    
-    <div class="sidebar-footer">
-      <button class="logout-btn" onclick="logout()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Cerrar Sesión
+</nav>
+<div class="sidebar-footer">
+<button class="logout-btn" onclick="logout()">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" x2="9" y1="12" y2="12"></line></svg>
+        Log Out
       </button>
-    </div>
-  </aside>
+</div>
+</aside>
 
-  <!-- MAIN -->
-  <main class="main">
-    <header class="topbar">
-      <div style="display:flex;align-items:center;gap:12px">
-        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menú">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h2 class="topbar-title" id="topbar-title">Control de Citas</h2>
-      </div>
-      <div style="display:flex;gap:12px;align-items:center">
-        <span style="color:var(--muted);font-size:.85rem" id="current-date"></span>
-      </div>
-    </header>
+<main class="main">
+<header class="topbar">
+<div style="display:flex;align-items:center;gap:12px">
+<button aria-label="Menu" class="mobile-nav-toggle" id="mobile-nav-toggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24"><line x1="3" x2="21" y1="12" y2="12"></line><line x1="3" x2="21" y1="6" y2="6"></line><line x1="3" x2="21" y1="18" y2="18"></line></svg>
+</button>
+<h2 class="topbar-title" id="topbar-title">Appointments Control</h2>
+</div>
+<div style="display:flex;gap:12px;align-items:center">
+<span id="current-date" style="color:var(--muted);font-size:.85rem"></span>
+</div>
+</header>
+<div class="content-area">
 
-    <div class="content-area">
-      
-      <!-- 1. AGENDA -->
-      <section id="agenda" class="section active">
-        <div style="overflow-x:auto;padding-bottom:12px">
-          <div class="agenda-grid" id="agenda-grid">
-            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">
-              Cargando agenda global...
+<section class="section active" id="agenda">
+<div style="overflow-x:auto;padding-bottom:12px">
+<div class="agenda-grid" id="agenda-grid">
+<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">
+              Loading global schedule...
             </div>
-          </div>
-        </div>
-      </section>
+</div>
+</div>
+</section>
 
-      <!-- 1.5 ESTADISTICAS -->
-      <section id="estadisticas" class="section">
-        <div style="display:flex; gap:16px; margin-bottom:24px; align-items:flex-end; flex-wrap:wrap;">
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Seleccionar Mes</label>
-            <div style="position:relative;">
-               <button id="btn-month-picker" onclick="openMonthPicker()" style="background:var(--s2); border:1px solid var(--border); padding:10px 16px; border-radius:8px; color:var(--bright); cursor:pointer; min-width:180px; text-align:left; display:flex; justify-content:space-between; align-items:center; transition:var(--tr);">
-                 <span id="month-picker-label">Cargando...</span>
-                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-               </button>
-            </div>
-          </div>
-          <button class="btn btn-primary" onclick="loadEstadisticas()" style="height:42px; padding:0 24px;">Filtrar Mes</button>
-        </div>
+<section class="section" id="estadisticas">
+<div style="display:flex; gap:16px; margin-bottom:24px; align-items:flex-end; flex-wrap:wrap;">
+<div class="form-group" style="margin-bottom:0;">
+<label>Select Month</label>
+<div style="position:relative;">
+<button id="btn-month-picker" onclick="openMonthPicker()" style="background:var(--s2); border:1px solid var(--border); padding:10px 16px; border-radius:8px; color:var(--bright); cursor:pointer; min-width:180px; text-align:left; display:flex; justify-content:space-between; align-items:center; transition:var(--tr);">
+<span id="month-picker-label">Loading...</span>
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+</button>
+</div>
+</div>
+<button class="btn btn-primary" onclick="loadEstadisticas()" style="height:42px; padding:0 24px;">Filter Month</button>
+</div>
+<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; margin-bottom:32px;">
+<div class="card" style="text-align:center; padding:24px;">
+<div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Completed Appointments</div>
+<div id="stat-total-citas" style="font-size:2.5rem; font-weight:800; color:var(--gold);">-</div>
+</div>
+<div class="card" style="text-align:center; padding:24px;">
+<div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Total Revenue</div>
+<div id="stat-ingresos" style="font-size:2.5rem; font-weight:800; color:var(--green);">-</div>
+</div>
+<div class="card" style="text-align:center; padding:24px;">
+<div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Best Barber</div>
+<div id="stat-mejor-barbero" style="font-size:1.3rem; font-weight:800; color:var(--blue); margin-top:8px;">-</div>
+</div>
+</div>
+<div class="card" style="margin-bottom:32px; padding:24px;">
+<div class="card-title" style="display:flex; justify-content:space-between; align-items:center;">
+<span>Appointments per Day</span>
+<select id="chart-week-filter" onchange="updateChartWeek()" style="background:var(--s2); border:1px solid var(--border); color:var(--bright); padding:6px 12px; border-radius:8px; font-size:0.85rem; outline:none;">
+<option value="all">Whole Month</option>
+<option value="1">Week 1 (Days 1-7)</option>
+<option value="2">Week 2 (Days 8-14)</option>
+<option value="3">Week 3 (Days 15-21)</option>
+<option value="4">Week 4 (Days 22-End)</option>
+</select>
+</div>
+<div style="height: 250px; width: calc(100% + 16px); margin: 0 -8px; position: relative;">
+<canvas id="statChart"></canvas>
+</div>
+</div>
+<div class="card">
+<div class="card-title">Detailed Record</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width:20%">Date</th>
+<th style="width:25%">Client</th>
+<th style="width:20%">Barber</th>
+<th style="width:20%">Service</th>
+<th style="width:15%">Revenue</th>
+</tr>
+</thead>
+<tbody id="stat-table-body">
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; margin-bottom:32px;">
-          <div class="card" style="text-align:center; padding:24px;">
-            <div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Citas Completadas</div>
-            <div style="font-size:2.5rem; font-weight:800; color:var(--gold);" id="stat-total-citas">-</div>
-          </div>
-          <div class="card" style="text-align:center; padding:24px;">
-            <div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Ingresos Totales</div>
-            <div style="font-size:2.5rem; font-weight:800; color:var(--green);" id="stat-ingresos">-</div>
-          </div>
-          <div class="card" style="text-align:center; padding:24px;">
-            <div style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">Mejor Barbero</div>
-            <div style="font-size:1.3rem; font-weight:800; color:var(--blue); margin-top:8px;" id="stat-mejor-barbero">-</div>
-          </div>
-        </div>
+<section class="section" id="equipo">
+<div class="card">
+<div class="card-title" style="justify-content:space-between">
+<span>Staff Management</span>
+<button class="btn btn-primary" onclick="openModal()">+ New Barber</button>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 38%;">Barber</th>
+<th style="width: 22%;">Specialty</th>
+<th style="width: 15%;">Status</th>
+<th style="width: 25%;">Actions</th>
+</tr>
+</thead>
+<tbody id="team-tbody">
+<tr><td colspan="4" style="text-align:center;padding:20px;color:var(--muted)">Loading team...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
-        <div class="card" style="margin-bottom:32px; padding:24px;">
-          <div class="card-title" style="display:flex; justify-content:space-between; align-items:center;">
-            <span>Citas por Día</span>
-            <select id="chart-week-filter" onchange="updateChartWeek()" style="background:var(--s2); border:1px solid var(--border); color:var(--bright); padding:6px 12px; border-radius:8px; font-size:0.85rem; outline:none;">
-              <option value="all">Todo el Mes</option>
-              <option value="1">Semana 1 (Días 1-7)</option>
-              <option value="2">Semana 2 (Días 8-14)</option>
-              <option value="3">Semana 3 (Días 15-21)</option>
-              <option value="4">Semana 4 (Días 22-Fin)</option>
-            </select>
-          </div>
-          <div style="height: 250px; width: calc(100% + 16px); margin: 0 -8px; position: relative;">
-            <canvas id="statChart"></canvas>
-          </div>
-        </div>
+<section class="section" id="servicios">
+<div class="card">
+<div class="card-title" style="justify-content:space-between">
+<span>Service Catalog</span>
+<button class="btn btn-primary" onclick="openServiceModal()">+ New Service</button>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 60px;">Image</th>
+<th style="width: 25%;">Service</th>
+<th style="width: 20%;">Price</th>
+<th style="width: 20%;">Duration</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="servicios-tbody">
+<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">Loading services...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="section" id="resenas">
+<div class="card">
+<div class="card-title">
+<span>Reviews Control</span>
+</div>
+<div class="resenas-top-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
+<div class="resenas-left" style="display:flex; align-items:center; gap:12px;">
+<select id="resenas-filter" onchange="renderResenasAdmin()" style="padding:10px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--bright);outline:none;">
+<option value="newest">Most Recent</option>
+<option value="oldest">Oldest</option>
+<option value="best">Best Rated (5★)</option>
+<option value="worst">Worst Rated (1-3★)</option>
+</select>
+<span id="resenas-count" style="color:var(--muted);font-size:0.85rem;">Loading...</span>
+</div>
+<div class="resenas-right" style="display:flex; align-items:center; gap:8px;">
+<button class="btn btn-secondary" onclick="deleteAllResenas()" style="color:var(--red);border-color:var(--red);">Delete All</button>
+<button class="btn btn-primary" onclick="deleteSelectedResenas()" style="background:var(--red);color:#fff;">Delete Selected</button>
+</div>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 50px; text-align:center;">
+<input id="resenas-select-all" onchange="toggleAllResenas(this)" type="checkbox"/>
+</th>
+<th style="width: 20%;">Client</th>
+<th style="width: 15%;">Rating</th>
+<th style="width: 45%;">Comment</th>
+<th style="width: 15%;">Date</th>
+</tr>
+</thead>
+<tbody id="resenas-tbody">
+<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">Loading reviews...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
-        <div class="card">
-          <div class="card-title">Registro Detallado</div>
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width:20%">Fecha</th>
-                  <th style="width:25%">Cliente</th>
-                  <th style="width:20%">Barbero</th>
-                  <th style="width:20%">Servicio</th>
-                  <th style="width:15%">Ingreso</th>
-                </tr>
-              </thead>
-              <tbody id="stat-table-body">
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. EQUIPO -->
-      <section id="equipo" class="section">
-        <div class="card">
-          <div class="card-title" style="justify-content:space-between">
-            <span>Gestión de Personal</span>
-            <button class="btn btn-primary" onclick="openModal()">+ Nuevo Barbero</button>
-          </div>
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width: 38%;">Barbero</th>
-                  <th style="width: 22%;">Especialidad</th>
-                  <th style="width: 15%;">Estado</th>
-                  <th style="width: 25%;">Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="team-tbody">
-                <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--muted)">Cargando equipo...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2.5 SERVICIOS -->
-      <section id="servicios" class="section">
-        <div class="card">
-          <div class="card-title" style="justify-content:space-between">
-            <span>Catálogo de Servicios</span>
-            <button class="btn btn-primary" onclick="openServiceModal()">+ Nuevo Servicio</button>
-          </div>
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width: 60px;">Imagen</th>
-                  <th style="width: 25%;">Servicio</th>
-                  <th style="width: 20%;">Precio</th>
-                  <th style="width: 20%;">Duración</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="servicios-tbody">
-                <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">Cargando servicios...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section id="resenas" class="section">
-        <div class="card">
-          <div class="card-title">
-            <span>Control de Reseñas</span>
-          </div>
-          
-          <div class="resenas-top-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
-            <div class="resenas-left" style="display:flex; align-items:center; gap:12px;">
-              <select id="resenas-filter" onchange="renderResenasAdmin()" style="padding:10px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--bright);outline:none;">
-                <option value="newest">Más Recientes</option>
-                <option value="oldest">Más Antiguas</option>
-                <option value="best">Mejor Calificadas (5★)</option>
-                <option value="worst">Peor Calificadas (1-3★)</option>
-              </select>
-              <span style="color:var(--muted);font-size:0.85rem;" id="resenas-count">Cargando...</span>
-            </div>
-            
-            <div class="resenas-right" style="display:flex; align-items:center; gap:8px;">
-              <button class="btn btn-secondary" style="color:var(--red);border-color:var(--red);" onclick="deleteAllResenas()">Eliminar Todas</button>
-              <button class="btn btn-primary" style="background:var(--red);color:#fff;" onclick="deleteSelectedResenas()">Eliminar Seleccionadas</button>
-            </div>
-          </div>
-
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width: 50px; text-align:center;">
-                    <input type="checkbox" id="resenas-select-all" onchange="toggleAllResenas(this)">
-                  </th>
-                  <th style="width: 20%;">Cliente</th>
-                  <th style="width: 15%;">Calificación</th>
-                  <th style="width: 45%;">Comentario</th>
-                  <th style="width: 15%;">Fecha</th>
-                </tr>
-              </thead>
-              <tbody id="resenas-tbody">
-                <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">Cargando reseñas...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2.7 MI PERFIL -->
-      <section id="perfil" class="section">
-        <div class="card" style="max-width:500px;">
-          <div class="card-title">Mis Credenciales</div>
-          <p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
-            Actualiza el usuario y contraseña del administrador. Al cambiar, deberás iniciar sesión nuevamente.
+<section class="section" id="perfil">
+<div class="card" style="max-width:500px;">
+<div class="card-title">My Credentials</div>
+<p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
+            Update the administrator username and password. Upon changing, you will need to log in again.
           </p>
-          <div class="form-group">
-            <label>Nuevo Usuario</label>
-            <input type="text" id="admin-user" placeholder="Ej: paco_admin" autocomplete="off">
-          </div>
-          <div class="form-group" style="margin-top:16px;">
-            <label>Nueva Contraseña</label>
-            <input type="password" id="admin-pass" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
-          </div>
-          <button class="btn btn-primary" style="margin-top:24px;width:100%" onclick="updateAdminCredentials()">Guardar Credenciales</button>
-        </div>
-      </section>
+<div class="form-group">
+<label>New User</label>
+<input autocomplete="off" id="admin-user" placeholder="e.g., john_admin" type="text"/>
+</div>
+<div class="form-group" style="margin-top:16px;">
+<label>New Password</label>
+<input autocomplete="new-password" id="admin-pass" placeholder="Minimum 6 characters" type="password"/>
+</div>
+<button class="btn btn-primary" onclick="updateAdminCredentials()" style="margin-top:24px;width:100%">Save Credentials</button>
+</div>
+</section>
 
-      <!-- 2.7 HORARIOS -->
-      <section id="horarios" class="section">
-        <div class="cms-grid">
-          
-          <!-- Horario Global -->
-          <div class="card">
-            <div class="card-title">
-              Horario del Local (Global)
+<section class="section" id="horarios">
+<div class="cms-grid">
+
+<div class="card">
+<div class="card-title">
+              Shop Hours (Global)
             </div>
-            <p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
-              Establece el horario por defecto. Si desmarcas un día, la barbería aparecerá como cerrada.
+<p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
+              Set the default hours. If you uncheck a day, the barbershop will appear as closed.
             </p>
-            <div id="global-schedule-container">
-              <!-- Render via JS -->
-            </div>
-            <div class="form-group" style="margin-top:20px">
-              <div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; background:var(--s2); padding:12px; border-radius:8px;">
-                <input type="checkbox" id="sync-all-barbers" style="width:auto;margin:0">
-                <label for="sync-all-barbers" style="margin:0;font-size:0.85rem;cursor:pointer;color:var(--gold)">
-                  Sobrescribir los horarios de TODOS los barberos con este horario global.
+<div id="global-schedule-container">
+ </div>
+<div class="form-group" style="margin-top:20px">
+<div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; background:var(--s2); padding:12px; border-radius:8px;">
+<input id="sync-all-barbers" style="width:auto;margin:0" type="checkbox"/>
+<label for="sync-all-barbers" style="margin:0;font-size:0.85rem;cursor:pointer;color:var(--gold)">
+                  Overwrite ALL barbers' hours with this global schedule.
                 </label>
-              </div>
-              <button class="btn btn-primary" style="width:100%" onclick="saveGlobalSchedule()">Guardar Horario del Local</button>
-            </div>
-          </div>
+</div>
+<button class="btn btn-primary" onclick="saveGlobalSchedule()" style="width:100%">Save Shop Hours</button>
+</div>
+</div>
 
-          <!-- Horario por Barbero -->
-          <div class="card">
-            <div class="card-title">
-              Horario Personalizado por Barbero
+<div class="card">
+<div class="card-title">
+
             </div>
-            <p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
-              Personaliza el horario, descansos o jornadas reducidas de un barbero específico.
+<p style="font-size:0.85rem;color:var(--muted);margin-top:-10px;margin-bottom:20px">
+              Customize hours, breaks, or shortened shifts for a specific barber.
             </p>
-            <div class="form-group">
-              <label>Seleccionar Barbero</label>
-              <select id="horario-barbero-select" style="width:100%;padding:12px;border-radius:12px;background:var(--s2);color:var(--bright);border:1px solid var(--border);" onchange="loadBarberSchedule()">
-                <option value="">Selecciona un barbero...</option>
-              </select>
-            </div>
-            <div id="barber-schedule-container" style="display:none">
-              <!-- Render via JS -->
-              <button class="btn btn-primary" style="width:100%;margin-top:20px" onclick="saveBarberSchedule()">Guardar Horario del Barbero</button>
-            </div>
-          </div>
+<div class="form-group">
+<label>Select Barber</label>
+<select id="horario-barbero-select" onchange="loadBarberSchedule()" style="width:100%;padding:12px;border-radius:12px;background:var(--s2);color:var(--bright);border:1px solid var(--border);">
+<option value="">Select a barber...</option>
+</select>
+</div>
+<div id="barber-schedule-container" style="display:none">
+ <button class="btn btn-primary" onclick="saveBarberSchedule()" style="width:100%;margin-top:20px">Save Barber Hours</button>
+</div>
+</div>
+</div>
+</section>
 
-        </div>
-      </section>
-
-      <!-- 3. CMS -->
-      <section id="cms" class="section">
-        <script>
+<section class="section" id="cms">
+<script>
           function actualizarLadaAdmin() {
             const select = document.getElementById('cms-phone-lada');
             const input = document.getElementById('cms-phone');
@@ -893,281 +870,267 @@
             input.placeholder = 'Ej. 555' + '0'.repeat(max - 3);
           }
         </script>
-        <div class="cms-grid">
-          <div class="card" style="display:flex; flex-direction:column; height:100%;">
-            <div class="card-title">Información de la Barbería</div>
-            <div class="form-group">
-              <label>Nombre Comercial</label>
-              <input type="text" id="cms-name" placeholder="Ej. Barbería Premium">
-            </div>
-            <div class="form-group">
-              <label>Teléfono de Contacto (WhatsApp)</label>
-              <div style="display: flex; gap: 8px;">
-                <select id="cms-phone-lada" onchange="actualizarLadaAdmin()" style="width: 110px; background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 8px; padding: 12px; font-family: 'Noto Color Emoji', var(--sans); text-overflow: ellipsis;">
-                  <option value="+52" data-min="10" data-max="10">🇲🇽 +52 (MX)</option>
-                  <option value="+1" data-min="10" data-max="10">🇺🇸/🇨🇦 +1 (US/CA)</option>
-                  <option value="+34" data-min="9" data-max="9">🇪🇸 +34 (ES)</option>
-                  <option value="+54" data-min="10" data-max="10">🇦🇷 +54 (AR)</option>
-                  <option value="+57" data-min="10" data-max="10">🇨🇴 +57 (CO)</option>
-                  <option value="+56" data-min="9" data-max="9">🇨🇱 +56 (CL)</option>
-                  <option value="+51" data-min="9" data-max="9">🇵🇪 +51 (PE)</option>
-                  <option value="+593" data-min="9" data-max="9">🇪🇨 +593 (EC)</option>
-                  <option value="+58" data-min="10" data-max="10">🇻🇪 +58 (VE)</option>
-                  <option value="+55" data-min="10" data-max="11">🇧🇷 +55 (BR)</option>
-                  <option value="+502" data-min="8" data-max="8">🇬🇹 +502 (GT)</option>
-                  <option value="+503" data-min="8" data-max="8">🇸🇻 +503 (SV)</option>
-                  <option value="+504" data-min="8" data-max="8">🇭🇳 +504 (HN)</option>
-                  <option value="+505" data-min="8" data-max="8">🇳🇮 +505 (NI)</option>
-                  <option value="+506" data-min="8" data-max="8">🇨🇷 +506 (CR)</option>
-                  <option value="+507" data-min="7" data-max="8">🇵🇦 +507 (PA)</option>
-                  <option value="+598" data-min="8" data-max="8">🇺🇾 +598 (UY)</option>
-                  <option value="+595" data-min="9" data-max="9">🇵🇾 +595 (PY)</option>
-                  <option value="+591" data-min="8" data-max="8">🇧🇴 +591 (BO)</option>
-                  <option value="+1809" data-min="10" data-max="10">🇩🇴 +1 809 (DO)</option>
-                </select>
-                <input type="tel" id="cms-phone" placeholder="Ej. 55 1234 5678" maxlength="15" oninput="this.value = this.value.replace(/[^0-9\s-]/g, '')" style="flex: 1;">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Correo Electrónico</label>
-              <input type="email" id="cms-email" placeholder="Ej. contacto@barberia.com">
-            </div>
-            <div class="form-group">
-              <label>Dirección de la Barbería</label>
-              <input type="text" id="cms-address" placeholder="Ej. Av. Insurgentes Sur 123, CDMX" oninput="if(window.updateAdminMapPreview) window.updateAdminMapPreview()">
-              <small style="color:var(--muted);font-size:0.75rem;margin-top:4px;display:block">Esta dirección se mostrará en texto y generará el mapa interactivo automáticamente.</small>
-              <div style="margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid var(--border); height:200px; background:var(--s2); display:flex; justify-content:center; align-items:center; position:relative;" id="cms-map-preview-container">
-                <span id="cms-map-preview-fallback" style="color:var(--muted); font-size:0.85rem; padding:0 10px; text-align:center;">Escribe una dirección para ver la vista previa del mapa</span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Enlace de Instagram</label>
-              <input type="text" id="cms-instagram" placeholder="https://instagram.com/...">
-            </div>
-            <div class="form-group">
-              <label>Enlace de Facebook</label>
-              <input type="text" id="cms-facebook" placeholder="https://facebook.com/...">
-            </div>
-            <div class="form-group">
-              <label>Enlace de TikTok</label>
-              <input type="text" id="cms-tiktok" placeholder="https://tiktok.com/@...">
-            </div>
-            <div class="form-group" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-              <label>Estadísticas de la Barra Principal</label>
-              <div style="display:flex; gap:12px; margin-bottom: 8px;">
-                <div style="flex:1;">
-                  <small style="color:var(--muted); display:block; margin-bottom:4px;">Años de exp.</small>
-                  <input type="text" id="cms-stat-exp" placeholder="+15">
-                </div>
-                <div style="flex:1;">
-                  <small style="color:var(--muted); display:block; margin-bottom:4px;">Clientes</small>
-                  <input type="text" id="cms-stat-clientes" placeholder="+8K">
-                </div>
-              </div>
-              <small style="color:var(--muted); font-size:0.75rem;">(El Rating y los Maestros Barberos se calculan automáticamente)</small>
-            </div>
-            
-            <div class="form-group" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
-              <label>Logo del Sitio Web</label>
-              <div class="preview-row" style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;">
-                <img id="cms-logo-preview" src="../assets/img/hero-bg.png" style="width: 80px; height: 80px; min-width: 80px; object-fit: cover; background: #fff; border-radius: 12px; border: 1px solid var(--border);" alt="Logo">
-                <div style="flex:1;">
-                  <div style="width:100%; max-width:200px;">
-                    <input type="file" id="cms-logo" accept="image/*" class="input-file-seguro">
-                    <label for="cms-logo" class="btn btn-secondary" style="width:100%; text-align:center; padding:8px 12px; margin:0; font-size:0.8rem; display:block;">Cambiar Logo</label>
-                  </div>
-                  <div style="font-size:0.7rem; color:var(--muted); margin-top: 6px;">Se recomienda PNG transparente o imagen cuadrada.</div>
-                </div>
-              </div>
-            </div>
+<div class="cms-grid">
+<div class="card" style="display:flex; flex-direction:column; height:100%;">
+<div class="card-title">Barbershop Information</div>
+<div class="form-group">
+<label>Trade Name</label>
+<input id="cms-name" placeholder="e.g., Premium Barbershop" type="text"/>
+</div>
+<div class="form-group">
+<label>Contact Phone (WhatsApp)</label>
+<div style="display: flex; gap: 8px;">
+<select id="cms-phone-lada" onchange="actualizarLadaAdmin()" style="width: 110px; background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 8px; padding: 12px; font-family: 'Noto Color Emoji', var(--sans); text-overflow: ellipsis;">
+<option data-max="10" data-min="10" value="+52">🇲🇽 +52 (MX)</option>
+<option data-max="10" data-min="10" value="+1">🇺🇸/🇨🇦 +1 (US/CA)</option>
+<option data-max="9" data-min="9" value="+34">🇪🇸 +34 (ES)</option>
+<option data-max="10" data-min="10" value="+54">🇦🇷 +54 (AR)</option>
+<option data-max="10" data-min="10" value="+57">🇨🇴 +57 (CO)</option>
+<option data-max="9" data-min="9" value="+56">🇨🇱 +56 (CL)</option>
+<option data-max="9" data-min="9" value="+51">🇵🇪 +51 (PE)</option>
+<option data-max="9" data-min="9" value="+593">🇪🇨 +593 (EC)</option>
+<option data-max="10" data-min="10" value="+58">🇻🇪 +58 (VE)</option>
+<option data-max="11" data-min="10" value="+55">🇧🇷 +55 (BR)</option>
+<option data-max="8" data-min="8" value="+502">🇬🇹 +502 (GT)</option>
+<option data-max="8" data-min="8" value="+503">🇸🇻 +503 (SV)</option>
+<option data-max="8" data-min="8" value="+504">🇭🇳 +504 (HN)</option>
+<option data-max="8" data-min="8" value="+505">🇳🇮 +505 (NI)</option>
+<option data-max="8" data-min="8" value="+506">🇨🇷 +506 (CR)</option>
+<option data-max="8" data-min="7" value="+507">🇵🇦 +507 (PA)</option>
+<option data-max="8" data-min="8" value="+598">🇺🇾 +598 (UY)</option>
+<option data-max="9" data-min="9" value="+595">🇵🇾 +595 (PY)</option>
+<option data-max="8" data-min="8" value="+591">🇧🇴 +591 (BO)</option>
+<option data-max="10" data-min="10" value="+1809">🇩🇴 +1 809 (DO)</option>
+</select>
+<input id="cms-phone" maxlength="15" oninput="this.value = this.value.replace(/[^0-9\s-]/g, '')" placeholder="e.g., 555 123 4567" style="flex: 1;" type="tel"/>
+</div>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input id="cms-email" placeholder="e.g., contact@barbershop.com" type="email"/>
+</div>
+<div class="form-group">
+<label>Barbershop Address</label>
+<input id="cms-address" oninput="if(window.updateAdminMapPreview) window.updateAdminMapPreview()" placeholder="e.g., 123 Main St, New York, NY" type="text"/>
+<small style="color:var(--muted);font-size:0.75rem;margin-top:4px;display:block">This address will be shown as text and will automatically generate the interactive map.</small>
+<div id="cms-map-preview-container" style="margin-top:12px; border-radius:12px; overflow:hidden; border:1px solid var(--border); height:200px; background:var(--s2); display:flex; justify-content:center; align-items:center; position:relative;">
+<span id="cms-map-preview-fallback" style="color:var(--muted); font-size:0.85rem; padding:0 10px; text-align:center;">Type an address to see the map preview</span>
+</div>
+</div>
+<div class="form-group">
+<label>Instagram Link</label>
+<input id="cms-instagram" placeholder="https://instagram.com/..." type="text"/>
+</div>
+<div class="form-group">
+<label>Facebook Link</label>
+<input id="cms-facebook" placeholder="https://facebook.com/..." type="text"/>
+</div>
+<div class="form-group">
+<label>TikTok Link</label>
+<input id="cms-tiktok" placeholder="https://tiktok.com/@..." type="text"/>
+</div>
+<div class="form-group" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+<label>Main Bar Statistics</label>
+<div style="display:flex; gap:12px; margin-bottom: 8px;">
+<div style="flex:1;">
+<small style="color:var(--muted); display:block; margin-bottom:4px;">Years of exp.</small>
+<input id="cms-stat-exp" placeholder="+15" type="text"/>
+</div>
+<div style="flex:1;">
+<small style="color:var(--muted); display:block; margin-bottom:4px;">Clients</small>
+<input id="cms-stat-clientes" placeholder="+8K" type="text"/>
+</div>
+</div>
+<small style="color:var(--muted); font-size:0.75rem;">(Rating and Master Barbers are calculated automatically)</small>
+</div>
+<div class="form-group" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+<label>Website Logo</label>
+<div class="preview-row" style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;">
+<img alt="Logo" id="cms-logo-preview" src="../assets/img/hero-bg.png" style="width: 80px; height: 80px; min-width: 80px; object-fit: cover; background: #fff; border-radius: 12px; border: 1px solid var(--border);"/>
+<div style="flex:1;">
+<div style="width:100%; max-width:200px;">
+<input accept="image/*" class="input-file-seguro" id="cms-logo" type="file"/>
+<label class="btn btn-secondary" for="cms-logo" style="width:100%; text-align:center; padding:8px 12px; margin:0; font-size:0.8rem; display:block;">Change Logo</label>
+</div>
+<div style="font-size:0.7rem; color:var(--muted); margin-top: 6px;">Transparent PNG or square image is recommended.</div>
+</div>
+</div>
+</div>
+<button class="btn btn-primary" onclick="saveCMS()" style="width: 100%; margin-top: auto;">Save All Changes</button>
+</div>
+<div class="cms-right-col" style="display: flex; flex-direction: column; gap: 24px; height:100%;">
+<div class="card" style="display:flex; flex-direction:column;">
+<div class="card-title">Cover Design (Hero)</div>
+<div class="form-group">
+<label>Main Slogan</label>
+<input id="cms-slogan" placeholder="e.g., The style that defines you." type="text"/>
+</div>
+<div class="form-group">
+<label>Short Description</label>
+<textarea id="cms-hero-desc" placeholder="Precision cuts, sculpted beards..." style="width:100%;padding:12px;border-radius:12px;background:var(--s2);color:var(--bright);border:1px solid var(--border);resize:none;min-height:80px;font-family:inherit;"></textarea>
+</div>
+<div class="form-group" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+<label>Cover Background Image</label>
+<div class="preview-row" style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;">
+<img alt="Cover" id="cms-hero-preview" src="../assets/img/hero-bg.png" style="width: 140px; height: 80px; min-width: 140px; object-fit: cover; background: #000; border-radius: 8px; border: 1px solid var(--border);"/>
+<div style="flex:1;">
+<div style="width:100%; max-width:200px;">
+<input accept="image/*" class="input-file-seguro" id="cms-hero-bg" type="file"/>
+<label class="btn btn-secondary" for="cms-hero-bg" style="width:100%; text-align:center; padding:8px 12px; margin:0; font-size:0.8rem; display:block;">Change Cover</label>
+</div>
+<div style="font-size:0.7rem; color:var(--muted); margin-top: 6px;">Dark, horizontal image recommended (e.g. 1920x1080).</div>
+</div>
+</div>
+</div>
+<button class="btn btn-primary" onclick="saveCMS()" style="width: 100%; margin-top: auto;">Save All Changes</button>
+</div>
+<div class="card" style="display:flex; flex-direction:column; flex:1;">
+<div class="card-title">Style Gallery</div>
+<div class="gallery-grid" id="cms-gallery">
+ </div>
+<div style="margin-top:auto; padding-top:24px; border-top:1px solid var(--border)">
+<div style="font-weight:600; margin-bottom:12px; font-size:0.9rem; color:var(--bright)">Add New Photo</div>
+<div class="upload-row" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+<input id="new-gal-title" placeholder="Title (e.g., Skin Fade)" style="flex:1; min-width:150px; padding:10px 14px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--bright); font-family:var(--sans); outline:none;" type="text"/>
+<div style="flex:1; min-width:120px;">
+<input accept="image/*" class="input-file-seguro" id="new-gal-file" type="file"/>
+<label class="btn btn-secondary" for="new-gal-file" style="width:100%; text-align:center; padding:10px 14px; margin:0; display:block; box-sizing:border-box;">Choose Photo</label>
+</div>
+<button class="btn btn-primary" onclick="addGalleryImage()">Upload</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
 
-            <button class="btn btn-primary" style="width: 100%; margin-top: auto;" onclick="saveCMS()">Guardar Todos los Cambios</button>
-          </div>
-          
-          <div class="cms-right-col" style="display: flex; flex-direction: column; gap: 24px; height:100%;">
-            <div class="card" style="display:flex; flex-direction:column;">
-              <div class="card-title">Diseño de Portada (Hero)</div>
-            <div class="form-group">
-              <label>Eslogan Principal</label>
-              <input type="text" id="cms-slogan" placeholder="Ej. El estilo que te define.">
-            </div>
-            <div class="form-group">
-              <label>Descripción Corta</label>
-              <textarea id="cms-hero-desc" placeholder="Cortes de precisión, barbas esculpidas..." style="width:100%;padding:12px;border-radius:12px;background:var(--s2);color:var(--bright);border:1px solid var(--border);resize:none;min-height:80px;font-family:inherit;"></textarea>
-            </div>
-            <div class="form-group" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
-              <label>Imagen de Fondo de Portada</label>
-              <div class="preview-row" style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;">
-                <img id="cms-hero-preview" src="../assets/img/hero-bg.png" style="width: 140px; height: 80px; min-width: 140px; object-fit: cover; background: #000; border-radius: 8px; border: 1px solid var(--border);" alt="Portada">
-                <div style="flex:1;">
-                  <div style="width:100%; max-width:200px;">
-                    <input type="file" id="cms-hero-bg" accept="image/*" class="input-file-seguro">
-                    <label for="cms-hero-bg" class="btn btn-secondary" style="width:100%; text-align:center; padding:8px 12px; margin:0; font-size:0.8rem; display:block;">Cambiar Portada</label>
-                  </div>
-                  <div style="font-size:0.7rem; color:var(--muted); margin-top: 6px;">Se recomienda imagen oscura y horizontal (ej. 1920x1080).</div>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-primary" style="width: 100%; margin-top: auto;" onclick="saveCMS()">Guardar Todos los Cambios</button>
-          </div>
+<div class="modal-overlay" id="gallery-modal">
+<div class="modal" style="max-width:600px; width:95%;">
+<div class="modal-header">
+<h2 class="modal-title">All Gallery photos</h2>
+<button class="btn-close" onclick="document.getElementById('gallery-modal').classList.remove('show')">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+</button>
+</div>
+<div class="gallery-grid" id="full-cms-gallery" style="max-height: 60vh; overflow-y: auto; padding-right: 10px;">
+ </div>
+</div>
+</div>
 
-          <div class="card" style="display:flex; flex-direction:column; flex:1;">
-            <div class="card-title">Galería de Estilos</div>
-            <div class="gallery-grid" id="cms-gallery">
-              <!-- Rendered via JS -->
-            </div>
-            
-            <div style="margin-top:auto; padding-top:24px; border-top:1px solid var(--border)">
-              <div style="font-weight:600; margin-bottom:12px; font-size:0.9rem; color:var(--bright)">Añadir Nueva Foto</div>
-              <div class="upload-row" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-                <input type="text" id="new-gal-title" placeholder="Título (ej. Skin Fade)" style="flex:1; min-width:150px; padding:10px 14px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--bright); font-family:var(--sans); outline:none;">
-                <div style="flex:1; min-width:120px;">
-                  <input type="file" id="new-gal-file" accept="image/*" class="input-file-seguro">
-                  <label for="new-gal-file" class="btn btn-secondary" style="width:100%; text-align:center; padding:10px 14px; margin:0; display:block; box-sizing:border-box;">Elegir Foto</label>
-                </div>
-                <button class="btn btn-primary" onclick="addGalleryImage()">Subir</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="modal-overlay" id="barber-modal">
+<div class="modal">
+<div class="modal-header">
+<div class="modal-title" id="modal-title">New Barber</div>
+<button class="btn-close" onclick="closeModal()">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+</button>
+</div>
+<form id="barber-form" onsubmit="saveBarber(event)">
+<input id="b-id" type="hidden"/>
+<div class="form-group">
+<label>Name</label>
+<input id="b-nombre" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>Last Name</label>
+<input id="b-apellido" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>Profile Picture</label>
+<div style="width:100%;">
+<input accept="image/*" class="input-file-seguro" id="b-foto" type="file"/>
+<label class="btn btn-secondary" for="b-foto" style="width:100%; text-align:center; margin:0; display:block; box-sizing:border-box;">Tap to select photo...</label>
+</div>
+<small style="color:var(--muted);font-size:0.7rem;margin-top:4px">Optional. A square image is recommended.</small>
+</div>
+<div class="form-group">
+<label>Specialty</label>
+<input id="b-esp" placeholder="e.g., Fades &amp; Classics" type="text"/>
+</div>
+<div class="form-group">
+<label>Username (Login)</label>
+<input id="b-username" placeholder="Username" type="text"/>
+<small id="help-username" style="display:none;color:var(--muted);font-size:0.7rem;margin-top:4px">If left blank, the system will automatically generate one.</small>
+</div>
+<div class="form-group">
+<label id="lbl-password">Password</label>
+<input id="b-password" placeholder="Access Password" type="password"/>
+<small id="help-password" style="display:none;color:var(--muted);font-size:0.7rem;margin-top:4px">Leave blank if you don't want to change it.</small>
+</div>
+<div class="form-group" id="group-activo" style="display:none; align-items:center; gap:8px;">
+<input id="b-activo" style="width:auto;margin:0;" type="checkbox"/>
+<label for="b-activo" style="margin:0;color:var(--bright);cursor:pointer">Active Barber (Show on website and system)</label>
+</div>
+<div style="margin-top:24px;display:flex;gap:12px;justify-content:flex-end">
+<button class="btn btn-secondary" onclick="closeModal()" type="button">Cancel</button>
+<button class="btn btn-primary" type="submit">Save</button>
+</div>
+</form>
+</div>
+</div>
 
-    </div>
-  </main>
+<div class="modal-overlay" id="service-modal">
+<div class="modal">
+<div class="modal-header">
+<div class="modal-title" id="s-modal-title">New Service</div>
+<button class="btn-close" onclick="closeServiceModal()">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+</button>
+</div>
+<form id="service-form" onsubmit="saveService(event)">
+<input id="s-id" type="hidden"/>
+<div class="form-group">
+<label>Service Name</label>
+<input id="s-nombre" placeholder="e.g., Fade &amp; Taper" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>Short Description</label>
+<input id="s-descripcion" placeholder="e.g., Precise skin fade with razor" type="text"/>
+</div>
+<div style="display:flex; gap:16px;">
+<div class="form-group" style="flex:1">
+<label>Price ($)</label>
+<input id="s-precio" min="0" placeholder="e.g., 150" required="" step="0.01" type="number"/>
+</div>
+<div class="form-group" style="flex:1">
+<label>Duration (Minutes)</label>
+<input id="s-duracion" min="1" placeholder="e.g., 40" required="" type="number"/>
+</div>
+</div>
+<div class="form-group">
+<label>Reference Image</label>
+<div style="width:100%;">
+<input accept="image/*" class="input-file-seguro" id="s-imagen" type="file"/>
+<label class="btn btn-secondary" for="s-imagen" style="width:100%; text-align:center; margin:0; display:block; box-sizing:border-box;">Tap to select photo...</label>
+</div>
+<small style="color:var(--muted);font-size:0.7rem;margin-top:4px">Optional. It will automatically adjust to landscape format.</small>
+</div>
+<div style="margin-top:24px;display:flex;gap:12px;justify-content:flex-end">
+<button class="btn btn-secondary" onclick="closeServiceModal()" type="button">Cancel</button>
+<button class="btn btn-primary" type="submit">Save</button>
+</div>
+</form>
+</div>
+</div>
+<div class="toast" id="toast">✅ Changes saved successfully</div>
 
-  <!-- MODAL GALERIA -->
-  <div class="modal-overlay" id="gallery-modal">
-    <div class="modal" style="max-width:600px; width:95%;">
-      <div class="modal-header">
-        <h2 class="modal-title">Todas las fotos de la Galería</h2>
-        <button class="btn-close" onclick="document.getElementById('gallery-modal').classList.remove('show')">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="gallery-grid" id="full-cms-gallery" style="max-height: 60vh; overflow-y: auto; padding-right: 10px;">
-        <!-- Todas las imagenes se renderizan aqui -->
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL BARBERO -->
-  <div class="modal-overlay" id="barber-modal">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title" id="modal-title">Nuevo Barbero</div>
-        <button class="btn-close" onclick="closeModal()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <form id="barber-form" onsubmit="saveBarber(event)">
-        <input type="hidden" id="b-id">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" id="b-nombre" required>
-        </div>
-        <div class="form-group">
-          <label>Apellido</label>
-          <input type="text" id="b-apellido" required>
-        </div>
-        <div class="form-group">
-          <label>Foto de Perfil</label>
-          <div style="width:100%;">
-            <input type="file" id="b-foto" accept="image/*" class="input-file-seguro">
-            <label for="b-foto" class="btn btn-secondary" style="width:100%; text-align:center; margin:0; display:block; box-sizing:border-box;">Toca para seleccionar foto...</label>
-          </div>
-          <small style="color:var(--muted);font-size:0.7rem;margin-top:4px">Opcional. Se recomienda una imagen cuadrada.</small>
-        </div>
-        <div class="form-group">
-          <label>Especialidad</label>
-          <input type="text" id="b-esp" placeholder="Ej. Fades & Clásicos">
-        </div>
-        <div class="form-group">
-          <label>Usuario (Login)</label>
-          <input type="text" id="b-username" placeholder="Nombre de usuario">
-          <small id="help-username" style="display:none;color:var(--muted);font-size:0.7rem;margin-top:4px">Si lo dejas en blanco, el sistema generará uno automáticamente.</small>
-        </div>
-        <div class="form-group">
-          <label id="lbl-password">Contraseña</label>
-          <input type="password" id="b-password" placeholder="Contraseña de acceso">
-          <small id="help-password" style="display:none;color:var(--muted);font-size:0.7rem;margin-top:4px">Déjalo en blanco si no quieres cambiarla.</small>
-        </div>
-        <div class="form-group" id="group-activo" style="display:none; align-items:center; gap:8px;">
-          <input type="checkbox" id="b-activo" style="width:auto;margin:0;">
-          <label style="margin:0;color:var(--bright);cursor:pointer" for="b-activo">Barbero Activo (Mostrar en página web y sistema)</label>
-        </div>
-        <div style="margin-top:24px;display:flex;gap:12px;justify-content:flex-end">
-          <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL SERVICIO -->
-  <div class="modal-overlay" id="service-modal">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title" id="s-modal-title">Nuevo Servicio</div>
-        <button class="btn-close" onclick="closeServiceModal()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <form id="service-form" onsubmit="saveService(event)">
-        <input type="hidden" id="s-id">
-        <div class="form-group">
-          <label>Nombre del Servicio</label>
-          <input type="text" id="s-nombre" required placeholder="Ej. Fade & Taper">
-        </div>
-        <div class="form-group">
-          <label>Descripción Breve</label>
-          <input type="text" id="s-descripcion" placeholder="Ej. Degradado preciso con navaja">
-        </div>
-        <div style="display:flex; gap:16px;">
-          <div class="form-group" style="flex:1">
-            <label>Precio ($)</label>
-            <input type="number" id="s-precio" required min="0" step="0.01" placeholder="Ej. 150">
-          </div>
-          <div class="form-group" style="flex:1">
-            <label>Duración (Minutos)</label>
-            <input type="number" id="s-duracion" required min="1" placeholder="Ej. 40">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Imagen de Referencia</label>
-          <div style="width:100%;">
-            <input type="file" id="s-imagen" accept="image/*" class="input-file-seguro">
-            <label for="s-imagen" class="btn btn-secondary" style="width:100%; text-align:center; margin:0; display:block; box-sizing:border-box;">Toca para seleccionar foto...</label>
-          </div>
-          <small style="color:var(--muted);font-size:0.7rem;margin-top:4px">Opcional. Se ajustará automáticamente a formato horizontal.</small>
-        </div>
-        <div style="margin-top:24px;display:flex;gap:12px;justify-content:flex-end">
-          <button type="button" class="btn btn-secondary" onclick="closeServiceModal()">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="toast" id="toast">✅ Cambios guardados correctamente</div>
-
-  <!-- MODAL CROPPER -->
-  <div id="cropperModal">
-    <div style="width:100%; max-width:600px; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <h3 style="color:var(--gold); margin:0;">Ajustar Imagen</h3>
-      <button class="btn btn-secondary" onclick="closeCropper()" style="padding:6px 12px; font-size:0.8rem; border:none; background:transparent;">X</button>
-    </div>
-    <div class="cropper-container-wrapper">
-      <img id="cropper-image" src="" style="display:block; max-width:100%;">
-    </div>
-    <div style="display:flex; gap:16px; width:100%; max-width:600px;">
-      <button class="btn btn-secondary" style="flex:1;" onclick="closeCropper()">Cancelar</button>
-      <button class="btn btn-primary" style="flex:1;" onclick="confirmCrop()">Recortar y Guardar</button>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
-  <script>
+<div id="cropperModal">
+<div style="width:100%; max-width:600px; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+<h3 style="color:var(--gold); margin:0;">Adjust Image</h3>
+<button class="btn btn-secondary" onclick="closeCropper()" style="padding:6px 12px; font-size:0.8rem; border:none; background:transparent;">X</button>
+</div>
+<div class="cropper-container-wrapper">
+<img id="cropper-image" src="" style="display:block; max-width:100%;"/>
+</div>
+<div style="display:flex; gap:16px; width:100%; max-width:600px;">
+<button class="btn btn-secondary" onclick="closeCropper()" style="flex:1;">Cancel</button>
+<button class="btn btn-primary" onclick="confirmCrop()" style="flex:1;">Crop and Save</button>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+<script>
     (() => {
       const API = '../sistema';
 
@@ -1184,7 +1147,7 @@
         }
         return fetch(url, options).then(res => {
           if (res.status === 401 || res.status === 403) {
-            showToast('⚠️ Sesión expirada o inválida. Redirigiendo al login...');
+            showToast('⚠️ Expired or invalid session. Redirecting to login...');
             setTimeout(() => { localStorage.removeItem('mi_token_jwt'); window.location.href = 'login.html'; }, 1500);
             throw new Error('Unauthorized');
           }
@@ -1285,7 +1248,7 @@
           maxHeight: 1200
         });
         
-        if (!canvas) { alert('Error al recortar la imagen.'); return; }
+        if (!canvas) { alert('Error cropping image.'); return; }
         
         let result = canvas.toDataURL('image/jpeg', 0.85); 
         
@@ -1385,7 +1348,7 @@
         document.getElementById('resenas-count').textContent = `${filtered.length} reviews found`;
 
         if(filtered.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No hay reseñas registradas.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No reviews registered.</td></tr>`;
           return;
         }
 
@@ -1406,37 +1369,37 @@
 
       window.deleteSelectedResenas = async () => {
         const checked = Array.from(document.querySelectorAll('.resena-chk:checked')).map(c => c.value);
-        if(checked.length === 0) return alert('Selecciona al menos una reseña para eliminar.');
-        if(!confirm(`¿Seguro que deseas eliminar ${checked.length} reseña(s)?`)) return;
+        if(checked.length === 0) return alert('Select at least one review to delete.');
+        if(!confirm(`Are you sure you want to delete ${checked.length} review(s)?`)) return;
 
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=resenas&ids=${checked.join(',')}`, { method: 'DELETE' });
           const json = await res.json();
           if(json.success) {
-            showToast('\u2705 Reseñas eliminadas correctamente');
+            showToast('\u2705 Reviews successfully deleted');
             const selectAll = document.getElementById('resenas-select-all');
             if(selectAll) selectAll.checked = false;
             if (window.loadResenasAdmin) window.loadResenasAdmin();
           } else {
-            alert(json.message || 'Error al eliminar reseñas');
+            alert(json.message || 'Error deleting reseñas');
           }
         } catch(e) { console.error('Error deleteSelectedResenas:', e); }
       };
 
       window.deleteAllResenas = async () => {
-        if(adminResenas.length === 0) return alert('No hay reseñas para eliminar.');
-        if(!confirm(`¿Seguro que deseas eliminar TODAS las reseñas de forma permanente?`)) return;
+        if(adminResenas.length === 0) return alert('No reviews to delete.');
+        if(!confirm(`Are you sure you want to PERMANENTLY delete ALL reviews?`)) return;
         const allIds = adminResenas.map(r => r.id).join(',');
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=resenas&ids=${allIds}`, { method: 'DELETE' });
           const json = await res.json();
           if(json.success) {
-            showToast('\u2705 Todas las reseñas han sido eliminadas');
+            showToast('\u2705 All reviews have been deleted');
             const selectAll = document.getElementById('resenas-select-all');
             if(selectAll) selectAll.checked = false;
             if (window.loadResenasAdmin) window.loadResenasAdmin();
           } else {
-            alert(json.message || 'Error al eliminar reseñas');
+            alert(json.message || 'Error deleting reseñas');
           }
         } catch(e) { console.error('Error deleteAllResenas:', e); }
       };
@@ -1542,7 +1505,7 @@
             }
             container.innerHTML = previewHtml;
           } else {
-            container.innerHTML = '<span id="cms-map-preview-fallback" style="color:var(--muted); font-size:0.85rem; padding:0 10px; text-align:center;">Escribe una dirección para ver la vista previa del mapa</span>';
+            container.innerHTML = '<span id="cms-map-preview-fallback" style="color:var(--muted); font-size:0.85rem; padding:0 10px; text-align:center;">Type an address to see the map preview</span>';
           }
         }, 800);
       };
@@ -1607,7 +1570,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Ajustes web actualizados');
+            showToast('\u2705 Web settings updated');
             delete window.b64Files['cms-logo'];
             delete window.b64Files['cms-hero-bg'];
             if (window.resetUploadLabels) window.resetUploadLabels();
@@ -1617,7 +1580,7 @@
           }
         } catch(e) {
           console.error(e);
-          alert('Error de conexión guardando ajustes');
+          alert('Connection error saving settings');
         }
       };
 
@@ -1683,18 +1646,18 @@
       };
 
       window.deleteGalleryImage = async (id) => {
-        if (!confirm('¿Seguro que deseas eliminar esta imagen de la galería?')) return;
+        if (!confirm('Are you sure you want to delete this gallery image?')) return;
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=galeria&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Imagen eliminada');
+            showToast('\u2705 Image deleted');
             loadGallery();
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
@@ -1719,7 +1682,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Imagen añadida');
+            showToast('\u2705 Image added');
             fileInput.value = '';
             delete window.b64Files['new-gal-file'];
             titleInput.value = '';
@@ -1729,7 +1692,7 @@
             alert(json.error || json.message || 'Error al subir');
           }
         } catch(e) {
-          alert('Error de conexión al subir imagen');
+          alert('Connection error uploading image');
         }
       };
 
@@ -1764,7 +1727,7 @@
         document.getElementById('stat-picker-year').textContent = pickerYear;
         const grid = document.getElementById('stat-months-grid');
         grid.innerHTML = '';
-        const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         
         const realMonth = new Date().getMonth() + 1;
         const realYear = new Date().getFullYear();
@@ -1800,7 +1763,7 @@
       }
 
       function updateMonthLabel() {
-        const mesesF = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        const mesesF = ['January','February','March','April','May','June','July','August','September','October','November','December'];
         document.getElementById('month-picker-label').textContent = `${mesesF[statSelectedMonth-1]} ${statSelectedYear}`;
       }
 
@@ -1817,7 +1780,7 @@
         try {
           const res = await authFetch(url);
           const json = await res.json();
-          if (!json.success) return alert('Error cargando estadísticas');
+          if (!json.success) return alert('Error loading statistics');
 
           globalStatData = json.grafica; // Guardar datos de la gráfica globales
           globalStatTablaData = json.tabla; // Guardar tabla globalmente
@@ -1832,7 +1795,7 @@
 
         } catch (e) {
           console.error(e);
-          alert('Error de conexión en analíticas');
+          alert('Connection error in analytics');
         }
       }
 
@@ -1874,7 +1837,7 @@
           data: {
             labels: filteredData.map(g => g.fecha),
             datasets: [{
-              label: 'Citas Completadas',
+              label: 'Completed Appointments',
               data: filteredData.map(g => g.total),
               borderColor: '#C9A84C',
               backgroundColor: 'rgba(201, 168, 76, 0.2)',
@@ -1899,7 +1862,7 @@
         const tbody = document.getElementById('stat-table-body');
         tbody.innerHTML = '';
         if (filteredTabla.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--muted)">No hay citas en este periodo</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:var(--muted)">No appointments in this period</td></tr>';
         } else {
           filteredTabla.forEach(c => {
             const d = new Date(c.fecha_hora.replace(/-/g, '/')); // Fix Safari parse if needed, though split used above works
@@ -1934,7 +1897,7 @@
           const barberos = jsonB.data || [];
           
           if(barberos.length === 0) {
-            grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">No hay barberos registrados.</div>';
+            grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">No barbers registered.</div>';
             return;
           }
 
@@ -1982,11 +1945,11 @@
 
             let statusHtml = '';
             if (barbero.activo === 0) {
-              statusHtml = `<div class="col-status" style="background:var(--s3);color:var(--muted);border:1px solid var(--border)">Inactivo</div>`;
+              statusHtml = `<div class="col-status" style="background:var(--s3);color:var(--muted);border:1px solid var(--border)">Inactive</div>`;
             } else if (isOcupado) {
               statusHtml = `<div class="col-status" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)">Busy</div>`;
             } else {
-              statusHtml = `<div class="col-status">Disponible</div>`;
+              statusHtml = `<div class="col-status">Available</div>`;
             }
 
             let citasHtml = '';
@@ -1995,7 +1958,7 @@
             } else {
               citasSorted.forEach(cita => {
                 const st = cita.estado;
-                const serviciosStr = (cita.servicios || []).map(s => s.nombre).join(' + ') || 'Servicio';
+                const serviciosStr = (cita.servicios || []).map(s => s.nombre).join(' + ') || 'Service';
                 
                 let borderColor = 'var(--gold)';
                 let opacity = '1';
@@ -2074,7 +2037,7 @@
                     <img src="${fotoSrc}" class="col-avatar" style="border-radius:50%" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 100 100\\'%3E%3Crect width=\\'100\\' height=\\'100\\' fill=\\'%23181818\\'/%3E%3C/svg%3E'">
                     <div>
                       <div style="font-weight:600;color:var(--bright)">${b.nombre} ${b.apellido}</div>
-                      <div style="font-size:.75rem;color:var(--muted)">Usuario: ${b.usuario || 'N/A'}</div>
+                      <div style="font-size:.75rem;color:var(--muted)">Username: ${b.usuario || 'N/A'}</div>
                     </div>
                   </div>
                 </td>
@@ -2083,8 +2046,8 @@
                 </td>
                 <td><span class="status-badge ${statusClass}">${statusText}</span></td>
                 <td>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;margin-right:4px;" onclick="openModal('${b.id}')">Editar</button>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;color:var(--red);border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);" onclick="deleteBarber('${b.id}', '${b.nombre.replace(/'/g, "\\'")}')">Borrar</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;margin-right:4px;" onclick="openModal('${b.id}')">Edit</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:.75rem;color:var(--red);border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);" onclick="deleteBarber('${b.id}', '${b.nombre.replace(/'/g, "\\'")}')">Delete</button>
                 </td>
               </tr>
             `;
@@ -2102,7 +2065,7 @@
         form.reset();
 
         if (id) {
-          title.textContent = 'Editar Barbero';
+          title.textContent = 'Edit Barber';
           const b = barberosList.find(x => x.id == id);
           document.getElementById('b-id').value = b.id;
           document.getElementById('b-nombre').value = b.nombre;
@@ -2118,7 +2081,7 @@
           document.getElementById('group-activo').style.display = 'flex';
           document.getElementById('b-activo').checked = (b.activo == 1);
         } else {
-          title.textContent = 'Nuevo Barbero';
+          title.textContent = 'New Barber';
           document.getElementById('b-id').value = '';
           document.getElementById('b-foto').value = '';
           delete window.b64Files['b-foto'];
@@ -2177,33 +2140,35 @@
           const json = await res.json();
           if (json.success) {
             closeModal();
-            showToast(id ? '\u2705 Barbero actualizado' : '\u2705 Barber created');
+            showToast(id ? '\u2705 Barber updated' : '\u2705 Barber created');
             loadEquipo(); // recargar tabla
             loadAgenda(); // recargar agenda para que aparezca la columna
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error de conexión');
+          alert('Connection error');
         }
       };
 
       window.deleteBarber = async (id, nombre) => {
-        if (!confirm(`⚠️ CUIDADO: ¿Estás seguro que deseas ELIMINAR permanentemente a ${nombre}?\n\nEsto borrará también todas sus citas del historial y no se puede deshacer.`)) {
+        if (!confirm(`⚠️ WARNING: Are you sure you want to permanently DELETE ${nombre}?
+
+This will also delete all their appointment history and cannot be undone.`)) {
           return;
         }
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=barberos&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Barbero eliminado');
+            showToast('\u2705 Barber deleted');
             loadEquipo();
             loadAgenda();
           } else {
             alert(json.message);
           }
         } catch(e) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
@@ -2219,7 +2184,7 @@
           serviciosList = json.data || [];
           
           if(serviciosList.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No hay servicios registrados.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted)">No services registered.</td></tr>';
             return;
           }
 
@@ -2238,8 +2203,8 @@
                 <td>$${parseFloat(s.precio).toFixed(2)}</td>
                 <td>${s.duracion_min} min</td>
                 <td>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem" onclick="editService('${s.id}')">Editar</button>
-                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;color:var(--red);border-color:var(--red)" onclick="deleteService('${s.id}', '${s.nombre}')">Borrar</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem" onclick="editService('${s.id}')">Edit</button>
+                  <button class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;color:var(--red);border-color:var(--red)" onclick="deleteService('${s.id}', '${s.nombre}')">Delete</button>
                 </td>
               </tr>
             `;
@@ -2255,7 +2220,7 @@
         document.getElementById('s-id').value = '';
         document.getElementById('service-form').reset();
         delete window.b64Files['s-imagen'];
-        document.getElementById('s-modal-title').textContent = 'Nuevo Servicio';
+        document.getElementById('s-modal-title').textContent = 'New Service';
         document.getElementById('service-modal').classList.add('show');
       };
 
@@ -2274,7 +2239,7 @@
         document.getElementById('s-duracion').value = s.duracion_min;
         document.getElementById('s-imagen').value = ''; // Reset file
         delete window.b64Files['s-imagen'];
-        document.getElementById('s-modal-title').textContent = 'Editar Servicio';
+        document.getElementById('s-modal-title').textContent = 'Edit Service';
         document.getElementById('service-modal').classList.add('show');
       };
 
@@ -2323,38 +2288,38 @@
           const json = await res.json().catch(() => ({ error: 'Error del servidor (no JSON)' }));
           if (json.success) {
             closeServiceModal();
-            showToast(id ? '\u2705 Servicio actualizado' : '\u2705 Service created');
+            showToast(id ? '\u2705 Service updated' : '\u2705 Service created');
             loadServicios();
           } else {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch(err) {
-          alert('Error de conexión');
+          alert('Connection error');
           console.error(err);
         } finally {
           btn.disabled = false;
-          btn.textContent = 'Guardar';
+          btn.textContent = 'Save';
         }
       };
 
       window.deleteService = async (id, nombre) => {
-        if (!confirm(`¿Estás seguro que deseas eliminar el servicio "${nombre}"?`)) return;
+        if (!confirm(`Are you sure you want to delete the service \"${nombre}\"?`)) return;
         try {
           const res = await authFetch(`${API}/eliminar.php?tabla=servicios&id=${id}`, { method: 'DELETE' });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Servicio eliminado');
+            showToast('\u2705 Service deleted');
             loadServicios();
           } else {
             alert(json.message);
           }
         } catch(err) {
-          alert('Error al eliminar');
+          alert('Error deleting');
         }
       };
 
       // ─── HORARIOS ───
-      const diasNombres = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const diasNombres = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
       
       function formatTime24h(timeStr) {
@@ -2392,7 +2357,7 @@
                 <input type="time" onclick="try{this.showPicker()}catch(e){}" id="${prefix}_in_${i}" value="${formatTime24h(row.hora_inicio)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
                 <span style="color:var(--muted)">a</span>
                 <input type="time" onclick="try{this.showPicker()}catch(e){}" id="${prefix}_out_${i}" value="${formatTime24h(row.hora_fin)}" style="padding:8px; flex:1;" ${checked ? '' : 'disabled'}>
-                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copy this schedule to other active days">Copiar a todos</button>
+                <button type="button" class="btn btn-secondary" style="padding:6px 10px;font-size:0.75rem;margin-left:auto" onclick="copyScheduleRow('${prefix}', ${i})" title="Copy this schedule to other active days">Copy to all</button>
               </div>
             </div>
           `;
@@ -2444,7 +2409,7 @@
             }
           }
         }
-        showToast('\u2705 Horario copiado');
+        showToast('\u2705 Schedule copied');
       };
 
       window.loadGlobalSchedule = async () => {
@@ -2471,7 +2436,7 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Horario global guardado');
+            showToast('\u2705 Global schedule saved');
             document.getElementById('sync-all-barbers').checked = false;
             // Recargar horarios por barbero si está uno seleccionado
             if (document.getElementById('horario-barbero-select').value) {
@@ -2481,7 +2446,7 @@
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Error de conexión al guardar horario global');
+          alert('Connection error al guardar horario global');
         }
       };
 
@@ -2492,7 +2457,7 @@
           const select = document.getElementById('horario-barbero-select');
           if (!select) return;
           
-          let html = '<option value="">Selecciona un barbero...</option>';
+          let html = '<option value="">Select a barber...</option>';
           if (json.success && json.data) {
             json.data.forEach(b => {
               html += `<option value="${b.id}">${b.nombre} ${b.apellido}</option>`;
@@ -2553,12 +2518,12 @@
           });
           const json = await res.json();
           if (json.success) {
-            showToast('\u2705 Horario de barbero actualizado');
+            showToast('\u2705 Barber schedule updated');
           } else {
             alert(json.error || json.message || 'Error desconocido');
           }
         } catch (e) {
-          alert('Error de conexión al guardar horario del barbero');
+          alert('Connection error al guardar horario del barbero');
         }
       };
 
@@ -2568,14 +2533,14 @@
       const titleEl = document.getElementById('topbar-title');
       
       const titles = {
-        agenda: 'Control de Citas',
-        estadisticas: 'Historial y Analíticas',
-        equipo: 'Gestión de Personal',
-        servicios: 'Catálogo de Servicios',
-        horarios: 'Configuración de Horarios',
-        cms: 'Personalización Web',
-        resenas: 'Control de Reseñas',
-        perfil: 'Mi Perfil'
+        agenda: 'Appointments Control',
+        estadisticas: 'History and Analytics',
+        equipo: 'Staff Management',
+        servicios: 'Service Catalog',
+        horarios: 'Hours Configuration',
+        cms: 'Web Customization',
+        resenas: 'Reviews Control',
+        perfil: 'My Profile'
       };
 
       navItems.forEach(item => {
@@ -2604,7 +2569,7 @@
       };
 
       // â”€â”€â”€ TOAST â”€â”€â”€
-      window.showToast = (msg = '\u2705 Cambios guardados') => {
+      window.showToast = (msg = '\u2705 Changes saved') => {
         const t = document.getElementById('toast');
         t.textContent = msg;
         t.classList.add('show');
@@ -2617,11 +2582,11 @@
         const pass = document.getElementById('admin-pass').value.trim();
 
         if (!user || !pass) {
-          return alert('El usuario y la contraseña son obligatorios.');
+          return alert('Username and password are required.');
         }
 
         if (pass.length < 6) {
-          return alert('La contraseña debe tener al menos 6 caracteres.');
+          return alert('Password must be at least 6 characters.');
         }
 
         try {
@@ -2633,14 +2598,14 @@
           const json = await res.json();
           
           if (json.success) {
-            showToast('\u2705 Credenciales actualizadas. Cerrando sesión...');
+            showToast('\u2705 Credentials updated. Logging out...');
             setTimeout(() => { window.logout(); }, 2000);
           } else {
             alert(json.message || 'Error al actualizar credenciales');
           }
         } catch (error) {
           console.error(error);
-          alert('Error de conexión al actualizar credenciales.');
+          alert('Connection error al actualizar credenciales.');
         }
       };
 
@@ -2727,26 +2692,22 @@
         }
       };
     </script>
-    
-    <!-- Modal Custom Range Picker para Estadísticas -->
-    <div id="stat-picker-modal" class="modal-overlay" style="z-index:9999; display:none;">
-      <div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:350px; padding:28px; position:relative;">
-        <button onclick="closeMonthPicker()" style="position:absolute; top:-16px; right:-16px; background:var(--s2); border:2px solid var(--border); color:var(--bright); width:36px; height:36px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--tr); box-shadow:0 4px 12px rgba(0,0,0,0.5); z-index:10;" onmouseover="this.style.background='var(--gold)'; this.style.color='#111'" onmouseout="this.style.background='var(--s2)'; this.style.color='var(--bright)'">&times;</button>
-        
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:12px;">
-          <button onclick="changeStatYear(-1)" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <h3 id="stat-picker-year" style="margin:0; color:var(--gold); font-family:var(--serif); font-size:1.5rem; font-weight:800; letter-spacing:0.5px;">2026</h3>
-          <button onclick="changeStatYear(1)" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
 
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;" id="stat-months-grid">
-           <!-- Renderizado por JS -->
-        </div>
-      </div>
-    </div>
+<div class="modal-overlay" id="stat-picker-modal" style="z-index:9999; display:none;">
+<div class="modal-content modal-glass" style="border-radius:24px; width:100%; max-width:350px; padding:28px; position:relative;">
+<button onclick="closeMonthPicker()" onmouseout="this.style.background='var(--s2)'; this.style.color='var(--bright)'" onmouseover="this.style.background='var(--gold)'; this.style.color='#111'" style="position:absolute; top:-16px; right:-16px; background:var(--s2); border:2px solid var(--border); color:var(--bright); width:36px; height:36px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--tr); box-shadow:0 4px 12px rgba(0,0,0,0.5); z-index:10;">×</button>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; margin-top:12px;">
+<button onclick="changeStatYear(-1)" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
+<svg fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;" viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<h3 id="stat-picker-year" style="margin:0; color:var(--gold); font-family:var(--serif); font-size:1.5rem; font-weight:800; letter-spacing:0.5px;">2026</h3>
+<button onclick="changeStatYear(1)" onmouseout="this.style.background='var(--s2)';this.style.borderColor='var(--border)'" onmouseover="this.style.background='var(--s3)';this.style.borderColor='var(--gold)'" style="background:var(--s2); border:1px solid var(--border); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; transition:var(--tr); display:flex; align-items:center; justify-content:center;">
+<svg fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+<div id="stat-months-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+ </div>
+</div>
+</div>
 </body>
 </html>

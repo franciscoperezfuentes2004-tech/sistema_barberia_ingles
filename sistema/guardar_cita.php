@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "PUT") {
     $estado = isset($data['estado']) ? trim($data['estado']) : '';
     
     // Validación estricta de estado permitidos (Componente 3)
-    $estados_permitidos = ['pendiente', 'confirmada', 'completada', 'cancelada', 'no_asistio', 'en_silla', 'en_silla'];
+    $estados_permitidos = ['pendiente', 'confirmada', 'completada', 'cancelada', 'no_asistio', 'en_silla'];
     if (!in_array($estado, $estados_permitidos)) {
         ob_clean();
         http_response_code(400);

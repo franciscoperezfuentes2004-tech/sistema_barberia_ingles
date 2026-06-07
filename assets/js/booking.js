@@ -36,15 +36,15 @@ async function apiFetch(endpoint) {
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    INIT — al cargar la página
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 document.addEventListener('DOMContentLoaded', async () => {
   // Saludo dinámico según la hora
   const hour = new Date().getHours();
   const greetEl = document.getElementById('greeting-time');
   if (greetEl) {
-    greetEl.textContent = hour < 12 ? 'Buenos días ðŸ‘‹'
-                        : hour < 19 ? 'Buenas tardes ðŸ‘‹'
-                        : 'Buenas noches ðŸ‘‹';
+    greetEl.textContent = hour < 12 ? 'Good morning 👋'
+                        : hour < 19 ? 'Good afternoon 👋'
+                        : 'Good evening 👋';
   }
 
   // Cargar datos en paralelo
@@ -96,7 +96,7 @@ function renderServicios(servicios, container) {
     card.setAttribute('role', 'checkbox');
     card.setAttribute('aria-checked', 'false');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${svc.nombre} — $${svc.precio} USD, ${svc.duracion_min} min`);
+    card.setAttribute('aria-label', `${svc.nombre} — 💵${svc.precio} USD, ${svc.duracion_min} min`);
 
     card.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:14px">
@@ -113,7 +113,7 @@ function renderServicios(servicios, container) {
             <p style="
               font-size:.82rem;font-weight:700;color:var(--gold,#C9A84C);
               white-space:nowrap;flex-shrink:0
-            ">$${parseFloat(svc.precio).toLocaleString('es-MX')} USD</p>
+            ">💵${parseFloat(svc.precio).toLocaleString('en-US')} USD</p>
           </div>
           <p style="font-size:.78rem;color:var(--text-muted,#888);line-height:1.5;margin-top:3px">${svc.descripcion || ''}</p>
           <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
@@ -298,7 +298,7 @@ function recalcTotals() {
   const n = state.selServicios.size;
   if (countEl)    countEl.textContent    = n === 0 ? '—' : `${n} servicio${n > 1 ? 's' : ''}`;
   if (durationEl) durationEl.textContent = `${state.totalDuracion} min`;
-  if (priceEl)    priceEl.textContent    = `$${state.totalPrecio.toLocaleString('es-MX')} USD`;
+  if (priceEl)    priceEl.textContent    = `💵${state.totalPrecio.toLocaleString('en-US')} USD`;
 }
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -318,13 +318,13 @@ function updateCTA() {
   if (!hasServices && !hasBarber) {
     ctaText && (ctaText.textContent = 'Elige servicio y barbero');
   } else if (!hasServices) {
-    ctaText && (ctaText.textContent = 'Elige al menos un servicio');
+    ctaText && (ctaText.textContent = 'Choose at least one service');
   } else if (!hasBarber) {
     ctaText && (ctaText.textContent = 'Elige tu barbero');
   } else {
     const dur = state.totalDuracion;
     const precio = state.totalPrecio.toLocaleString('es-MX');
-    ctaText && (ctaText.textContent = `Continue · $${precio} USD · ${dur} min`);
+    ctaText && (ctaText.textContent = `Continuar · $${precio} USD · ${dur} min`);
   }
 }
 
