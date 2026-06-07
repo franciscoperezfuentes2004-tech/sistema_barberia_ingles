@@ -1277,7 +1277,7 @@
 
             const allRevSubtitle = document.getElementById('all-reviews-subtitle');
             if (allRevSubtitle) {
-              allRevSubtitle.textContent = `Basado en ${json.data.length} opiniones reales`;
+              allRevSubtitle.textContent = `Based on  real reviews`;
             }
 
             json.data.forEach((rev, idx) => {
@@ -1343,7 +1343,7 @@
               
               const btnMore = document.createElement('button');
               btnMore.className = 'btn-outline';
-              btnMore.textContent = 'Ver todas las reseñas (' + json.data.length + ')';
+              btnMore.textContent = 'View all reviews (' + json.data.length + ')';
               btnMore.onclick = function() {
                 document.getElementById('allReviewsModal').classList.add('active');
               };
