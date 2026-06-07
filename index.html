@@ -1504,7 +1504,7 @@
           if (!container) return;
           
           container.innerHTML = '';
-          const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+          const dias = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           const diasCortos = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
           const hoy = new Date().getDay();
           
@@ -1538,7 +1538,7 @@
               statusHtml = `
                 <div style="display:flex;align-items:center">
                   ${isToday ? '<span class="today-b" style="display:inline-block;margin-right:8px">Hoy</span>' : ''}
-                  <span style="color:var(--red);font-weight:500">Cerrado</span>
+                  <span style="color:var(--red);font-weight:500">Closed</span>
                 </div>
               `;
               currentGroup = null; // Break the group

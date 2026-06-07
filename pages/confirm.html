@@ -111,7 +111,26 @@
       color:#0f0f0f; transition:var(--tr);
     }
     .modal-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
-  </style>
+  
+    /* Custom Flag Dropdown */
+    .custom-lada-wrapper { position: relative; min-width: 130px; width: 140px; }
+    .custom-lada-selected {
+        background: var(--s2); border: 1px solid var(--border); color: var(--bright);
+        border-radius: 12px; padding: 14px; font-family: var(--sans); cursor: pointer;
+        display: flex; align-items: center; gap: 8px; user-select: none;
+    }
+    .custom-lada-options {
+        position: absolute; top: calc(100% + 4px); left: 0; width: max-content; min-width: 100%;
+        background: var(--s2); border: 1px solid var(--border); border-radius: 12px;
+        max-height: 250px; overflow-y: auto; z-index: 99; display: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .custom-lada-options.open { display: block; }
+    .custom-lada-option {
+        padding: 10px 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--base);
+    }
+    .custom-lada-option:hover { background: var(--s3); color: var(--bright); }
+    .custom-lada-option img, .custom-lada-selected img { width: 20px; height: 15px; object-fit: cover; border-radius: 2px; }
+</style>
 </head>
 <body>
 
@@ -170,7 +189,7 @@
         <div class="form-group">
           <label class="form-label">Teléfono *</label>
           <div style="display: flex; gap: 8px;">
-            <select id="inp-lada" onchange="actualizarLada()" style="background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 12px; padding: 14px; font-family: 'Noto Color Emoji', inherit; min-width: 130px; width: 140px; text-overflow: ellipsis;">
+            <select id="inp-lada" style="display:none;" onchange="actualizarLada()" style="background: var(--s2); border: 1px solid var(--border); color: var(--bright); border-radius: 12px; padding: 14px; font-family: 'Noto Color Emoji', inherit; min-width: 130px; width: 140px; text-overflow: ellipsis;">
               <option value="+52" data-min="10" data-max="10">🇲🇽 +52 (MX)</option>
               <option value="+1" data-min="10" data-max="10">🇺🇸/🇨🇦 +1 (US/CA)</option>
               <option value="+34" data-min="9" data-max="9">🇪🇸 +34 (ES)</option>
@@ -352,6 +371,59 @@
     }
     document.addEventListener('DOMContentLoaded', actualizarLada);
   </script>
+
+<script>
+function initCustomLadaDropdown() {
+    const select = document.getElementById('inp-lada');
+    select.style.display = 'none';
+    
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-lada-wrapper';
+    
+    const selected = document.createElement('div');
+    selected.className = 'custom-lada-selected';
+    
+    const optionsContainer = document.createElement('div');
+    optionsContainer.className = 'custom-lada-options';
+    
+    function renderOptionContent(option) {
+        let flag = option.textContent.split(' ')[0];
+        let text = option.textContent.substring(flag.length).trim();
+        return `<span style="font-size:1.2rem">${flag}</span> <span>${text}</span>`;
+    }
+
+    // Set initial selected
+    selected.innerHTML = renderOptionContent(select.options[select.selectedIndex]);
+    wrapper.appendChild(selected);
+    
+    Array.from(select.options).forEach((opt, index) => {
+        const div = document.createElement('div');
+        div.className = 'custom-lada-option';
+        div.innerHTML = renderOptionContent(opt);
+        div.addEventListener('click', () => {
+            select.selectedIndex = index;
+            selected.innerHTML = renderOptionContent(opt);
+            optionsContainer.classList.remove('open');
+        });
+        optionsContainer.appendChild(div);
+    });
+    
+    wrapper.appendChild(optionsContainer);
+    
+    selected.addEventListener('click', (e) => {
+        e.stopPropagation();
+        optionsContainer.classList.toggle('open');
+    });
+    
+    document.addEventListener('click', () => {
+        optionsContainer.classList.remove('open');
+    });
+    
+    select.parentNode.insertBefore(wrapper, select);
+}
+document.addEventListener('DOMContentLoaded', initCustomLadaDropdown);
+</script>
+
 </body>
 </html>
 

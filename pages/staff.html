@@ -74,8 +74,6 @@
     .pill-gold{border-color:var(--gold-border);color:var(--gold);background:var(--gold-bg)}
     .pill-green{border-color:var(--green-border);color:var(--green);background:var(--green-bg)}
     .pill-blue{border-color:var(--blue-border);color:var(--blue);background:var(--blue-bg)}
-
-    /* ——————————— DATE SELECTOR ——————————— */
     .cal-day {
       width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
       border-radius: 12px; font-size: 0.95rem; margin: 0 auto; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,8 +122,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     }
-
-    /* ——————————— TIMELINE ——————————— */
     .timeline-section{padding:12px var(--gutter) 100px; max-width:900px; margin:0 auto;}
     .tl-label{
       font-size:.68rem;color:var(--muted);text-transform:uppercase;
@@ -264,8 +260,6 @@
       animation:spin .7s linear infinite;
     }
     @keyframes spin{to{transform:rotate(360deg)}}
-
-    /* ——————————— TOAST ——————————— */
     .toast{
       position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);
       background:var(--s2);border:1px solid var(--border);color:var(--bright);
@@ -284,7 +278,7 @@
   <header class="staff-header">
     <div class="hdr-row">
       <div>
-        <p class="hdr-greeting" id="hdr-greeting">Buenos días</p>
+        <p class="hdr-greeting" id="hdr-greeting">Good morning</p>
         <h1 class="hdr-name" id="hdr-name">Carlos</h1>
       </div>
       <div class="hdr-actions">
@@ -382,11 +376,11 @@
     let HORA_FIN    = 20;  // 20:00
 
     const STATUS_LABELS = {
-      pendiente:  'Pendiente',
-      confirmada: 'Confirmada',
-      en_silla:   'En silla',
-      completada: 'Finalizada',
-      no_asistio: 'No asistió',
+      pendiente:  'Pending',
+      confirmada: 'Confirmed',
+      en_silla:   'In chair',
+      completada: 'Completed',
+      no_asistio: 'No show',
     };
 
     /* ——— Init ——— */
@@ -519,9 +513,9 @@
     function updateGreeting() {
       const h = new Date().getHours();
       const el = document.getElementById('hdr-greeting');
-      if (h < 12) el.textContent = 'Buenos días';
-      else if (h < 19) el.textContent = 'Buenas tardes';
-      else el.textContent = 'Buenas noches';
+      if (h < 12) el.textContent = 'Good morning';
+      else if (h < 19) el.textContent = 'Good afternoon';
+      else el.textContent = 'Good evening';
     }
 
     /* ——— Date Selector ——— */
@@ -542,8 +536,8 @@
     
     function updateDateLabel(iso) {
       const d = new Date(iso + 'T12:00:00Z');
-      const dias = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-      const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+      const dias = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const meses = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
       document.getElementById('selected-date-lbl').textContent = `${dias[d.getDay()]} ${d.getDate()} ${meses[d.getMonth()]}`;
     }
 
@@ -576,7 +570,7 @@
     async function loadCalendarMonth(m, a) {
       const grid = document.getElementById('cal-days-grid');
       const title = document.getElementById('cal-month-year');
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const meses = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       
       title.textContent = `${meses[m-1]} ${a}`;
       grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Cargando...</div>';
@@ -653,7 +647,7 @@
       const pillCitas = document.getElementById('pill-citas');
       const pillNext  = document.getElementById('pill-next');
 
-      pillCitas.textContent = `📅 ${total} cita${total!==1?'s':''} hoy`;
+      pillCitas.textContent = `📅 ${total} appointment${total!==1?'s':''} today`;
 
       // Find next pending appointment
       const ahora = new Date();
@@ -682,10 +676,10 @@
       } else {
         const enSilla = citasDelDia.find(c => c.estado === 'en_silla');
         if (enSilla) {
-          pillNext.textContent = '💈 En silla ahora';
+          pillNext.textContent = '💈 In chair now';
           pillNext.className = 'pill pill-blue';
         } else {
-          pillNext.textContent = '✅ Día libre';
+          pillNext.textContent = '✅ Day off';
           pillNext.className = 'pill pill-green';
         }
       }
@@ -699,7 +693,7 @@
 
     function formatDateLabel(iso) {
       const d = new Date(iso + 'T12:00:00');
-      const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+      const dias = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       return dias[d.getDay()] + ' ' + d.getDate();
     }
 
@@ -711,8 +705,8 @@
         container.innerHTML = `
           <div class="empty-day">
             <div class="empty-icon">☕</div>
-            <p class="empty-title">Día Inactivo</p>
-            <p class="empty-sub">Hoy no tienes horario laboral configurado.</p>
+            <p class="empty-title">Inactive Day</p>
+            <p class="empty-sub">You have no work hours scheduled for today.</p>
           </div>`;
         return;
       }
@@ -820,7 +814,7 @@
         html = `
           <div class="empty-day">
             <div class="empty-icon">☕</div>
-            <p class="empty-title">Sin citas agendadas</p>
+            <p class="empty-title">No scheduled appointments</p>
             <p class="empty-sub">Disfruta tu tiempo libre o espera que alguien reserve contigo.</p>
           </div>`;
       }
@@ -864,11 +858,11 @@
         actionsHTML = `
           <button class="act-btn act-start" onclick="app.changeState('${cita.id}','en_silla')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
-            En silla
+            In chair
           </button>
           <button class="act-btn act-noshow" onclick="app.changeState('${cita.id}','no_asistio')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-            No asistió
+            No show
           </button>
           <a href="${waLink}" target="_blank" class="act-wa" title="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -877,7 +871,7 @@
         actionsHTML = `
           <button class="act-btn act-finish" onclick="app.changeState('${cita.id}','completada')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-            Finalizar
+            Finish
           </button>
           <a href="${waLink}" target="_blank" class="act-wa" title="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -928,17 +922,17 @@
           updatePills();
 
           const msgs = {
-            en_silla:   ['💈','Cliente en silla — ¡a trabajar!'],
-            completada: ['✅','Servicio finalizado — ¡buen trabajo!'],
+            en_silla:   ['💈','Client in chair — let\'s work!'],
+            completada: ['✅','Service completed — great job!'],
             no_asistio: ['❌','Marcado como no asistió'],
           };
-          const [icon, msg] = msgs[nuevoEstado] || ['ℹ️','Estado actualizado'];
+          const [icon, msg] = msgs[nuevoEstado] || ['ℹ️','Status updated'];
           showToast(icon, msg);
         } else {
-          showToast('âš ï¸', json.message || 'Error al actualizar');
+          showToast('âš ï¸', json.message || 'Error updating');
         }
       } catch(e) {
-        showToast('âš ï¸', 'Error de conexión');
+        showToast('âš ï¸', 'Connection error');
       }
     }
 

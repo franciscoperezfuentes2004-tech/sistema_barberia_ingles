@@ -324,7 +324,7 @@ function updateCTA() {
   } else {
     const dur = state.totalDuracion;
     const precio = state.totalPrecio.toLocaleString('es-MX');
-    ctaText && (ctaText.textContent = `Continuar · $${precio} USD · ${dur} min`);
+    ctaText && (ctaText.textContent = `Continue · $${precio} USD · ${dur} min`);
   }
 }
 
