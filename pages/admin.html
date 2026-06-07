@@ -1962,14 +1962,15 @@
                 
                 let borderColor = 'var(--gold)';
                 let opacity = '1';
-                let displaySt = st.replace('_',' ');
+                const trans = { 'pendiente': 'Pending', 'confirmada': 'Confirmed', 'en_silla': 'In Chair', 'completada': 'Completed', 'no_asistio': 'No Show', 'cancelada': 'Canceled' };
+                let displaySt = trans[st] || st.replace('_',' ');
                 
                 if (st === 'completada') { borderColor = 'var(--green)'; opacity = '0.5'; }
                 else if (st === 'no_asistio' || st === 'cancelada') { borderColor = 'var(--red)'; opacity = '0.5'; }
                 else if (pasadas.includes(cita)) { 
                   borderColor = 'var(--muted)'; 
                   opacity = '0.5'; 
-                  displaySt = 'no catalogada'; 
+                  displaySt = 'Pending Review'; 
                 }
                 else if (st === 'en_silla') borderColor = 'var(--blue)';
 
