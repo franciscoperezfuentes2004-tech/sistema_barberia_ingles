@@ -2711,5 +2711,17 @@ This will also delete all their appointment history and cannot be undone.`)) {
  </div>
 </div>
 </div>
+
+      <script>
+      <script>
+
+<script>
+      // Block back button: redirect to index and logout securely
+      history.pushState(null, null, location.href);
+      window.onpopstate = function() {
+          localStorage.removeItem('mi_token_jwt');
+          window.location.replace('../index.html');
+      };
+</script>
 </body>
 </html>
