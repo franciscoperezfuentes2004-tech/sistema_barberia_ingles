@@ -256,7 +256,7 @@
 <div aria-live="polite" class="pills" role="status">
 <div class="pill">🛍️ <strong id="pill-count">—</strong></div>
 <div class="pill">⏱️ <strong id="pill-dur">0 min</strong></div>
-<div class="pill">💰 <strong id="pill-price">$0💵0 USD</strong></div>
+<div class="pill"><strong id="pill-price">$0 USD</strong></div>
 </div>
 <button aria-disabled="true" aria-label="Continue to step 2" class="cta-btn" disabled="" id="btn-continuar" onclick="goToStep2()">
 <svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="18"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
@@ -303,13 +303,13 @@
       card.setAttribute('role','checkbox');
       card.setAttribute('aria-checked','false');
       card.setAttribute('tabindex','0');
-      card.setAttribute('aria-label',`${svc.nombre}, $${svc.precio}💵0 USD, ${svc.duracion_min} minutos`);
+      card.setAttribute('aria-label',`${svc.nombre}, $${svc.precio} USD, ${svc.duracion_min} minutos`);
       card.innerHTML = `
         <div class="svc-icon" aria-hidden="true">${svc.icono||'✂️'}</div>
         <div class="svc-info">
           <div class="svc-head">
             <span class="svc-name">${svc.nombre}</span>
-            <span class="svc-price">$${parseFloat(svc.precio).toLocaleString('es-MX')}💵0 USD</span>
+            <span class="svc-price">$${parseFloat(svc.precio).toLocaleString('es-MX')} USD</span>
           </div>
           <p class="svc-desc">${svc.descripcion||''}</p>
           <span class="svc-dur">⏱️ ${svc.duracion_min} min</span>
@@ -346,7 +346,7 @@
     const n = state.selIds.size;
     document.getElementById('pill-count').textContent  = n===0?'—':`${n} service${n>1?'s':''}`;
     document.getElementById('pill-dur').textContent    = `${state.totalDur} min`;
-    document.getElementById('pill-price').textContent  = `$${state.totalPrecio.toLocaleString('es-MX')}💵0 USD`;
+    document.getElementById('pill-price').textContent  = `$${state.totalPrecio.toLocaleString('es-MX')} USD`;
   }
 
   function updateCTA() {
@@ -356,7 +356,7 @@
     btn.disabled = !ok;
     btn.setAttribute('aria-disabled', String(!ok));
     label.textContent = ok
-      ? `Continue — 💵${state.totalPrecio.toLocaleString('en-US')} USD · ${state.totalDur} min`
+      ? `Continue — ${state.totalPrecio.toLocaleString('en-US')} USD · ${state.totalDur} min`
       : 'Choose at least one service';
   }
 

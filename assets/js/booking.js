@@ -96,7 +96,7 @@ function renderServicios(servicios, container) {
     card.setAttribute('role', 'checkbox');
     card.setAttribute('aria-checked', 'false');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${svc.nombre} — 💵${svc.precio} USD, ${svc.duracion_min} min`);
+    card.setAttribute('aria-label', `${svc.nombre} — ${svc.precio} USD, ${svc.duracion_min} min`);
 
     card.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:14px">
@@ -113,7 +113,7 @@ function renderServicios(servicios, container) {
             <p style="
               font-size:.82rem;font-weight:700;color:var(--gold,#C9A84C);
               white-space:nowrap;flex-shrink:0
-            ">💵${parseFloat(svc.precio).toLocaleString('en-US')} USD</p>
+            ">${parseFloat(svc.precio).toLocaleString('en-US')} USD</p>
           </div>
           <p style="font-size:.78rem;color:var(--text-muted,#888);line-height:1.5;margin-top:3px">${svc.descripcion || ''}</p>
           <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
@@ -298,7 +298,7 @@ function recalcTotals() {
   const n = state.selServicios.size;
   if (countEl)    countEl.textContent    = n === 0 ? '—' : `${n} servicio${n > 1 ? 's' : ''}`;
   if (durationEl) durationEl.textContent = `${state.totalDuracion} min`;
-  if (priceEl)    priceEl.textContent    = `💵${state.totalPrecio.toLocaleString('en-US')} USD`;
+  if (priceEl)    priceEl.textContent    = `${state.totalPrecio.toLocaleString('en-US')} USD`;
 }
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
