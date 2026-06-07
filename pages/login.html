@@ -567,7 +567,7 @@
               const titleEl = document.querySelector('.title');
               if (titleEl) titleEl.textContent = data.site_name;
               const footerEl = document.querySelector('.footer');
-              if (footerEl) footerEl.textContent = `© ${new Date().getFullYear()} ${data.site_name} · Panel de Staff`;
+              if (footerEl) footerEl.textContent = `© ${new Date().getFullYear()} ${data.site_name} · Staff Panel`;
             }
             const logoContainer = document.querySelector('.logo');
             if (logoContainer) {
@@ -662,10 +662,10 @@
             setTimeout(() => {
               const rol = json.rol || json.user?.rol || 'admin';
               if (rol === 'barbero') {
-                window.location.href = 'staff.html';
+                window.location.replace('staff.html');
               } else {
                 // Redirigir a la raíz donde está admin.html
-                window.location.href = 'admin.html';
+                window.location.replace('admin.html');
               }
             }, 1000);
 
