@@ -426,7 +426,7 @@
       grid.innerHTML = '<div style="grid-column:1/-1; padding:20px; color:var(--muted);">Loading...</div>';
 
       try {
-        const res = await fetch(`${API}/calendario.php?mes=${m}&anio=${a}&duracion=${state.duracion}`);
+        const res = await fetch(`${API}/calendario.php?mes=${m}&anio=${a}&duracion=${state.duracion}`, { cache: 'no-store' });
         const json = await res.json();
         
         if (!json.success) throw new Error('Error de API');

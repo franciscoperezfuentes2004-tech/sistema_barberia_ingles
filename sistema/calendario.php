@@ -44,7 +44,7 @@ if ($res_h) {
 // Si no hay horario global configurado, por defecto asumimos todo abierto (1)
 for ($i = 0; $i <= 6; $i++) {
     if (!isset($horario_global[$i])) {
-        $horario_global[$i] = 1; 
+        $horario_global[$i] = 0; 
         $hora_fin_global[$i] = '20:00:00';
     }
 }

@@ -1405,13 +1405,14 @@
       };
 
       // ⎯⎯⎯ CMS AJUSTES GLOBALES ⎯⎯⎯
+      const dec = (str) => { if(!str) return ''; let t = document.createElement('textarea'); t.innerHTML = str; return t.value; };
       async function loadCMS() {
         try {
           const res = await fetch(`${API}/obtener_datos.php?tabla=ajustes`);
           const json = await res.json();
           if (json.success && json.data) {
             const data = json.data;
-            if (data.site_name) document.getElementById('cms-name').value = data.site_name;
+            if (data.site_name) document.getElementById('cms-name').value = dec(data.site_name);
             if (data.site_phone) {
               const fullPhone = data.site_phone;
               const ladaMatch = fullPhone.match(/^(\+\d{1,3})\s*(.*)$/);
@@ -1441,14 +1442,14 @@
             }
             if (data.site_email) document.getElementById('cms-email').value = data.site_email;
             if (data.site_map || data.site_address) {
-              document.getElementById('cms-address').value = data.site_map || data.site_address;
+              document.getElementById('cms-address').value = dec(data.site_map || data.site_address);
               if (window.updateAdminMapPreview) window.updateAdminMapPreview();
             }
             document.getElementById('cms-instagram').value = data.site_instagram || '';
             document.getElementById('cms-facebook').value = data.site_facebook || '';
             document.getElementById('cms-tiktok').value = data.site_tiktok || '';
-            document.getElementById('cms-slogan').value = data.site_slogan || '';
-            document.getElementById('cms-hero-desc').value = data.site_hero_desc || '';
+            document.getElementById('cms-slogan').value = dec(data.site_slogan || '');
+            document.getElementById('cms-hero-desc').value = dec(data.site_hero_desc || '');
             document.getElementById('cms-stat-exp').value = data.stat_exp || '';
             document.getElementById('cms-stat-clientes').value = data.stat_clientes || '';
             const srcLogo = data.site_logo || '../assets/img/logo.png';
