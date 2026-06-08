@@ -535,3 +535,34 @@ body::before {
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--darker);
+    padding: 40px 20px;
+    border-top: 1px solid rgba(212,175,55,0.1);
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.stat {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+.stat-n {
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+.stat-l {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

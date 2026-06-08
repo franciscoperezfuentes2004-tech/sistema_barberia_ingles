@@ -5,7 +5,7 @@
  * ═══════════════════════════════════════════════════════════════════
  */
 
-// ─── 1. CREDENCIALES EXACTAS DE PRODUCCIÓN PÚBLICA (RAILWAY) ──────
+// ─── 1. CREDENCIALES EXACTAS DE PRODUCCIÓN PÚBLICA 
 $db_host     = "zephyr.proxy.rlwy.net";
 $db_user     = "root";
 $db_password = "CFbVHwFQTWoAQWguiIHmPjRxmzwiLENb"; // Modificar con credenciales reales
